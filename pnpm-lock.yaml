@@ -7,7 +7,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.30.7
   '@typescript-eslint/parser': ^5.30.7
   astro: ^1.0.0-beta.73
-  astro-eslint-parser: ^0.4.1
+  astro-eslint-parser: ^0.4.2
   clsx: ^1.2.1
   eslint: ^8.20.0
   eslint-config-prettier: ^8.5.0
@@ -30,7 +30,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
   astro: 1.0.0-beta.73_sass@1.53.0
-  astro-eslint-parser: 0.4.1
+  astro-eslint-parser: 0.4.2
   clsx: 1.2.1
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0_eslint@8.20.0
@@ -57,7 +57,7 @@ packages:
   /@astrojs/compiler/0.15.2:
     resolution: {integrity: sha512-YsxIyx026zPWbxv3wYrudr1jh8u6oSnhP6MW+9OAgiFuICHjSX4Rw+qm8wJj1D5IkJ3HsDtE+kFMMYIozZ5bvQ==}
     dependencies:
-      tsm: 2.2.1
+      tsm: 2.2.2
       uvu: 0.5.6
     dev: true
 
@@ -65,15 +65,19 @@ packages:
     resolution: {integrity: sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==}
     dev: true
 
-  /@astrojs/language-server/0.20.0:
-    resolution: {integrity: sha512-A2zWnlZLcDtHISX18+f91pzTfz0SsZVvbcIDPQAVHk5ErpvdGEhJSEHhqY+wif5OXP37l+CVLVSnGzdmiXl5wg==}
+  /@astrojs/compiler/0.20.0:
+    resolution: {integrity: sha512-6tW9HYJXB8qjdf/YYyurNIGHgBSCbjZe8zN5JNI86ak05eGGKFkAIRwrWilnaRCtp/PNcoyHYFg5l+Hu6p9MXQ==}
+    dev: true
+
+  /@astrojs/language-server/0.20.1:
+    resolution: {integrity: sha512-RPuN+3k3QCak0q5dW+ZrqTT2wE/sm9arKy27pvA7LzfVbuKLvEDswjUpJa2faan92BbfEiYSHW+OY/BZjY+C5w==}
     hasBin: true
     dependencies:
       '@vscode/emmet-helper': 2.8.4
       source-map: 0.7.4
       typescript: 4.6.4
       vscode-css-languageservice: 6.0.1
-      vscode-html-languageservice: 5.0.0
+      vscode-html-languageservice: 5.0.1
       vscode-languageserver: 8.0.2
       vscode-languageserver-protocol: 3.17.2
       vscode-languageserver-textdocument: 1.0.5
@@ -557,7 +561,7 @@ packages:
       '@proload/core': ^0.3.2
     dependencies:
       '@proload/core': 0.3.2
-      tsm: 2.2.1
+      tsm: 2.2.2
     dev: true
 
   /@types/acorn/4.0.6:
@@ -927,11 +931,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /astro-eslint-parser/0.4.1:
-    resolution: {integrity: sha512-3LrGRjjycM5/Dumw/mqwIE02aCh54j+lYgAFcsdoFLq+Tm+8n52Fcyxrwic6xAlPmLk3rodwFJe7miaa+fiNfw==}
+  /astro-eslint-parser/0.4.2:
+    resolution: {integrity: sha512-VzfsjYRIKJuB1xS2erBbJ/quwiuAICRkM2g9Ohz5DD5+r9XOcS2a3fTmYqrHsn4WfcdX2nTi1BuRUMbqq2HwSQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dependencies:
-      '@astrojs/compiler': 0.19.0
+      '@astrojs/compiler': 0.20.0
       '@typescript-eslint/types': 5.30.7
       debug: 4.3.4
       eslint-visitor-keys: 3.3.0
@@ -949,7 +953,7 @@ packages:
     hasBin: true
     dependencies:
       '@astrojs/compiler': 0.19.0
-      '@astrojs/language-server': 0.20.0
+      '@astrojs/language-server': 0.20.1
       '@astrojs/markdown-remark': 0.12.0
       '@astrojs/prism': 0.6.1
       '@astrojs/telemetry': 0.4.1
@@ -1082,7 +1086,7 @@ packages:
       chalk: 4.1.2
       cli-boxes: 3.0.0
       string-width: 5.1.2
-      type-fest: 2.16.0
+      type-fest: 2.17.0
       widest-line: 4.0.1
       wrap-ansi: 8.0.1
     dev: true
@@ -1107,7 +1111,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001367
-      electron-to-chromium: 1.4.194
+      electron-to-chromium: 1.4.195
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.2
     dev: true
@@ -1416,8 +1420,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium/1.4.194:
-    resolution: {integrity: sha512-ola5UH0xAP1oYY0FFUsPvwtucEzCQHucXnT7PQ1zjHJMccZhCDktEugI++JUR3YuIs7Ff7afz+OVEhVAIMhLAQ==}
+  /electron-to-chromium/1.4.195:
+    resolution: {integrity: sha512-vefjEh0sk871xNmR5whJf9TEngX+KTKS3hOHpjoMpauKkwlGwtMz1H8IaIjAT/GNnX0TbGwAdmVoXCAzXf+PPg==}
     dev: true
 
   /emmet/2.3.6:
@@ -1729,7 +1733,7 @@ packages:
       eslint: '>=7.0.0'
     dependencies:
       '@typescript-eslint/types': 5.30.7
-      astro-eslint-parser: 0.4.1
+      astro-eslint-parser: 0.4.2
       eslint: 8.20.0
       eslint-utils: 3.0.0_eslint@8.20.0
       postcss: 8.4.14
@@ -2243,8 +2247,8 @@ packages:
       '@types/hast': 2.3.4
     dev: true
 
-  /hast-util-raw/7.2.1:
-    resolution: {integrity: sha512-wgtppqXVdXzkDXDFclLLdAyVUJSKMYYi6LWIAbA8oFqEdwksYIcPGM3RkKV1Dfn5GElvxhaOCs0jmCOMayxd3A==}
+  /hast-util-raw/7.2.2:
+    resolution: {integrity: sha512-0x3BhhdlBcqRIKyc095lBSDvmQNMY3Eulj2PLsT5XCyKYrxssI5yr3P4Kv/PBo1s/DMkZy2voGkMXECnFCZRLQ==}
     dependencies:
       '@types/hast': 2.3.4
       '@types/parse5': 6.0.3
@@ -3714,7 +3718,7 @@ packages:
     resolution: {integrity: sha512-d6AKtisSRtDRX4aSPsJGTfnzrX2ZkHQLE5kiUuGOeEoLpbEulFF4hj0mLPbsa+7vmguDKOVVEQdHKDSwoaIDsQ==}
     dependencies:
       '@types/hast': 2.3.4
-      hast-util-raw: 7.2.1
+      hast-util-raw: 7.2.2
       unified: 10.1.2
     dev: true
 
@@ -4244,8 +4248,8 @@ packages:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: true
 
-  /tsm/2.2.1:
-    resolution: {integrity: sha512-qvJB0baPnxQJolZru11mRgGTdNlx17WqgJnle7eht3Vhb+VUR4/zFA5hFl6NqRe7m8BD9w/6yu0B2XciRrdoJA==}
+  /tsm/2.2.2:
+    resolution: {integrity: sha512-bXkt675NbbqfwRHSSn8kSNEEHvoIUFDM9G6tUENkjEKpAEbrEzieO3PxUiRJylMw8fEGpcf5lSjadzzz12pc2A==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
@@ -4284,8 +4288,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest/2.16.0:
-    resolution: {integrity: sha512-qpaThT2HQkFb83gMOrdKVsfCN7LKxP26Yq+smPzY1FqoHRjqmjqHXA7n5Gkxi8efirtbeEUxzfEdePthQWCuHw==}
+  /type-fest/2.17.0:
+    resolution: {integrity: sha512-U+g3/JVXnOki1kLSc+xZGPRll3Ah9u2VIG6Sn9iH9YX6UkPERmt6O/0fIyTgsd2/whV0+gAaHAg8fz6sG1QzMA==}
     engines: {node: '>=12.20'}
     dev: true
 
@@ -4500,8 +4504,8 @@ packages:
       vscode-uri: 3.0.3
     dev: true
 
-  /vscode-html-languageservice/5.0.0:
-    resolution: {integrity: sha512-KJG13z54aLszskp3ETf8b1EKDypr2Sf5RUsfR6OXmKqEl2ZUfyIxsWz4gbJWjPzoJZx/bGH0ZXVwxJ1rg8OKRQ==}
+  /vscode-html-languageservice/5.0.1:
+    resolution: {integrity: sha512-OYsyn5HGAhxs0OIG+M0jc34WnftLtD67Wg7+TfrYwvf0waOkkr13zUqtdrVm2JPNQ6fJx+qnuM+vTbq7o1dCdQ==}
     dependencies:
       vscode-languageserver-textdocument: 1.0.5
       vscode-languageserver-types: 3.17.2
