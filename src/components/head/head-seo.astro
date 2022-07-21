@@ -15,8 +15,8 @@ const {
   imageAlt = 'Logo of Pinanek23'
 } = Astro.props as Props
 
-const formattedTitle = title === undefined ? 'Pinanek23' : `${title} - Pinanek23`
-const formattedSeoTitle = seoTitle === undefined ? (title === undefined ? formattedTitle : title) : seoTitle
+const formattedTitle = title === undefined ? 'Pinanek23' : `${title} • Pinanek23`
+const formattedSeoTitle = seoTitle === undefined ? formattedTitle : `${seoTitle} • Pinanek23`
 const canonicalUrl = new URL(new URL(Astro.request.url).pathname, Astro.site).toString()
 const imageUrl = new URL(imageSrc, Astro.site).toString()
 ---
@@ -33,11 +33,11 @@ const imageUrl = new URL(imageSrc, Astro.site).toString()
 <meta property='og:image' content={imageUrl} />
 <meta property='og:image:alt' content={imageAlt} />
 
-<meta property='twitter:card' content='summary_large_image' />
-<meta property='twitter:url' content={canonicalUrl} />
-<meta property='twitter:title' content={formattedSeoTitle} />
-<meta property='twitter:description' content={description} />
-<meta property='twitter:image' content={imageUrl} />
-<meta property='twitter:image:alt' content={imageAlt} />
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:url' content={canonicalUrl} />
+<meta name='twitter:title' content={formattedSeoTitle} />
+<meta name='twitter:description' content={description} />
+<meta name='twitter:image' content={imageUrl} />
+<meta name='twitter:image:alt' content={imageAlt} />
 
 <link rel='canonical' href={canonicalUrl} />
