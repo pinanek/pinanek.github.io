@@ -7,11 +7,11 @@ const { href } = Astro.props as Props
 ---
 
 <a href={href}>
-  <span><slot></slot></span>
-  <span class='indicator'></span>
+  <span><slot /></span>
+  <span class="indicator"></span>
 </a>
 
-<style lang='scss'>
+<style lang="scss">
   @use 'src/styles/tokens' as *;
 
   a {

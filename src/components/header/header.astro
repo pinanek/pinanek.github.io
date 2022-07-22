@@ -5,26 +5,26 @@ import ThemeButton from './theme-button'
 import MenuButton from './menu-button'
 ---
 
-<div class='wrapper'>
-  <div class='page-sizing page-spacing container'>
-    <a href='/' class='logo' aria-label='Go to home'>
+<div class="wrapper">
+  <div class="page-sizing page-spacing container">
+    <a href="/" class="logo" aria-label="Go to home">
       <Logo />
     </a>
-    <div class='items'>
-      <div class='header-items'>
-        <HeaderItem href='/posts'>--posts</HeaderItem>
-        <HeaderItem href='/categories'>--categories</HeaderItem>
-        <HeaderItem href='/about'>--about-me-🌻</HeaderItem>
+    <div class="items">
+      <div class="header-items">
+        <HeaderItem href="/posts">--posts</HeaderItem>
+        <HeaderItem href="/categories">--categories</HeaderItem>
+        <HeaderItem href="/about">--about-me-🌻</HeaderItem>
       </div>
       <div>
         <ThemeButton client:visible />
       </div>
     </div>
-    <MenuButton client:visible class='menu-button' />
+    <MenuButton client:visible class="menu-button" />
   </div>
 </div>
 
-<style lang='scss'>
+<style lang="scss">
   @use 'src/styles/tokens' as *;
 
   .wrapper {

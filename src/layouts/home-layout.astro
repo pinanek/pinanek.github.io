@@ -8,15 +8,15 @@ const { head } = Astro.props as Props
 ---
 
 <BaseLayout head={head}>
-  <div class='header-top-spacing'></div>
+  <div class="header-top-spacing"></div>
   <Header />
-  <div class='header-bottom-spacing'></div>
+  <div class="header-bottom-spacing"></div>
   <main>
-    <slot></slot>
+    <slot />
   </main>
 </BaseLayout>
 
-<style lang='scss'>
+<style lang="scss">
   @use 'src/styles/tokens' as *;
 
   .header-top-spacing {
