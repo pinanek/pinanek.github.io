@@ -7,16 +7,16 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.30.7
   '@typescript-eslint/parser': ^5.30.7
   astro: ^1.0.0-beta.73
-  astro-eslint-parser: ^0.4.2
+  astro-eslint-parser: ^0.4.3
   clsx: ^1.2.1
   eslint: ^8.20.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-astro: ^0.15.0
-  eslint-plugin-jsx-a11y: ^6.6.0
+  eslint-plugin-jsx-a11y: ^6.6.1
   husky: ^8.0.1
   lint-staged: ^13.0.3
   prettier: ^2.7.1
-  prettier-plugin-astro: ^0.1.1
+  prettier-plugin-astro: ^0.1.2
   sass: ^1.53.0
   solid-js: ^1.4.7
   typescript: ^4.7.4
@@ -30,16 +30,16 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
   astro: 1.0.0-beta.73_sass@1.53.0
-  astro-eslint-parser: 0.4.2
+  astro-eslint-parser: 0.4.3
   clsx: 1.2.1
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0_eslint@8.20.0
   eslint-plugin-astro: 0.15.0_eslint@8.20.0
-  eslint-plugin-jsx-a11y: 6.6.0_eslint@8.20.0
+  eslint-plugin-jsx-a11y: 6.6.1_eslint@8.20.0
   husky: 8.0.1
   lint-staged: 13.0.3
   prettier: 2.7.1
-  prettier-plugin-astro: 0.1.1
+  prettier-plugin-astro: 0.1.2
   sass: 1.53.0
   solid-js: 1.4.7
   typescript: 4.7.4
@@ -54,19 +54,12 @@ packages:
       '@jridgewell/trace-mapping': 0.3.14
     dev: true
 
-  /@astrojs/compiler/0.15.2:
-    resolution: {integrity: sha512-YsxIyx026zPWbxv3wYrudr1jh8u6oSnhP6MW+9OAgiFuICHjSX4Rw+qm8wJj1D5IkJ3HsDtE+kFMMYIozZ5bvQ==}
-    dependencies:
-      tsm: 2.2.2
-      uvu: 0.5.6
-    dev: true
-
   /@astrojs/compiler/0.19.0:
     resolution: {integrity: sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==}
     dev: true
 
-  /@astrojs/compiler/0.20.0:
-    resolution: {integrity: sha512-6tW9HYJXB8qjdf/YYyurNIGHgBSCbjZe8zN5JNI86ak05eGGKFkAIRwrWilnaRCtp/PNcoyHYFg5l+Hu6p9MXQ==}
+  /@astrojs/compiler/0.21.0:
+    resolution: {integrity: sha512-g+zkKpTsR0UCDiOAhjv0wQW0cPYd+2Hb5/z+ovIEu7K/v8z2jiQZqvhPvIsjI5ni+5rMFgjjoZWhkMCq+e4bOg==}
     dev: true
 
   /@astrojs/language-server/0.20.1:
@@ -90,8 +83,8 @@ packages:
     dependencies:
       '@astrojs/micromark-extension-mdx-jsx': 1.0.3
       '@astrojs/prism': 0.6.1
-      acorn: 8.7.1
-      acorn-jsx: 5.3.2_acorn@8.7.1
+      acorn: 8.8.0
+      acorn-jsx: 5.3.2_acorn@8.8.0
       assert: 2.0.0
       github-slugger: 1.4.0
       mdast-util-mdx-expression: 1.2.1
@@ -139,7 +132,7 @@ packages:
     resolution: {integrity: sha512-OKxVpdK8QbxUd+bTfJnsFNrbX4i/gbNws8MzHKHtF1a52mYho6ssAiFwz5dgTfmwvz41zsNlwDhW3YsUZbaxZw==}
     dependencies:
       sitemap: 7.1.1
-      zod: 3.17.9
+      zod: 3.17.10
     dev: false
 
   /@astrojs/solid-js/0.3.1_d4wxzt4m4wxi4snkhtiz2half4:
@@ -444,7 +437,7 @@ packages:
       ajv: 6.12.6
       debug: 4.3.4
       espree: 9.3.2
-      globals: 13.16.0
+      globals: 13.17.0
       ignore: 5.2.0
       import-fresh: 3.3.0
       js-yaml: 4.1.0
@@ -783,16 +776,16 @@ packages:
       vscode-uri: 2.1.2
     dev: true
 
-  /acorn-jsx/5.3.2_acorn@8.7.1:
+  /acorn-jsx/5.3.2_acorn@8.8.0:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      acorn: 8.7.1
+      acorn: 8.8.0
     dev: true
 
-  /acorn/8.7.1:
-    resolution: {integrity: sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==}
+  /acorn/8.8.0:
+    resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
@@ -931,11 +924,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /astro-eslint-parser/0.4.2:
-    resolution: {integrity: sha512-VzfsjYRIKJuB1xS2erBbJ/quwiuAICRkM2g9Ohz5DD5+r9XOcS2a3fTmYqrHsn4WfcdX2nTi1BuRUMbqq2HwSQ==}
+  /astro-eslint-parser/0.4.3:
+    resolution: {integrity: sha512-Bf9Qp9oQFbkJsqk+2XrEgR63l20tEIIm6UMD3P4p8qb4owc94J4zpJ1UTRX+jTFRavBxJ2LpmnQlPovc/RpZtw==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dependencies:
-      '@astrojs/compiler': 0.20.0
+      '@astrojs/compiler': 0.21.0
       '@typescript-eslint/types': 5.30.7
       debug: 4.3.4
       eslint-visitor-keys: 3.3.0
@@ -1008,7 +1001,7 @@ packages:
       tsconfig-resolver: 3.0.1
       vite: 2.9.14_sass@1.53.0
       yargs-parser: 21.0.1
-      zod: 3.17.9
+      zod: 3.17.10
     transitivePeerDependencies:
       - less
       - sass
@@ -1110,8 +1103,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001367
-      electron-to-chromium: 1.4.195
+      caniuse-lite: 1.0.30001368
+      electron-to-chromium: 1.4.198
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.2
     dev: true
@@ -1140,8 +1133,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001367:
-    resolution: {integrity: sha512-XDgbeOHfifWV3GEES2B8rtsrADx4Jf+juKX2SICJcaUhjYBO3bR96kvEIHa15VU6ohtOhBZuPGGYGbXMRn0NCw==}
+  /caniuse-lite/1.0.30001368:
+    resolution: {integrity: sha512-wgfRYa9DenEomLG/SdWgQxpIyvdtH3NW8Vq+tB6AwR9e56iOIcu1im5F/wNdDf04XlKHXqIx4N8Jo0PemeBenQ==}
     dev: true
 
   /ccount/2.0.1:
@@ -1420,8 +1413,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium/1.4.195:
-    resolution: {integrity: sha512-vefjEh0sk871xNmR5whJf9TEngX+KTKS3hOHpjoMpauKkwlGwtMz1H8IaIjAT/GNnX0TbGwAdmVoXCAzXf+PPg==}
+  /electron-to-chromium/1.4.198:
+    resolution: {integrity: sha512-jwqQPdKGeAslcq8L+1SZZgL6uDiIDmTe9Gq4brsdWAH27y7MJ2g9Ue6MyST3ogmSM49EAQP7bype1V5hsuNrmQ==}
     dev: true
 
   /emmet/2.3.6:
@@ -1733,7 +1726,7 @@ packages:
       eslint: '>=7.0.0'
     dependencies:
       '@typescript-eslint/types': 5.30.7
-      astro-eslint-parser: 0.4.2
+      astro-eslint-parser: 0.4.3
       eslint: 8.20.0
       eslint-utils: 3.0.0_eslint@8.20.0
       postcss: 8.4.14
@@ -1743,8 +1736,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jsx-a11y/6.6.0_eslint@8.20.0:
-    resolution: {integrity: sha512-kTeLuIzpNhXL2CwLlc8AHI0aFRwWHcg483yepO9VQiHzM9bZwJdzTkzBszbuPrbgGmq2rlX/FaT2fJQsjUSHsw==}
+  /eslint-plugin-jsx-a11y/6.6.1_eslint@8.20.0:
+    resolution: {integrity: sha512-sXgFVNHiWffBq23uiS/JaP6eVR622DqwB4yTzKvGZGcPq6/yZ3WmOZfuBks/vHWo9GaFOqC2ZK4i6+C35knx7Q==}
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -1824,7 +1817,7 @@ packages:
       file-entry-cache: 6.0.1
       functional-red-black-tree: 1.0.1
       glob-parent: 6.0.2
-      globals: 13.16.0
+      globals: 13.17.0
       ignore: 5.2.0
       import-fresh: 3.3.0
       imurmurhash: 0.1.4
@@ -1849,8 +1842,8 @@ packages:
     resolution: {integrity: sha512-D211tC7ZwouTIuY5x9XnS0E9sWNChB7IYKX/Xp5eQj3nFXhqmiUDB9q27y76oFl8jTg3pXcQx/bpxMfs3CIZbA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.7.1
-      acorn-jsx: 5.3.2_acorn@8.7.1
+      acorn: 8.8.0
+      acorn-jsx: 5.3.2_acorn@8.8.0
       eslint-visitor-keys: 3.3.0
     dev: true
 
@@ -2123,8 +2116,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /globals/13.16.0:
-    resolution: {integrity: sha512-A1lrQfpNF+McdPOnnFqY3kSN0AFTy485bTi1bkLk4mVPODIUEcSfhHgRqA+QdXPksrSTTztYXx37NFV+GpGk3Q==}
+  /globals/13.17.0:
+    resolution: {integrity: sha512-1C+6nQRb1GwGMKm2dH/E7enFAMxGTmGI7/dEdhy/DNelv85w9B72t3uc5frtMNXIbzrarJJ/lTCjcaZwbLJmyw==}
     engines: {node: '>=8'}
     dependencies:
       type-fest: 0.20.2
@@ -3628,11 +3621,11 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-astro/0.1.1:
-    resolution: {integrity: sha512-587zFbgQoZm13jjGukkW0xMDKLwuMw6RlSuvsjdjRr43JWUFTJVxwFnw44pLYLVRwGQLOCDBwBKiZEJ10ghBlQ==}
-    engines: {node: ^14.13.1 || >=16.0.0, npm: '>=6.14.0'}
+  /prettier-plugin-astro/0.1.2:
+    resolution: {integrity: sha512-1g3bvYQ+Qx9XutxCXUa/z1tn9S5/3DofF8TxTUXH0z2VFlqsCkNwcOHqOKsgZ27Szx5wSsWTqXkfeDG15SN9UA==}
+    engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     dependencies:
-      '@astrojs/compiler': 0.15.2
+      '@astrojs/compiler': 0.19.0
       prettier: 2.7.1
       sass-formatter: 0.7.5
       synckit: 0.7.3
@@ -4685,8 +4678,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod/3.17.9:
-    resolution: {integrity: sha512-QF1843pYoRk1jFP+/UiEySXaTSiIyFod3KyDzoO3qHKGZdX7z7RNXI4lEsiibvpnIZQwcDVU58ZrxP4pQ7BmTQ==}
+  /zod/3.17.10:
+    resolution: {integrity: sha512-IHXnQYQuOOOL/XgHhgl8YjNxBHi3xX0mVcHmqsvJgcxKkEczPshoWdxqyFwsARpf41E0v9U95WUROqsHHxt0UQ==}
 
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
