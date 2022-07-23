@@ -7,7 +7,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.30.7
   '@typescript-eslint/parser': ^5.30.7
   astro: ^1.0.0-beta.73
-  astro-eslint-parser: ^0.4.3
+  astro-eslint-parser: ^0.4.4
   clsx: ^1.2.1
   eslint: ^8.20.0
   eslint-config-prettier: ^8.5.0
@@ -17,7 +17,7 @@ specifiers:
   lint-staged: ^13.0.3
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.1.2
-  sass: ^1.53.0
+  sass: ^1.54.0
   solid-js: ^1.4.7
   typescript: ^4.7.4
 
@@ -27,8 +27,8 @@ devDependencies:
   '@babel/core': 7.18.9
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
-  astro: 1.0.0-beta.73_sass@1.53.0
-  astro-eslint-parser: 0.4.3
+  astro: 1.0.0-beta.73_sass@1.54.0
+  astro-eslint-parser: 0.4.4
   clsx: 1.2.1
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0_eslint@8.20.0
@@ -38,7 +38,7 @@ devDependencies:
   lint-staged: 13.0.3
   prettier: 2.7.1
   prettier-plugin-astro: 0.1.2
-  sass: 1.53.0
+  sass: 1.54.0
   solid-js: 1.4.7
   typescript: 4.7.4
 
@@ -56,8 +56,8 @@ packages:
     resolution: {integrity: sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==}
     dev: true
 
-  /@astrojs/compiler/0.21.0:
-    resolution: {integrity: sha512-g+zkKpTsR0UCDiOAhjv0wQW0cPYd+2Hb5/z+ovIEu7K/v8z2jiQZqvhPvIsjI5ni+5rMFgjjoZWhkMCq+e4bOg==}
+  /@astrojs/compiler/0.22.0:
+    resolution: {integrity: sha512-TF3zwbPIgr3UPPkVquKUzSGsIqGKh3Gi34Y29+HZvL+YmrkAk+GAuUkOo2EXDJ6aS2Oxq0k7KO/yQ2LjkWl83A==}
     dev: true
 
   /@astrojs/language-server/0.20.1:
@@ -922,11 +922,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /astro-eslint-parser/0.4.3:
-    resolution: {integrity: sha512-Bf9Qp9oQFbkJsqk+2XrEgR63l20tEIIm6UMD3P4p8qb4owc94J4zpJ1UTRX+jTFRavBxJ2LpmnQlPovc/RpZtw==}
+  /astro-eslint-parser/0.4.4:
+    resolution: {integrity: sha512-G38YJkVPcrqYbaGfkYDTGDY+Lka5/YolzOjjCpGksuVtdYnmpxGFL3yb1wqHk3xjd39KX/IU4JO4gcOjlTO6hQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dependencies:
-      '@astrojs/compiler': 0.21.0
+      '@astrojs/compiler': 0.22.0
       '@typescript-eslint/types': 5.30.7
       debug: 4.3.4
       eslint-visitor-keys: 3.3.0
@@ -938,7 +938,7 @@ packages:
       - supports-color
     dev: true
 
-  /astro/1.0.0-beta.73_sass@1.53.0:
+  /astro/1.0.0-beta.73_sass@1.54.0:
     resolution: {integrity: sha512-8gVu04SrJsXJYoLouXWWoj/ZEH2etutLyRzpdK/ueCEdwCmxxCzjXVMvX72aAL/5goFCo4VRuiFWFq7OU1MWLg==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
@@ -997,7 +997,7 @@ packages:
       strip-ansi: 7.0.1
       supports-esm: 1.0.0
       tsconfig-resolver: 3.0.1
-      vite: 2.9.14_sass@1.53.0
+      vite: 2.9.14_sass@1.54.0
       yargs-parser: 21.0.1
       zod: 3.17.10
     transitivePeerDependencies:
@@ -1022,8 +1022,8 @@ packages:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
     dev: true
 
-  /babel-plugin-jsx-dom-expressions/0.33.12_@babel+core@7.18.9:
-    resolution: {integrity: sha512-FQeNcBvC+PrPYGpeUztI7AiiAqJL2H8e7mL4L6qHZ7B4wZfbgyREsHZwKmmDqxAehlyAUolTdhDNk9xfyHdIZw==}
+  /babel-plugin-jsx-dom-expressions/0.33.14_@babel+core@7.18.9:
+    resolution: {integrity: sha512-91T8uEz6Wb42bUm5vxRBawY05fBHiwUxah/xWBimuWpH3nf7E0KJ0Wm/s8R7lxRIZzwGCILv1IBlUCqA50WOVw==}
     peerDependencies:
       '@babel/core': ^7.0.0
     dependencies:
@@ -1040,7 +1040,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/core': 7.18.9
-      babel-plugin-jsx-dom-expressions: 0.33.12_@babel+core@7.18.9
+      babel-plugin-jsx-dom-expressions: 0.33.14_@babel+core@7.18.9
     dev: true
 
   /bail/2.0.2:
@@ -1101,8 +1101,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001368
-      electron-to-chromium: 1.4.198
+      caniuse-lite: 1.0.30001369
+      electron-to-chromium: 1.4.199
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.2
     dev: true
@@ -1131,8 +1131,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001368:
-    resolution: {integrity: sha512-wgfRYa9DenEomLG/SdWgQxpIyvdtH3NW8Vq+tB6AwR9e56iOIcu1im5F/wNdDf04XlKHXqIx4N8Jo0PemeBenQ==}
+  /caniuse-lite/1.0.30001369:
+    resolution: {integrity: sha512-OY1SBHaodJc4wflDIKnlkdqWzJZd1Ls/2zbVJHBSv3AT7vgOJ58yAhd2CN4d57l2kPJrgMb7P9+N1Mhy4tNSQA==}
     dev: true
 
   /ccount/2.0.1:
@@ -1411,8 +1411,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium/1.4.198:
-    resolution: {integrity: sha512-jwqQPdKGeAslcq8L+1SZZgL6uDiIDmTe9Gq4brsdWAH27y7MJ2g9Ue6MyST3ogmSM49EAQP7bype1V5hsuNrmQ==}
+  /electron-to-chromium/1.4.199:
+    resolution: {integrity: sha512-WIGME0Cs7oob3mxsJwHbeWkH0tYkIE/sjkJ8ML2BYmuRcjhRl/q5kVDXG7W9LOOKwzPU5M0LBlXRq9rlSgnNlg==}
     dev: true
 
   /emmet/2.3.6:
@@ -1724,7 +1724,7 @@ packages:
       eslint: '>=7.0.0'
     dependencies:
       '@typescript-eslint/types': 5.30.7
-      astro-eslint-parser: 0.4.3
+      astro-eslint-parser: 0.4.4
       eslint: 8.20.0
       eslint-utils: 3.0.0_eslint@8.20.0
       postcss: 8.4.14
@@ -3886,8 +3886,8 @@ packages:
       suf-log: 2.5.3
     dev: true
 
-  /sass/1.53.0:
-    resolution: {integrity: sha512-zb/oMirbKhUgRQ0/GFz8TSAwRq2IlR29vOUJZOx0l8sV+CkHUfHa4u5nqrG+1VceZp7Jfj59SVW9ogdhTvJDcQ==}
+  /sass/1.54.0:
+    resolution: {integrity: sha512-C4zp79GCXZfK0yoHZg+GxF818/aclhp9F48XBu/+bm9vXEVAYov9iU3FBVRMq3Hx3OA4jfKL+p2K9180mEh0xQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -4461,7 +4461,7 @@ packages:
       vfile-message: 3.1.2
     dev: true
 
-  /vite/2.9.14_sass@1.53.0:
+  /vite/2.9.14_sass@1.54.0:
     resolution: {integrity: sha512-P/UCjSpSMcE54r4mPak55hWAZPlyfS369svib/gpmz8/01L822lMPOJ/RYW6tLCe1RPvMvOsJ17erf55bKp4Hw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -4481,7 +4481,7 @@ packages:
       postcss: 8.4.14
       resolve: 1.22.1
       rollup: 2.77.0
-      sass: 1.53.0
+      sass: 1.54.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
