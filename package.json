@@ -33,7 +33,7 @@
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.1.2",
     "sass": "^1.54.0",
-    "solid-js": "^1.4.7",
+    "solid-js": "^1.4.8",
     "typescript": "^4.7.4"
   }
 }
