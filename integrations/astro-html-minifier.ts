@@ -8,7 +8,7 @@ const baseDir = process.cwd()
 
 function astroHtmlMinifier(): AstroIntegration {
   return {
-    name: 'astro-Html-minifier',
+    name: 'astro-html-minifier',
     hooks: {
       'astro:build:done': async function buildDone() {
         const htmlGlobPaths = glob.sync('dist/**/*.html', { cwd: baseDir })
