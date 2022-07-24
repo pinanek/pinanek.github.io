@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="preload"
+      href="/fonts/LexendDecaVariableFont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <style>
+      @font-face {
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 100 900;
+        src: url('/fonts/LexendDecaVariableFont.woff2') format('woff2');
+      }
+    </style>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script>
+      const root = document.documentElement,
+        savedColorMode = localStorage.getItem('color-mode')
+      'dark' === savedColorMode ||
+      (('system' === savedColorMode || void 0 === savedColorMode) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ? root.classList.add('color-mode-dark')
+        : root.classList.remove('color-mode-dark')
+    </script>
+    <title>Markdown components preview 😜 • Pinanek23</title>
+    <meta name="description" content="Just an example post 😎" />
+    <meta property="og:site_name" content="Pinanek23" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://pinanek23.pages.dev/posts/markdown-components-preview/" />
+    <meta property="og:title" content="Hello • Pinanek23" />
+    <meta property="og:description" content="Just an example post 😎" />
+    <meta property="og:image" content="http://pinanek23.pages.dev/default-logo.png" />
+    <meta property="og:image:alt" content="Logo of pinanek23" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://pinanek23.pages.dev/posts/markdown-components-preview/" />
+    <meta name="twitter:title" content="Hello • Pinanek23" />
+    <meta name="twitter:description" content="Just an example post 😎" />
+    <meta name="twitter:image" content="http://pinanek23.pages.dev/default-logo.png" />
+    <meta name="twitter:image:alt" content="Logo of pinanek23" />
+    <link rel="canonical" href="http://pinanek23.pages.dev/posts/markdown-components-preview/" />
+    <link rel="stylesheet" href="/assets/745609b4.b78988df.css" />
+    <script type="module">
+      function o(e) {
+        e
+          ? document.documentElement.classList.add('color-mode-dark')
+          : document.documentElement.classList.remove('color-mode-dark')
+      }
+      function d() {
+        const e = localStorage.getItem('color-mode'),
+          d = window.matchMedia('(prefers-color-scheme: dark)').matches
+        void 0 === e || ('system' !== e && 'light' !== e && 'dark' !== e)
+          ? (localStorage.setItem('color-mode', 'system'), o(d))
+          : o('system' === e ? d : 'dark' === e)
+      }
+      d(),
+        window.addEventListener('storage', d),
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', d)
+    </script>
+  </head>
+  <body>
+    <div id="__root">
+      <div class="wrapper astro-BODQKSIW">
+        <div class="page-sizing page-spacing container astro-BODQKSIW">
+          <a href="/" class="logo astro-BODQKSIW" aria-label="Go to home"
+            ><span class="astro-USDKQ52P">./pinanek23</span></a
+          >
+          <div class="items astro-BODQKSIW">
+            <div class="header-items astro-BODQKSIW">
+              <a href="/posts" class="astro-QGPZGQNJ"
+                ><span class="astro-QGPZGQNJ">--posts</span> <span class="indicator astro-QGPZGQNJ"></span> </a
+              ><a href="/categories" class="astro-QGPZGQNJ"
+                ><span class="astro-QGPZGQNJ">--categories</span> <span class="indicator astro-QGPZGQNJ"></span> </a
+              ><a href="/about" class="astro-QGPZGQNJ"
+                ><span class="astro-QGPZGQNJ">--about-me-🌻</span> <span class="indicator astro-QGPZGQNJ"></span
+              ></a>
+            </div>
+            <div class="astro-BODQKSIW">
+              <style>
+                astro-island,
+                astro-slot {
+                  display: contents;
+                }
+              </style>
+              <script>
+                var a
+                ;(self.Astro = self.Astro || {}).visible = (t, e, s) => {
+                  const r = async () => {
+                    await (
+                      await t()
+                    )()
+                  }
+                  let i = new IntersectionObserver((t) => {
+                    for (const e of t)
+                      if (e.isIntersecting) {
+                        i.disconnect(), r()
+                        break
+                      }
+                  })
+                  for (let t = 0; t < s.children.length; t++) {
+                    const e = s.children[t]
+                    i.observe(e)
+                  }
+                }
+                {
+                  const t = {
+                      0: (t) => t,
+                      1: (t) => JSON.parse(t, e),
+                      2: (t) => new RegExp(t),
+                      3: (t) => new Date(t),
+                      4: (t) => new Map(JSON.parse(t, e)),
+                      5: (t) => new Set(JSON.parse(t, e)),
+                      6: (t) => BigInt(t),
+                      7: (t) => new URL(t)
+                    },
+                    e = (e, s) => {
+                      if ('' === e || !Array.isArray(s)) return s
+                      const [r, i] = s
+                      return r in t ? t[r](i) : void 0
+                    }
+                  customElements.get('astro-island') ||
+                    customElements.define(
+                      'astro-island',
+                      (((a = class extends HTMLElement {
+                        constructor() {
+                          super(...arguments),
+                            (this.hydrate = () => {
+                              if (!this.hydrator || this.parentElement?.closest('astro-island[ssr]')) return
+                              const t = this.querySelectorAll('astro-slot'),
+                                s = {},
+                                r = this.querySelectorAll('template[data-astro-template]')
+                              for (const t of r)
+                                !t.closest(this.tagName)?.isSameNode(this) ||
+                                  ((s[t.getAttribute('data-astro-template') || 'default'] = t.innerHTML), t.remove())
+                              for (const e of t)
+                                !e.closest(this.tagName)?.isSameNode(this) ||
+                                  (s[e.getAttribute('name') || 'default'] = e.innerHTML)
+                              const i = this.hasAttribute('props') ? JSON.parse(this.getAttribute('props'), e) : {}
+                              this.hydrator(this)(this.Component, i, s, { client: this.getAttribute('client') }),
+                                this.removeAttribute('ssr'),
+                                window.removeEventListener('astro:hydrate', this.hydrate),
+                                window.dispatchEvent(new CustomEvent('astro:hydrate'))
+                            })
+                        }
+                        connectedCallback() {
+                          !this.hasAttribute('await-children') || this.firstChild
+                            ? this.childrenConnectedCallback()
+                            : new MutationObserver((t, e) => {
+                                e.disconnect(), this.childrenConnectedCallback()
+                              }).observe(this, { childList: !0 })
+                        }
+                        async childrenConnectedCallback() {
+                          window.addEventListener('astro:hydrate', this.hydrate),
+                            await import(this.getAttribute('before-hydration-url'))
+                          const t = JSON.parse(this.getAttribute('opts'))
+                          Astro[this.getAttribute('client')](
+                            async () => {
+                              const t = this.getAttribute('renderer-url'),
+                                [e, { default: s }] = await Promise.all([
+                                  import(this.getAttribute('component-url')),
+                                  t ? import(t) : () => () => {}
+                                ])
+                              return (
+                                (this.Component = e[this.getAttribute('component-export') || 'default']),
+                                (this.hydrator = s),
+                                this.hydrate
+                              )
+                            },
+                            t,
+                            this
+                          )
+                        }
+                        attributeChangedCallback() {
+                          this.hydrator && this.hydrate()
+                        }
+                      }).observedAttributes = ['props']),
+                      a)
+                    )
+                }
+              </script>
+              <astro-island
+                uid="Z1jXfec"
+                component-url="/theme-button.6dffa7dd.js"
+                component-export="default"
+                renderer-url="/client.66e6cdf8.js"
+                props='{"class":[0,"astro-BODQKSIW"]}'
+                ssr=""
+                client="visible"
+                before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]"
+                opts='{"name":"ThemeButton","value":true}'
+                await-children=""
+                ><span data-hk="0-0-0" class="_size_7bzj3_10 _placeHolder_7bzj3_23"></span
+              ></astro-island>
+            </div>
+          </div>
+          <astro-island
+            uid="1bKLmA"
+            component-url="/menu-button.d12030f7.js"
+            component-export="default"
+            renderer-url="/client.66e6cdf8.js"
+            props='{"class":[0,"menu-button astro-BODQKSIW"]}'
+            ssr=""
+            client="visible"
+            before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]"
+            opts='{"name":"MenuButton","value":true}'
+            await-children=""
+            ><svg
+              data-hk="0-0-0"
+              class="_size_7bzj3_10 _svg_7bzj3_27 _placeHolder_7bzj3_23 menu-button astro-BODQKSIW"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.753 18h18.5a.75.75 0 0 1 .102 1.493l-.102.007h-18.5a.75.75 0 0 1-.102-1.493L2.753 18h18.5-18.5Zm0-6.497h18.5a.75.75 0 0 1 .102 1.493l-.102.007h-18.5a.75.75 0 0 1-.102-1.493l.102-.007h18.5-18.5Zm-.001-6.5h18.5a.75.75 0 0 1 .102 1.493l-.102.007h-18.5A.75.75 0 0 1 2.65 5.01l.102-.007h18.5-18.5Z"
+              ></path></svg
+          ></astro-island>
+        </div>
+      </div>
+      <main class="page-sizing page-spacing">
+        <article>
+          <link rel="stylesheet" href="/assets/745609b4.b78988df.css" />
+          <script type="module">
+            function o(e) {
+              e
+                ? document.documentElement.classList.add('color-mode-dark')
+                : document.documentElement.classList.remove('color-mode-dark')
+            }
+            function d() {
+              const e = localStorage.getItem('color-mode'),
+                d = window.matchMedia('(prefers-color-scheme: dark)').matches
+              void 0 === e || ('system' !== e && 'light' !== e && 'dark' !== e)
+                ? (localStorage.setItem('color-mode', 'system'), o(d))
+                : o('system' === e ? d : 'dark' === e)
+            }
+            d(),
+              window.addEventListener('storage', d),
+              window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', d)
+          </script>
+          <h2 id="headings">Headings</h2>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">Level</th>
+                <th>Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">2</td>
+                <td><h2>Heading level 2</h2></td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td><h3>Heading level 3</h3></td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td><h4>Heading level 4</h4></td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="paragraphs">Paragraphs</h2>
+          <p>
+            Hello this is an paragraph, I’m trying to make it as long as possible to check its readability. Still read
+            🤔? You should scroll down to check more components I test 😁.
+          </p>
+          <h2 id="emphasis">Emphasis</h2>
+          <p>This is <strong>bold text</strong></p>
+          <p>This is <em>italic text</em></p>
+          <p>
+            This is <strong><em>italic text</em></strong>
+          </p>
+          <p>This is <del>strike-through text</del></p>
+          <h2 id="blockquotes">Blockquotes</h2>
+          <blockquote><p>This is a blockquote</p></blockquote>
+          <blockquote>
+            <p>This is a blockquote</p>
+            <p>With multiple paragraphs</p>
+          </blockquote>
+          <blockquote>
+            <p>This is blockquote</p>
+            <blockquote><p>With nested blockquote</p></blockquote>
+          </blockquote>
+          <h2 id="links">Links</h2>
+          <p>
+            This is a <a href="/">Normal Link</a>, and this is an
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">External Link</a>.
+          </p>
+          <h2 id="images">Images</h2>
+          <p><img src="default-logo.png" alt="Hello" /></p>
+          <h2 id="lists">Lists</h2>
+          <p>This is an ordered list</p>
+          <ol>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>
+              Third item
+              <ol>
+                <li>Indented item</li>
+                <li>Indented item</li>
+              </ol>
+            </li>
+            <li>Fourth item</li>
+          </ol>
+          <p>This is an unordered list</p>
+          <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>
+              Third item
+              <ul>
+                <li>Indented item</li>
+                <li>Indented item</li>
+              </ul>
+            </li>
+            <li>Fourth item</li>
+          </ul>
+          <h2 id="code">Code</h2>
+          <h3 id="inline-code">Inline code</h3>
+          <p><code>const inlineCode: string = 'Inline Code'</code></p>
+          <h3 id="code-block">Code block</h3>
+          <pre
+            class="astro-code"
+            style="background-color: #0d1117; overflow-x: auto"
+          ><code><span class="line"><span style="color:#c9d1d9">This is a plain text code block</span></span></code></pre>
+          <pre
+            class="astro-code"
+            style="background-color: #0d1117; overflow-x: auto"
+          ><code><span class="line"><span style="color:#ff7b72">import</span><span style="color:#c9d1d9"> </span><span style="color:#79c0ff">*</span><span style="color:#c9d1d9"> </span><span style="color:#ff7b72">as</span><span style="color:#c9d1d9"> React </span><span style="color:#ff7b72">from</span><span style="color:#c9d1d9"> </span><span style="color:#a5d6ff">&#39;react&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ff7b72">interface</span><span style="color:#c9d1d9"> </span><span style="color:#ffa657">Props</span><span style="color:#c9d1d9"> {</span></span>
+<span class="line"><span style="color:#c9d1d9">  </span><span style="color:#ffa657">children</span><span style="color:#ff7b72">:</span><span style="color:#c9d1d9"> </span><span style="color:#ffa657">React</span><span style="color:#c9d1d9">.</span><span style="color:#ffa657">ReactNode</span></span>
+<span class="line"><span style="color:#c9d1d9">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ff7b72">function</span><span style="color:#c9d1d9"> </span><span style="color:#d2a8ff">CodeBlock</span><span style="color:#c9d1d9">({ </span><span style="color:#ffa657">children</span><span style="color:#c9d1d9"> }</span><span style="color:#ff7b72">:</span><span style="color:#c9d1d9"> </span><span style="color:#ffa657">Props</span><span style="color:#c9d1d9">)</span><span style="color:#ff7b72">:</span><span style="color:#c9d1d9"> </span><span style="color:#ffa657">JSX</span><span style="color:#c9d1d9">.</span><span style="color:#ffa657">Element</span><span style="color:#c9d1d9"> {</span></span>
+<span class="line"><span style="color:#c9d1d9">  </span><span style="color:#ff7b72">return</span><span style="color:#c9d1d9"> (</span></span>
+<span class="line"><span style="color:#c9d1d9">    &lt;</span><span style="color:#7ee787">div</span><span style="color:#c9d1d9">&gt;</span></span>
+<span class="line"><span style="color:#c9d1d9">      &lt;</span><span style="color:#7ee787">h2</span><span style="color:#c9d1d9">&gt;This is an code block with syntax highlighting 😍&lt;/</span><span style="color:#7ee787">h2</span><span style="color:#c9d1d9">&gt;</span></span>
+<span class="line"><span style="color:#c9d1d9">      {children}</span></span>
+<span class="line"><span style="color:#c9d1d9">    &lt;/</span><span style="color:#7ee787">div</span><span style="color:#c9d1d9">&gt;</span></span>
+<span class="line"><span style="color:#c9d1d9">  )</span></span>
+<span class="line"><span style="color:#c9d1d9">}</span></span></code></pre>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
