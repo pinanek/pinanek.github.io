@@ -8,6 +8,7 @@ import mdxImprovement from './integrations/astro-mdx-improvement.mjs'
 import htmlMinifier from './integrations/astro-html-minifier.mjs'
 
 import remarkMdxImages from 'remark-mdx-images'
+import remarkUnwrapImages from 'remark-unwrap-images'
 
 import rehypeSlug from 'rehype-slug'
 
@@ -19,7 +20,7 @@ export default defineConfig({
     image(),
     mdx({
       remarkPlugins: {
-        extends: [remarkMdxImages]
+        extends: [remarkUnwrapImages, remarkMdxImages]
       },
       rehypePlugins: [rehypeSlug]
     }),
