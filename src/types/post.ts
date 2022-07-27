@@ -1,4 +1,4 @@
-import type { MarkdownInstance } from 'astro'
+import type { JSX } from 'solid-js/jsx-runtime'
 
 interface PostImage {
   url: string
@@ -11,7 +11,7 @@ interface PostHeadings {
   content: string
 }
 
-interface PostFrontMatter {
+interface PostFrontmatter {
   title: string
   seoTitle: string
   description: string
@@ -23,8 +23,10 @@ interface PostFrontMatter {
   lastUpdated?: string
 }
 
-type Post = MarkdownInstance<PostFrontMatter>
+type Post = {
+  frontmatter: PostFrontmatter
+  default: JSX.FunctionElement
+  file: string
+}
 
-type PostHeaders = Awaited<ReturnType<Post['getHeadings']>>
-
-export type { Post, PostHeaders, PostFrontMatter }
+export type { Post, PostFrontmatter }

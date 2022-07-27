@@ -1,14 +1,14 @@
 ---
 import PostLayout from '@/layouts/post-layout.astro'
 import type { GetStaticPaths } from 'astro'
-import type { Post, PostFrontMatter } from '@/types/post'
+import type { Post } from '@/types/post'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await Astro.glob<PostFrontMatter>('/content/posts/{*,**/index}.md')
+  const posts = await Astro.glob<Post>('/content/posts/{*,**/index}.mdx')
 
-  const data = posts.map(async ({ Content, frontmatter, file }) => {
+  const data = posts.map(async ({ default: Content, frontmatter, file }) => {
     const slug = file
-      .replace(/\/index.md$/, '')
+      .replace(/\/index.mdx$/, '')
       .split(/[/\\]/)
       .pop()
 
@@ -24,7 +24,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return Promise.all(data)
 }
 
-type Props = Pick<Post, 'Content' | 'frontmatter'>
+interface Props {
+  Content: Post['default']
+  frontmatter: Post['frontmatter']
+}
 
 const { Content, frontmatter } = Astro.props as Props
 ---
