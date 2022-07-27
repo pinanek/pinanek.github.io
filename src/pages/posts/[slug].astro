@@ -5,7 +5,7 @@ import type { GetStaticPaths } from 'astro'
 import type { Post } from '@/types/post'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await Astro.glob<Post>('/content/posts/{*,**/index}.mdx')
+  const posts = await Astro.glob<Post>('/src/content/posts/{*,**/index}.mdx')
 
   const data = posts.map(async ({ default: MdxContent, frontmatter, file }) => {
     const slug = file
