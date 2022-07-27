@@ -1,0 +1,23 @@
+---
+import { Image } from '@astrojs/image/components'
+
+interface Props {
+  src: string
+  alt: string
+  width: number
+  height: number
+}
+
+const { ...props } = Astro.props as Props
+---
+
+<Image class="main" format="webp" {...props} />
+
+<style lang="scss">
+  .main {
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

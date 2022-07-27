@@ -1,4 +1,5 @@
 ---
+import Image from './image.astro'
 import type { Post } from '@/types/post'
 
 export interface Props {
@@ -8,4 +9,8 @@ export interface Props {
 const { MdxContent } = Astro.props as Props
 ---
 
-<MdxContent components={{}} />
+<MdxContent
+  components={{
+    img: Image
+  }}
+/>

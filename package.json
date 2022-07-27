@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@astrojs/image": "^0.2.0",
     "@astrojs/mdx": "^0.3.0",
     "@astrojs/sitemap": "^0.2.6",
     "@astrojs/solid-js": "^0.3.1",
@@ -32,6 +33,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.1.2",
+    "remark-mdx-images": "^2.0.0",
     "rollup": "^2.77.1",
     "sass": "^1.54.0",
     "solid-js": "^1.4.8",
