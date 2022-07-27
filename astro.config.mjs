@@ -9,6 +9,8 @@ import htmlMinifier from './integrations/astro-html-minifier.mjs'
 
 import remarkMdxImages from 'remark-mdx-images'
 
+import rehypeSlug from 'rehype-slug'
+
 export default defineConfig({
   site: 'http://pinanek23.pages.dev/',
 
@@ -18,7 +20,8 @@ export default defineConfig({
     mdx({
       remarkPlugins: {
         extends: [remarkMdxImages]
-      }
+      },
+      rehypePlugins: [rehypeSlug]
     }),
     mdxImprovement(),
     sitemap(),

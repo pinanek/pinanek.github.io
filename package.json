@@ -33,6 +33,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.1.2",
+    "rehype-slug": "^5.0.1",
     "remark-mdx-images": "^2.0.0",
     "rollup": "^2.77.1",
     "sass": "^1.54.0",

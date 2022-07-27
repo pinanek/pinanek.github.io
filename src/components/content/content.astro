@@ -1,5 +1,9 @@
 ---
 import Image from './image.astro'
+import Heading2 from './heading-2.astro'
+import Heading3 from './heading-3.astro'
+import Heading4 from './heading-4.astro'
+
 import type { Post } from '@/types/post'
 
 export interface Props {
@@ -9,8 +13,13 @@ export interface Props {
 const { MdxContent } = Astro.props as Props
 ---
 
-<MdxContent
-  components={{
-    img: Image
-  }}
-/>
+<article>
+  <MdxContent
+    components={{
+      img: Image,
+      h2: Heading2,
+      h3: Heading3,
+      h4: Heading4
+    }}
+  />
+</article>
