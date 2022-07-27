@@ -17,7 +17,7 @@ const {
 
 const formattedTitle = title === undefined ? 'Pinanek23' : `${title} • Pinanek23`
 const formattedSeoTitle = seoTitle === undefined ? formattedTitle : `${seoTitle} • Pinanek23`
-const canonicalUrl = new URL(new URL(Astro.request.url).pathname, Astro.site).toString()
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString()
 const imageUrl = new URL(imageSrc, Astro.site).toString()
 ---
 

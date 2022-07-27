@@ -25,6 +25,6 @@ interface PostFrontMatter {
 
 type Post = MarkdownInstance<PostFrontMatter>
 
-type PostHeaders = Awaited<ReturnType<Post['getHeaders']>>
+type PostHeaders = Awaited<ReturnType<Post['getHeadings']>>
 
 export type { Post, PostHeaders, PostFrontMatter }

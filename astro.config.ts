@@ -9,7 +9,7 @@ export default defineConfig({
 
   integrations: [solid(), sitemap(), astroHtmlMinifier()],
 
-  experimental: {
-    integrations: true
+  legacy: {
+    astroFlavoredMarkdown: true
   }
 })
