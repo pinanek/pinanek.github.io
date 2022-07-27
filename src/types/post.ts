@@ -25,7 +25,7 @@ interface PostFrontmatter {
 
 type Post = {
   frontmatter: PostFrontmatter
-  default: JSX.FunctionElement
+  default: ({ components }: { components?: Record<string, unknown> }) => JSX.Element
   file: string
 }
 

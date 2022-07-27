@@ -1,0 +1,11 @@
+---
+import type { Post } from '@/types/post'
+
+export interface Props {
+  MdxContent: Post['default']
+}
+
+const { MdxContent } = Astro.props as Props
+---
+
+<MdxContent components={{}} />
