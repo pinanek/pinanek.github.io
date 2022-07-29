@@ -4,7 +4,6 @@ import solid from '@astrojs/solid-js'
 import image from '@astrojs/image'
 import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
-import mdxImprovement from './integrations/astro-mdx-improvement.mjs'
 import htmlMinifier from './integrations/astro-html-minifier.mjs'
 
 import remarkMdxImages from 'remark-mdx-images'
@@ -24,7 +23,6 @@ export default defineConfig({
       },
       rehypePlugins: [rehypeSlug]
     }),
-    mdxImprovement(),
     sitemap(),
     htmlMinifier()
   ]

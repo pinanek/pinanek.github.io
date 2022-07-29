@@ -7,8 +7,8 @@ import type { Post } from '@/types/post'
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await Astro.glob<Post>('/src/content/posts/{*,**/index}.mdx')
 
-  const data = posts.map(async ({ default: MdxContent, frontmatter, file }) => {
-    const slug = file
+  const data = posts.map(async ({ default: MdxContent, frontmatter, url }) => {
+    const slug = url
       .replace(/\/index.mdx$/, '')
       .split(/[/\\]/)
       .pop()

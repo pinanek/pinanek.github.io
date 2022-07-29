@@ -27,6 +27,7 @@ type Post = {
   frontmatter: PostFrontmatter
   default: ({ components }: { components?: Record<string, unknown> }) => JSX.Element
   file: string
+  url: string
 }
 
 export type { Post, PostFrontmatter }

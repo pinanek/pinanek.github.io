@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@astrojs/image": "^0.3.0",
-    "@astrojs/mdx": "^0.3.0",
+    "@astrojs/mdx": "^0.3.1",
     "@astrojs/sitemap": "^0.3.0",
     "@astrojs/solid-js": "^0.4.1",
     "@babel/core": "^7.18.9",
