@@ -1,0 +1,20 @@
+---
+// eslint-disable-next-line no-undef
+type Props = astroHTML.JSX.HTMLAttributes
+
+const { ...props } = Astro.props as Props
+---
+
+<pre {...props}> 
+  <slot />
+</pre>
+
+<style lang="scss">
+  @use 'src/styles/tokens' as *;
+
+  pre {
+    :global(code) {
+      font-family: $font-mono;
+    }
+  }
+</style>
