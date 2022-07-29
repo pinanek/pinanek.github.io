@@ -16,6 +16,10 @@ import rehypeSlug from 'rehype-slug'
 export default defineConfig({
   site: 'http://pinanek23.pages.dev/',
 
+  markdown: {
+    syntaxHighlight: false
+  },
+
   integrations: [
     mdx({
       remarkPlugins: [remarkSmartypants, remarkGfm, remarkUnwrapImages, remarkMdxImages],
