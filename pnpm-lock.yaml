@@ -23,7 +23,9 @@ specifiers:
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.1.2
   rehype-slug: ^5.0.1
+  remark-gfm: ^3.0.1
   remark-mdx-images: ^2.0.0
+  remark-smartypants: ^2.0.0
   remark-unwrap-images: ^3.0.1
   rollup: ^2.77.2
   sass: ^1.54.0
@@ -53,7 +55,9 @@ devDependencies:
   prettier: 2.7.1
   prettier-plugin-astro: 0.1.2
   rehype-slug: 5.0.1
+  remark-gfm: 3.0.1
   remark-mdx-images: 2.0.0
+  remark-smartypants: 2.0.0
   remark-unwrap-images: 3.0.1
   rollup: 2.77.2
   sass: 1.54.0
