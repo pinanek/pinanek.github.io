@@ -1,17 +1,6 @@
-<meta charset='utf-8' />
-<meta name='viewport' content='width=device-width, initial-scale=1' />
-
-<link rel='preload' href='/fonts/LexendDecaVariableFont.woff2' as='font' type='font/woff2' crossorigin='anonymous' />
-
-<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
-<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
-<link rel='icon' type='image/x-icon' href='/favicon.ico' />
-
-<!-- Preventing FOUC 😊 -->
-<script is:inline>
+function initColorMode() {
   const root = document.documentElement
   const savedColorMode = localStorage.getItem('color-mode')
-
   if (
     savedColorMode === 'dark' ||
     ((savedColorMode === 'system' || savedColorMode === undefined) &&
@@ -21,9 +10,9 @@
   } else {
     root.classList.remove('color-mode-dark')
   }
-</script>
+}
 
-<script>
+function handleColorMode() {
   type ColorMode = 'system' | 'light' | 'dark'
 
   function setDarkColorMode(isDarkColorMode: boolean) {
@@ -35,7 +24,6 @@
   function updateColorMode() {
     const savedColorMode = localStorage.getItem('color-mode') as ColorMode | undefined
     const isPreferDarkColorMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-
     if (
       savedColorMode === undefined ||
       !(savedColorMode === 'system' || savedColorMode === 'light' || savedColorMode === 'dark')
@@ -54,4 +42,6 @@
   updateColorMode()
   window.addEventListener('storage', updateColorMode)
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateColorMode)
-</script>
+}
+
+export { initColorMode, handleColorMode }

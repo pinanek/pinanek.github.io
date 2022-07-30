@@ -1,6 +1,4 @@
 {
   "editor.tabSize": 2,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "prettier.documentSelectors": ["**/*.astro"],
   "eslint.validate": ["typescript", "typescriptreact", "astro"]
 }

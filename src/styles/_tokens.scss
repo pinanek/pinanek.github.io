@@ -1,30 +1,81 @@
-:root {
-  /* Typography */
-  --font-sans: 'Lexend Deca', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'ui-sans-serif',
-    sans-serif;
-  --font-mono: 'Cascadia Code', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', ui-monospace,
-    monospace;
+/* Font families */
+$font-sans: 'Lexend Deca', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'ui-sans-serif',
+  sans-serif;
+$font-mono: 'Cascadia Code', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', ui-monospace,
+  monospace;
 
-  --font-weight-normal: 400;
-  --font-weight-semi: 500;
-  --font-weight-bold: 700;
-  --font-weight-extra-bold: 900;
+/* Font weights */
+$font-weight-normal: 400;
+$font-weight-semi-bold: 500;
+$font-weight-bold: 600;
+$font-weight-extra-bold: 700;
 
-  /* Transitions */
-  --duration-fast: 0.15s;
-  --duration-default: 0.3s;
+/* Line heights */
+$line-height-default: calc(1em + 0.5rem);
 
-  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+/* Shadows */
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-default: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+/* Transition timing functions */
+$ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Border radiuses */
-  --radii-sm: 6px;
-  --radii-md: 8px;
-  --radii-lg: 10px;
-}
+/* Transition durations */
+$duration-fast: 0.15s;
+$duration-default: 0.3s;
+
+/* Radiis */
+$radii-xs: 4px;
+$radii-sm: 6px;
+$radii-md: 8px;
+$radii-lg: 10px;
+$radii-xl: 12px;
+
+/* Breakpoints */
+$breakpoint-sm: 'min-width: 640px';
+$breakpoint-md: 'min-width: 768px';
+$breakpoint-lg: 'min-width: 1024px';
+$breakpoint-xl: 'min-width: 1280px';
+
+/* Spacings */
+$spacing-0_5: 0.125rem;
+$spacing-1: 0.25rem;
+$spacing-1_5: 0.375rem;
+$spacing-2: 0.5rem;
+$spacing-2_5: 0.625rem;
+$spacing-3: 0.75rem;
+$spacing-3_5: 0.875rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-7: 1.75rem;
+$spacing-8: 2rem;
+$spacing-9: 2.25rem;
+$spacing-10: 2.5rem;
+$spacing-11: 2.75rem;
+$spacing-12: 3rem;
+$spacing-13: 3.25rem;
+$spacing-14: 3.5rem;
+$spacing-15: 3.75rem;
+$spacing-16: 4rem;
+$spacing-20: 5rem;
+$spacing-24: 6rem;
+$spacing-28: 7rem;
+$spacing-32: 8rem;
+$spacing-36: 9rem;
+$spacing-40: 10rem;
+$spacing-44: 11rem;
+$spacing-48: 12rem;
+$spacing-52: 13rem;
+$spacing-56: 14rem;
+$spacing-60: 15rem;
+$spacing-64: 16rem;
+$spacing-68: 17rem;
+$spacing-72: 18rem;
+$spacing-76: 19rem;
+$spacing-80: 20rem;
+$spacing-96: 24rem;

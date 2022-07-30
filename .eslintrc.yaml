@@ -8,7 +8,8 @@ env:
 extends:
   - eslint:recommended
   - plugin:@typescript-eslint/recommended
-  - plugin:astro/recommended
+  - plugin:vue/vue3-recommended
+  - plugin:jsx-a11y/recommended
   - prettier
 
 parser: '@typescript-eslint/parser'
@@ -16,11 +17,11 @@ parserOptions:
   ecmaVersion: latest
   sourceType: module
   project: tsconfig.json
-  extraFileExtensions: ['.astro']
+  extraFileExtensions: ['.vue']
 
 overrides:
-  - files: ['*.astro']
-    parser: astro-eslint-parser
+  - files: ['*.vue']
+    parser: vue-eslint-parser
     parserOptions:
       parser: '@typescript-eslint/parser'
 
@@ -33,5 +34,7 @@ rules:
   '@typescript-eslint/consistent-type-exports': error
   '@typescript-eslint/consistent-type-imports': error
   '@typescript-eslint/no-useless-empty-export': error
+
+  vue/multi-word-component-names: off
 
   no-console: warn

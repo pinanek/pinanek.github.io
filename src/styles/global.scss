@@ -1,0 +1,11 @@
+@use 'reset' as *;
+@use 'tokens' as *;
+@use 'colors' as *;
+
+body {
+  color: var(--color-text-default);
+  background-color: var(--color-page-background);
+  font-family: $font-sans;
+  font-weight: $font-weight-normal;
+  transition: background-color $duration-default $ease-in-out;
+}
