@@ -2,14 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/image': ^0.3.0
-  '@astrojs/mdx': ^0.3.1
+  '@astrojs/mdx': ^0.4.0
   '@astrojs/rss': ^0.2.2
   '@astrojs/sitemap': ^0.3.0
   '@astrojs/solid-js': ^0.4.1
   '@babel/core': ^7.18.9
   '@typescript-eslint/eslint-plugin': ^5.31.0
   '@typescript-eslint/parser': ^5.31.0
-  astro: 1.0.0-rc.2
+  astro: 1.0.0-rc.3
   astro-eslint-parser: ^0.4.4
   clsx: ^1.2.1
   eslint: ^8.20.0
@@ -34,14 +34,14 @@ specifiers:
 
 devDependencies:
   '@astrojs/image': 0.3.0
-  '@astrojs/mdx': 0.3.1_rollup@2.77.2
+  '@astrojs/mdx': 0.4.0_rollup@2.77.2
   '@astrojs/rss': 0.2.2
   '@astrojs/sitemap': 0.3.0
   '@astrojs/solid-js': 0.4.1_motrryvgq5ajmlbt6atggvzy5u
   '@babel/core': 7.18.9
   '@typescript-eslint/eslint-plugin': 5.31.0_d5zwcxr4bwkhmuo464cb3a2puu
   '@typescript-eslint/parser': 5.31.0_he2ccbldppg44uulnyq4rwocfa
-  astro: 1.0.0-rc.2_sass@1.54.0
+  astro: 1.0.0-rc.3_sass@1.54.0
   astro-eslint-parser: 0.4.4
   clsx: 1.2.1
   eslint: 8.20.0
@@ -141,14 +141,15 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/mdx/0.3.1_rollup@2.77.2:
-    resolution: {integrity: sha512-HeotEbfoUzkfT4iviW0zbkaJqqWEIc5gUgTBWs4vgRBjlhl6W6jysKQEotmMrCFBafUwhskSGFdHG1nSVs00zA==}
+  /@astrojs/mdx/0.4.0_rollup@2.77.2:
+    resolution: {integrity: sha512-dw38Ltue/FCTKQYg/YDrYcCBJYkveqbY1geGcEvTPAy5xr3zBS21It1/gBxlRG8yzrbq6LwJHcrsw44YLePC1g==}
     engines: {node: ^14.18.0 || >=16.12.0}
     dependencies:
       '@astrojs/prism': 0.6.1
       '@mdx-js/mdx': 2.1.2
       '@mdx-js/rollup': 2.1.2_rollup@2.77.2
       es-module-lexer: 0.10.5
+      gray-matter: 4.0.3
       prismjs: 1.28.0
       rehype-raw: 6.1.1
       remark-frontmatter: 4.0.1
@@ -428,7 +429,7 @@ packages:
     resolution: {integrity: sha512-qZEWeccZCrHA2Au4/X05QW5CMdm4VjUDCrGq5gf1ZDcM4hRqreKrtwAn7yci9zfgAS9apvnsFXiGBHBAxZdK9A==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      core-js-pure: 3.24.0
+      core-js-pure: 3.24.1
       regenerator-runtime: 0.13.9
     dev: true
 
@@ -1090,8 +1091,8 @@ packages:
       - supports-color
     dev: true
 
-  /astro/1.0.0-rc.2_sass@1.54.0:
-    resolution: {integrity: sha512-a950/UCWM6f/l6xGiO8AiAdXMyOuSJk/FRMZXevH7p0H5ze5j4yTyMv0e43rztfk4jIshjdJdg4dV9xzg8P+QQ==}
+  /astro/1.0.0-rc.3_sass@1.54.0:
+    resolution: {integrity: sha512-lX4UCJFvLGrXTFkbijqAUHxH2V4+Jx0sqHjt2mydp32UuZf+sePd18ztCz68gE5WLK3kxMboFN9n3eAwkwvY1Q==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1511,8 +1512,8 @@ packages:
       safe-buffer: 5.1.2
     dev: true
 
-  /core-js-pure/3.24.0:
-    resolution: {integrity: sha512-uzMmW8cRh7uYw4JQtzqvGWRyC2T5+4zipQLQdi2FmiRqP83k3d6F3stv2iAlNhOs6cXN401FCD5TL0vvleuHgA==}
+  /core-js-pure/3.24.1:
+    resolution: {integrity: sha512-r1nJk41QLLPyozHUUPmILCEMtMw24NG4oWK6RbsDdjzQgg9ZvrUsPBj1MnG0wXXp1DCDU6j+wUvEmBSrtRbLXg==}
     requiresBuild: true
     dev: true
 
