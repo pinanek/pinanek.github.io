@@ -1,9 +1,10 @@
 ---
+import Image from './image.astro'
 import Heading2 from './headings/heading-2.astro'
 import Heading3 from './headings/heading-3.astro'
 import Heading4 from './headings/heading-4.astro'
-import Image from './image.astro'
 import CodeBlock from './code/code-block.astro'
+import InlineCode from './code/inline-code.astro'
 
 import type { Post } from '@/types/post'
 
@@ -17,11 +18,12 @@ const { MdxContent } = Astro.props as Props
 <article>
   <MdxContent
     components={{
+      img: Image,
       h2: Heading2,
       h3: Heading3,
       h4: Heading4,
-      img: Image,
-      pre: CodeBlock
+      pre: CodeBlock,
+      inlineCode: InlineCode
     }}
   />
 </article>

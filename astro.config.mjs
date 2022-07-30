@@ -12,6 +12,7 @@ import remarkMdxImages from 'remark-mdx-images'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
 import rehypeSlug from 'rehype-slug'
+import rehypeInlineCode from './plugins/rehype-inline-code.mjs'
 
 export default defineConfig({
   site: 'http://pinanek23.pages.dev/',
@@ -23,7 +24,7 @@ export default defineConfig({
   integrations: [
     mdx({
       remarkPlugins: [remarkSmartypants, remarkGfm, remarkUnwrapImages, remarkMdxImages],
-      rehypePlugins: [rehypeSlug]
+      rehypePlugins: [rehypeSlug, rehypeInlineCode]
     }),
     solid(),
     image(),
