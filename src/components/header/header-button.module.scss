@@ -1,0 +1,27 @@
+@use 'src/styles/tokens' as *;
+
+.size {
+  width: $spacing-6;
+  height: $spacing-6;
+}
+
+.button {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.placeHolder {
+  display: inline-block;
+}
+
+.svg {
+  fill: none;
+}
+
+.svg path {
+  fill: var(--color-text-default);
+  transition: fill $duration-default $ease-in-out;
+}

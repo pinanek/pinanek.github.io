@@ -1,6 +1,7 @@
 @use 'reset' as *;
 @use 'tokens' as *;
 @use 'colors' as *;
+@use 'classes' as *;
 
 body {
   color: var(--color-text-default);

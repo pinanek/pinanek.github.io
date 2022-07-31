@@ -9,9 +9,14 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseLayout: typeof import('./src/layouts/base.vue')['default']
     Head: typeof import('@vueuse/head')['Head']
+    Header: typeof import('./src/components/header/header.vue')['default']
+    HeaderItem: typeof import('./src/components/header/header-item.vue')['default']
     HeadSeo: typeof import('./src/components/head-seo.vue')['default']
     Island: typeof import('./node_modules/.pnpm/iles@0.8.3_sass@1.54.0/node_modules/iles/dist/client/app/components/Island.vue')['default']
+    Logo: typeof import('./src/components/header/logo.vue')['default']
+    MenuButton: typeof import('./src/components/header/menu-button.tsx')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThemeButton: typeof import('./src/components/header/theme-button.tsx')['default']
   }
 }
