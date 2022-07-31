@@ -4,5 +4,6 @@ handleColorMode()
 </script>
 
 <template>
+  <HeadSeo />
   <slot />
 </template>
