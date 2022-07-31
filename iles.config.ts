@@ -1,4 +1,5 @@
 import { defineConfig } from 'iles'
+
 import site from './src/site'
 import htmlMinifier from './scripts/html-minifier'
 import xmlMinifier from './scripts/xml-minifier'
