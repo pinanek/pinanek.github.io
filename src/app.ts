@@ -1,10 +1,17 @@
 import { defineApp } from 'iles'
 import { computed } from 'vue'
 import { initColorMode } from '@/utils/color-mode'
+
+import Img from '@/components/content/img.vue'
+
 import '@/styles/global.scss'
 
 export default defineApp({
   socialTags: false,
+
+  mdxComponents: {
+    img: Img
+  },
 
   head: ({ site, route }) => {
     const canonicalUrl = computed(() => new URL(route.fullPath, site.url).toString().replace(/\/+$/, ''))

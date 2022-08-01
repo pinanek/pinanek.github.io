@@ -51,7 +51,7 @@ This is a [Normal Link](/), and this is an [External Link](https://www.youtube.c
 
 ## Images
 
-![Hello](./default-logo.png)
+![Hello](default-logo.png)
 
 ## Lists
 

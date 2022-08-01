@@ -25,6 +25,7 @@ export default defineConfig({
   ],
   markdown: {
     withImageSrc(src) {
+      if (!/\.\.?\//.test(src)) src = `./${src}`
       if (!src.includes('?')) return `${src}?preset=markdown`
     },
     remarkPlugins: [remarkImageSize]
