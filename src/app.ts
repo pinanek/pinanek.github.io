@@ -6,6 +6,7 @@ import Heading2 from '@/components/content/headings/heading-2.vue'
 import Heading3 from '@/components/content/headings/heading-3.vue'
 import Heading4 from '@/components/content/headings/heading-4.vue'
 import Paragraph from '@/components/content/paragraph.vue'
+import Link from '@/components/content/link.vue'
 import Image from '@/components/content/image.vue'
 import InlineCode from '@/components/content/code/inline-code.vue'
 import CodeBlock from '@/components/content/code/code-block.vue'
@@ -20,6 +21,7 @@ export default defineApp({
     h3: Heading3,
     h4: Heading4,
     p: Paragraph,
+    a: Link,
     img: Image,
     inlineCode: InlineCode,
     pre: CodeBlock

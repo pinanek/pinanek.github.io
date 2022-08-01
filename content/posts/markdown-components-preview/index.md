@@ -47,7 +47,7 @@ This is ~~strike-through text~~
 
 ## Links
 
-This is a [Normal Link](/), and this is an [External Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+This is a [In-site Link](/), and this is an [External Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 
 ## Images
 
