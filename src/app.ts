@@ -2,7 +2,11 @@ import { defineApp } from 'iles'
 import { computed } from 'vue'
 import { initColorMode } from '@/utils/color-mode'
 
-import Img from '@/components/content/img.vue'
+import Heading2 from '@/components/content/headings/heading-2.vue'
+import Heading3 from '@/components/content/headings/heading-3.vue'
+import Heading4 from '@/components/content/headings/heading-4.vue'
+
+import Image from '@/components/content/image.vue'
 
 import '@/styles/global.scss'
 
@@ -10,7 +14,10 @@ export default defineApp({
   socialTags: false,
 
   mdxComponents: {
-    img: Img
+    h2: Heading2,
+    h3: Heading3,
+    h4: Heading4,
+    img: Image
   },
 
   head: ({ site, route }) => {
