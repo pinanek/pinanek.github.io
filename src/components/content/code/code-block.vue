@@ -1,8 +1,8 @@
 <template>
   <div class="main" :class="className" v-bind="props">
-    <div v-if="lang !== 'text' || title !== undefined" class="info">
-      <span v-if="title !== undefined" class="title">{{ title }}</span>
-      <span v-if="lang !== 'text' || title !== undefined" class="lang">{{ langNames[lang] }}</span>
+    <div v-if="lang !== 'text' || title" class="info">
+      <span v-if="title" class="title">{{ title }}</span>
+      <span v-if="lang !== 'text' || title" class="lang">{{ languageName }}</span>
     </div>
     <pre><slot/></pre>
   </div>
@@ -10,29 +10,16 @@
 
 <script setup lang="ts">
 import { useAttrs } from 'vue'
+import { languageNames, type Language } from '@/markdown/highlight-languages'
 
 const { lang, title, className, ...props } = useAttrs() as {
-  lang: string
+  lang: Language
   title?: string
   className: string
   [x: string]: string | undefined
 }
 
-const langNames: Record<string, string> = {
-  py: 'Python',
-  cpp: 'C++',
-  csharp: 'C#',
-  php: 'PHP',
-  js: 'Javascript',
-  ts: 'Typescript',
-  tsx: 'TSX',
-  bash: 'Bash',
-  diff: 'Diff',
-  json: 'JSON',
-  jsonc: 'JSONC',
-  yaml: 'Yaml',
-  text: 'Text'
-}
+const languageName = languageNames[lang]
 </script>
 
 <script lang="ts">
