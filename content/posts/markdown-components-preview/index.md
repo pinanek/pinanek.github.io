@@ -77,7 +77,9 @@ This is an unordered list
 
 ### Inline code
 
-`const inlineCode: string = 'Inline Code'`
+`const inlineCode: string = 'Inline Code'` Normal inline code
+
+`const inlineCode: string = 'Inline Code'`{lang=ts} Highlighted inline code
 
 ### Code block
 
