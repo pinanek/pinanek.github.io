@@ -8,11 +8,15 @@ $text-inverse: (#ededed, #1a1a1a);
 /* Accent */
 $accent-default: (#0a89ff, #85c4ff);
 
+/* Content */
+$content-blockquote-indicator: (#e5e4e9, #2a2a2a);
+
 $colors: (
   page-background: $page-background,
   text-default: $text-default,
   text-inverse: $text-inverse,
-  accent-default: $accent-default
+  accent-default: $accent-default,
+  content-blockquote-indicator: $content-blockquote-indicator
 );
 
 :root {

@@ -7,6 +7,7 @@ import Heading3 from '@/components/content/headings/heading-3.vue'
 import Heading4 from '@/components/content/headings/heading-4.vue'
 import Paragraph from '@/components/content/paragraph.vue'
 import Link from '@/components/content/link.vue'
+import Blockquote from '@/components/content/blockquote.vue'
 import Image from '@/components/content/image.vue'
 import InlineCode from '@/components/content/code/inline-code.vue'
 import CodeBlock from '@/components/content/code/code-block.vue'
@@ -22,6 +23,7 @@ export default defineApp({
     h4: Heading4,
     p: Paragraph,
     a: Link,
+    blockquote: Blockquote,
     img: Image,
     inlineCode: InlineCode,
     pre: CodeBlock
