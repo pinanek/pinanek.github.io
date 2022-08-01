@@ -11,6 +11,7 @@ import remarkGfm from 'remark-gfm'
 import remarkImageSize from './plugins/remark/remark-image-size'
 
 import rehypeInlineCode from './plugins/rehype/rehype-inline-code'
+import rehypeCodeBlock from './plugins/rehype/rehype-code-block'
 
 // Get shiki highlighter
 const highlighter = await getHighlighter({
@@ -41,7 +42,10 @@ export default defineConfig({
       if (!src.includes('?')) return `${src}?preset=markdown`
     },
     remarkPlugins: [remarkGfm, remarkImageSize],
-    rehypePlugins: [[rehypeInlineCode, { highlighter }]]
+    rehypePlugins: [
+      [rehypeInlineCode, { highlighter }],
+      [rehypeCodeBlock, { highlighter }]
+    ]
   },
 
   ssg: {

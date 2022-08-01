@@ -3,10 +3,12 @@ $color-page-background: (#ffffff, #1a1a1a);
 
 /* Text */
 $color-text-default: (#1a1a1a, #ededed);
+$color-text-inverse: (#ededed, #1a1a1a);
 
 $colors: (
   page-background: $color-page-background,
-  text-default: $color-text-default
+  text-default: $color-text-default,
+  text-inverse: $color-text-inverse
 );
 
 :root {

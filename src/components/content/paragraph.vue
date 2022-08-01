@@ -1,7 +1,5 @@
 <template>
-  <p v-bind="$attrs">
-    <slot />
-  </p>
+  <p><slot /></p>
 </template>
 
 <style scoped lang="scss">

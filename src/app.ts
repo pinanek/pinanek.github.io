@@ -8,6 +8,7 @@ import Heading4 from '@/components/content/headings/heading-4.vue'
 import Paragraph from '@/components/content/paragraph.vue'
 import Image from '@/components/content/image.vue'
 import InlineCode from '@/components/content/code/inline-code.vue'
+import CodeBlock from '@/components/content/code/code-block.vue'
 
 import '@/styles/global.scss'
 
@@ -20,7 +21,8 @@ export default defineApp({
     h4: Heading4,
     p: Paragraph,
     img: Image,
-    inlineCode: InlineCode
+    inlineCode: InlineCode,
+    pre: CodeBlock
   },
 
   head: ({ site, route }) => {

@@ -1,5 +1,5 @@
 <template>
-  <code v-bind="$attrs">
+  <code>
     <slot />
   </code>
 </template>
@@ -8,7 +8,7 @@
 @use 'src/styles/tokens' as *;
 
 code {
-  padding: $spacing-0_5 $spacing-1_5;
+  padding: $spacing-1 $spacing-2;
   font-family: $font-mono;
   border-radius: $radii-sm;
 }

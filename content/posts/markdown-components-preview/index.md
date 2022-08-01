@@ -87,7 +87,28 @@ This is an unordered list
 This is a plain text code block
 ```
 
+```text title=hihi.txt
+This is a plain text code block
+```
+
 ```tsx
+import * as React from 'react'
+
+interface Props {
+  children: React.ReactNode
+}
+
+function CodeBlock({ children }: Props): JSX.Element {
+  return (
+    <div>
+      <h2>This is an code block with syntax highlighting 😍</h2>
+      {children}
+    </div>
+  )
+}
+```
+
+```tsx title=src/codeblock.tsx
 import * as React from 'react'
 
 interface Props {
