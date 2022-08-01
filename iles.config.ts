@@ -6,6 +6,7 @@ import site from './src/site'
 import htmlMinifier from './scripts/html-minifier'
 import xmlMinifier from './scripts/xml-minifier'
 
+import remarkGfm from 'remark-gfm'
 import remarkImageSize from './plugins/remark/remark-image-size'
 
 export default defineConfig({
@@ -28,7 +29,7 @@ export default defineConfig({
       if (!/\.\.?\//.test(src)) src = `./${src}`
       if (!src.includes('?')) return `${src}?preset=markdown`
     },
-    remarkPlugins: [remarkImageSize]
+    remarkPlugins: [remarkGfm, remarkImageSize]
   },
   ssg: {
     onSiteRendered: async () => {
