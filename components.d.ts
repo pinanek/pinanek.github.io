@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     Island: typeof import('./node_modules/.pnpm/iles@0.8.3_sass@1.54.0/node_modules/iles/dist/client/app/components/Island.vue')['default']
     Logo: typeof import('./src/components/header/logo.vue')['default']
     MenuButton: typeof import('./src/components/header/menu-button.tsx')['default']
+    Paragraph: typeof import('./src/components/content/paragraph.vue')['default']
     Picture: typeof import('./node_modules/.pnpm/@islands+images@0.8.1/node_modules/@islands/images/src/Picture.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

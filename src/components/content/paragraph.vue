@@ -1,0 +1,15 @@
+<template>
+  <p v-bind="$attrs">
+    <slot />
+  </p>
+</template>
+
+<style scoped lang="scss">
+@use 'src/styles/tokens' as *;
+
+p {
+  margin: 1em 0;
+  line-height: calc(1em + 0.75rem);
+  transition: color $duration-default $ease-in-out;
+}
+</style>
