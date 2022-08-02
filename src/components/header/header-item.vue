@@ -1,0 +1,43 @@
+<template>
+  <a :href="href">
+    <span><slot /></span>
+    <span class="indicator"></span>
+  </a>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  href: string
+}
+
+defineProps<Props>()
+</script>
+
+<style scoped lang="scss">
+@use 'src/styles/tokens' as *;
+
+a {
+  position: relative;
+  color: var(--color-text-default);
+  font-weight: $font-weight-semi-bold;
+  text-decoration: none;
+  transition: color $duration-default $ease-in-out;
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  border-radius: 1px;
+  width: 0;
+  background-color: var(--color-text-default);
+  transition-property: width, background-color;
+  transition-duration: $duration-default;
+  transition-timing-function: $ease-in-out;
+
+  a:hover & {
+    width: 100%;
+  }
+}
+</style>

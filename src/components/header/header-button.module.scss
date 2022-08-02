@@ -1,6 +1,8 @@
+@use 'src/styles/tokens' as *;
+
 .size {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: $spacing-6;
+  height: $spacing-6;
 }
 
 .button {
@@ -21,5 +23,5 @@
 
 .svg path {
   fill: var(--color-text-default);
-  transition: fill var(--duration-default) var(--ease-in-out);
+  transition: fill $duration-default $ease-in-out;
 }

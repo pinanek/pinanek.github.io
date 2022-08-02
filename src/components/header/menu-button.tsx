@@ -1,3 +1,5 @@
+/** @jsxImportSource solid-js */
+
 import { createSignal, onMount, Show, type JSX, type Component, splitProps } from 'solid-js'
 import classnames from 'clsx'
 import Styles from './header-button.module.scss'
@@ -54,6 +56,7 @@ const MenuButton: Component<Props> = (props) => {
         aria-label={label()}
         aria-pressed={isMenuOpened()}
         onclick={handleToggleMenu}
+        type="button"
         {...restProps}
       >
         <svg class={Styles.svg} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

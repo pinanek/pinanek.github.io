@@ -1,3 +1,5 @@
+/** @jsxImportSource solid-js */
+
 import { createSignal, onMount, Show, type Component } from 'solid-js'
 import classnames from 'clsx'
 import Styles from './header-button.module.scss'

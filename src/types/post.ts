@@ -1,30 +1,23 @@
-import type { MarkdownInstance } from 'astro'
+import type { ImageAttrs } from '@islands/images'
 
 interface PostImage {
-  url: string
+  src: string
   alt: string
+  srcSets: ImageAttrs[]
+  width: number
+  height: number
+  style: string
 }
 
-interface PostHeadings {
-  id: string
-  level: number
-  content: string
-}
-
-interface PostFrontMatter {
+interface PostFrontmatter {
   title: string
   seoTitle: string
   description: string
   categories: string[]
   image: PostImage
-  headings: PostHeadings[]
   isEnablingToc?: boolean
   publishedDate: string
   lastUpdated?: string
 }
 
-type Post = MarkdownInstance<PostFrontMatter>
-
-type PostHeaders = Awaited<ReturnType<Post['getHeaders']>>
-
-export type { Post, PostHeaders, PostFrontMatter }
+export type { PostFrontmatter }

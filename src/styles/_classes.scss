@@ -1,0 +1,12 @@
+@use 'tokens' as *;
+
+.page-spacing {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-6;
+  padding-right: $spacing-6;
+}
+
+.page-sizing {
+  max-width: 68rem;
+}

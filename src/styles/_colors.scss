@@ -1,69 +1,47 @@
+/* Page */
+$page-background: (#ffffff, #1a1a1a);
+
+/* Text */
+$text-default: (#1a1a1a, #ededed);
+$text-inverse: (#ededed, #1a1a1a);
+
+/* Accent */
+$accent-default: (#0466c8, #82bffc);
+
+/* Content */
+$content-blockquote-indicator: (#e5e4e9, #2a2a2a);
+
+$content-info-bar-note-background: (#e0ecf8, #182430);
+$content-info-bar-icon-success: (#2a9d8f, #aeeae3);
+$content-info-bar-success-background: (#e4f3f1, #1c2b29);
+$content-info-bar-icon-warning: (#e9c46a, #f2dca6);
+$content-info-bar-warning-background: (#fcf8ec, #343024);
+$content-info-bar-icon-error: (#e63946, #ff9999);
+$content-info-bar-error-background: (#fce6e8, #341e20);
+
+$colors: (
+  page-background: $page-background,
+  text-default: $text-default,
+  text-inverse: $text-inverse,
+  accent-default: $accent-default,
+  content-blockquote-indicator: $content-blockquote-indicator,
+  content-info-bar-note-background: $content-info-bar-note-background,
+  content-info-bar-icon-success: $content-info-bar-icon-success,
+  content-info-bar-success-background: $content-info-bar-success-background,
+  content-info-bar-icon-warning: $content-info-bar-icon-warning,
+  content-info-bar-warning-background: $content-info-bar-warning-background,
+  content-info-bar-icon-error: $content-info-bar-icon-error,
+  content-info-bar-error-background: $content-info-bar-error-background
+);
+
 :root {
-  color-scheme: light;
-
-  /* Page */
-  --color-page-background: #ffffff;
-
-  /* Text */
-  --color-text-default: #1a1a1a;
-  --color-text-inverse: #ffffff;
-
-  --color-text-select-background: #3488e2;
-
-  /* Accent */
-  --color-accent-default: #006adc;
-
-  /* Statuses */
-  --color-critical-default: #ef233c;
-
-  /* Category */
-  --color-category-item-background: #e6f2ff;
-
-  /* Content */
-  --color-blockquote-border: #e5e4e9;
-  --color-inline-code-background: #ecebf0;
-
-  /* Table of contents */
-  --color-toc-item-background-default: #00000000;
-  --color-toc-item-background-secondary: #0000000b;
-  --color-toc-item-background-tertiary: #00000012;
-
-  --color-toc-item-default: #5a5a5a;
-  --color-toc-item-secondary: #1a1a1a;
-  --color-toc-item-tertiary: #000000;
+  @each $color, $values in $colors {
+    --color-#{$color}: #{nth($values, 1)};
+  }
 }
 
 :root.color-mode-dark {
-  color-scheme: dark;
-
-  /* Page */
-  --color-page-background: #1a1a1a;
-
-  /* Text */
-  --color-text-default: #f3f5f7;
-  --color-text-inverse: #1a1a1a;
-
-  --color-text-select-background: #cce5ff;
-
-  /* Accent */
-  --color-accent-default: #cce5ff;
-
-  /* Statuses */
-  --color-critical-default: #f68895;
-
-  /* Category */
-  --color-category-item-background: #1e2731;
-
-  // Content
-  --color-blockquote-border: #363636;
-  --color-inline-code-background: #282828;
-
-  /* Table of contents */
-  --color-toc-item-background-default: #ffffff00;
-  --color-toc-item-background-secondary: #ffffff0b;
-  --color-toc-item-background-tertiary: #ffffff12;
-
-  --color-toc-item-default: #d3d5d7;
-  --color-toc-item-secondary: #f3f5f7;
-  --color-toc-item-tertiary: #ffffff;
+  @each $color, $values in $colors {
+    --color-#{$color}: #{nth($values, 2)};
+  }
 }

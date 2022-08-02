@@ -1,3 +1,5 @@
+@use 'tokens' as *;
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -19,7 +21,7 @@ body {
 }
 
 body {
-  line-height: calc(1em + 0.5rem);
+  line-height: $line-height-default;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -49,6 +51,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-#__root {
+#app {
   isolation: isolate;
 }
