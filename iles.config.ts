@@ -3,10 +3,9 @@ import { defineConfig } from 'iles'
 import images, { widthPreset } from '@islands/images'
 
 import site from './src/site'
-import htmlMinifier from './scripts/html-minifier'
-import xmlMinifier from './scripts/xml-minifier'
-
 import markdownConfig from './src/markdown/config'
+import xmlMinifier from './scripts/xml-minifier'
+import htmlMinifier from './scripts/html-minifier'
 
 export default defineConfig({
   siteUrl: site.url,

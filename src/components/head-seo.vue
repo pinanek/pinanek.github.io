@@ -4,7 +4,7 @@
 
     <meta name="description" :content="description" />
 
-    <meta property="og:site_name" content="Pinanek23" />
+    <meta property="og:site_name" :content="site.title" />
     <meta property="og:type" content="website" />
     <meta property="og:url" :content="canonicalUrl" />
     <meta property="og:title" :content="seoTitle" />

@@ -112,7 +112,7 @@ This is a plain text code block
 ```
 
 ```text title=hihi.txt
-This is a plain text code block
+This is a plain text code block with title
 ```
 
 ```tsx
@@ -142,7 +142,7 @@ interface Props {
 function CodeBlock({ children }: Props): JSX.Element {
   return (
     <div>
-      <h2>This is an code block with syntax highlighting 😍</h2>
+      <h2>This is an code block with syntax highlighting with title 😍</h2>
       {children}
     </div>
   )

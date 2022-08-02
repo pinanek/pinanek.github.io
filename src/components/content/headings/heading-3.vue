@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue'
 
-const { id, ...props } = useAttrs() as { id: string; [x: string]: unknown }
+const { id, ...props } = useAttrs() as { id: string; [property: string]: unknown }
 </script>
 
 <style scoped lang="scss">

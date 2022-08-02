@@ -1,15 +1,8 @@
 <template>
-  <aside
-    :class="{
-      note: variant === 'note',
-      success: variant === 'success',
-      warning: variant === 'warning',
-      error: variant === 'error'
-    }"
-  >
+  <aside :class="variant">
     <div class="title">
       <InfoBarIcon :variant="variant" />
-      <span>{{ title ?? capitalizeFirstLetter(variant) }}</span>
+      <span>{{ title }}</span>
     </div>
     <div>
       <slot />
@@ -23,11 +16,13 @@ interface Props {
   variant: 'note' | 'success' | 'warning' | 'error'
 }
 
-defineProps<Props>()
-
 function capitalizeFirstLetter(str: string) {
   return str[0].toUpperCase() + str.slice(1)
 }
+
+const props = defineProps<Props>()
+
+const title = props.title ?? capitalizeFirstLetter(props.variant)
 </script>
 
 <style scoped lang="scss">

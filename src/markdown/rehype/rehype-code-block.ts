@@ -22,11 +22,11 @@ const rehypeCodeBlock: Plugin<
         node.tagName !== 'pre' ||
         node.children.length !== 1 ||
         node.children[0].type !== 'element' ||
-        (node.children[0] as Element).tagName !== 'code'
+        node.children[0].tagName !== 'code'
       )
         return
 
-      const codeNode = node.children[0] as Element
+      const codeNode = node.children[0]
 
       // Get lang
       let lang = ''
@@ -36,14 +36,16 @@ const rehypeCodeBlock: Plugin<
         lang = (codeNode.properties.className as string[])[0].replace('language-', '')
       }
 
+      // Get code and highlight it
       const code = toText(node).slice(0, -1)
       const highlightedCode = highlighter.codeToHtml(code, { lang })
 
+      // Set `lang` properties
       const newNode = hastParser.parse(highlightedCode).children[0] as Element
       if (newNode.properties === undefined) newNode.properties = {}
       newNode.properties.lang = lang
 
-      // Get other properties
+      // Set other properties
       if (codeNode.data !== undefined && codeNode.data.meta !== undefined) {
         codePropertyRegex.lastIndex = 0
         let match
