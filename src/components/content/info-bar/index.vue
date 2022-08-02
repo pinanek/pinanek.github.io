@@ -43,7 +43,7 @@ aside {
 
   span {
     font-weight: $font-weight-bold;
-    line-height: calc(1em + 0.75rem);
+    line-height: $line-height-content-paragraph;
     transition: color $duration-default $ease-in-out;
   }
 }

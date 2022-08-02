@@ -12,6 +12,9 @@ import Image from '@/components/content/image.vue'
 import InlineCode from '@/components/content/code/inline-code.vue'
 import CodeBlock from '@/components/content/code/code-block.vue'
 import InfoBar from '@/components/content/info-bar/index.vue'
+import ListItem from '@/components/content/lists/list-item.vue'
+import OrderedList from '@/components/content/lists/ordered-list.vue'
+import UnorderedList from '@/components/content/lists/unordered-list.vue'
 
 import '@/styles/global.scss'
 
@@ -28,7 +31,10 @@ export default defineApp({
     img: Image,
     inlineCode: InlineCode,
     pre: CodeBlock,
-    infoBar: InfoBar
+    infoBar: InfoBar,
+    li: ListItem,
+    ol: OrderedList,
+    ul: UnorderedList
   },
 
   head: ({ site, route }) => {

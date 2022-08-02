@@ -24,12 +24,15 @@ declare module '@vue/runtime-core' {
     InlineCode: typeof import('./src/components/content/code/inline-code.vue')['default']
     Island: typeof import('./node_modules/.pnpm/iles@0.8.3_sass@1.54.0/node_modules/iles/dist/client/app/components/Island.vue')['default']
     Link: typeof import('./src/components/content/link.vue')['default']
+    ListItem: typeof import('./src/components/content/lists/list-item.vue')['default']
     Logo: typeof import('./src/components/header/logo.vue')['default']
     MenuButton: typeof import('./src/components/header/menu-button.tsx')['default']
+    OrderedList: typeof import('./src/components/content/lists/ordered-list.vue')['default']
     Paragraph: typeof import('./src/components/content/paragraph.vue')['default']
     Picture: typeof import('./node_modules/.pnpm/@islands+images@0.8.1/node_modules/@islands/images/src/Picture.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeButton: typeof import('./src/components/header/theme-button.tsx')['default']
+    UnorderedList: typeof import('./src/components/content/lists/unordered-list.vue')['default']
   }
 }
