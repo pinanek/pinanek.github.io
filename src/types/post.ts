@@ -1,6 +1,12 @@
+import type { ImageAttrs } from '@islands/images'
+
 interface PostImage {
-  url: string
+  src: string
   alt: string
+  srcSets: ImageAttrs[]
+  width: number
+  height: number
+  style: string
 }
 
 interface PostFrontmatter {

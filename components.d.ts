@@ -30,6 +30,7 @@ declare module '@vue/runtime-core' {
     OrderedList: typeof import('./src/components/content/lists/ordered-list.vue')['default']
     Paragraph: typeof import('./src/components/content/paragraph.vue')['default']
     Picture: typeof import('./node_modules/.pnpm/@islands+images@0.8.1/node_modules/@islands/images/src/Picture.vue')['default']
+    Post: typeof import('./src/components/post/post.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeButton: typeof import('./src/components/header/theme-button.tsx')['default']

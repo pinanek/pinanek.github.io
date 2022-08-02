@@ -4,7 +4,7 @@ seoTitle: Hello
 description: Just an example post 😎
 categories: ['Example']
 image:
-  url: default-logo.png
+  src: default-logo.png
   alt: Logo of pinanek23
 isPublished: true
 publishedDate: 06-01-2022

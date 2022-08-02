@@ -47,5 +47,5 @@ const title = props.title === undefined ? site.title : `${props.title} • ${sit
 const seoTitle = props.seoTitle === undefined ? title : `${props.seoTitle} • ${site.title}`
 const description = props.description ?? site.description
 const canonicalUrl = new URL(route.fullPath, site.url).toString().replace(/\/+$/, '')
-const imageUrl = new URL(site.imageSrc, site.url).toString()
+const imageUrl = new URL(props.imageSrc, site.url).toString()
 </script>

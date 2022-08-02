@@ -1,12 +1,5 @@
 <template layout="post">
-  <HeadSeo
-    :title="post.frontmatter.title"
-    :seo-title="post.frontmatter.seoTitle"
-    :description="post.frontmatter.description"
-    :image-src="post.frontmatter.image.url"
-    :image-alt="post.frontmatter.image.alt"
-  />
-  <component :is="post" excerpt />
+  <Post :post="post" />
 </template>
 
 <script setup lang="ts">

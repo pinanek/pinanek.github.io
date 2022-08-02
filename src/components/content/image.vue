@@ -23,5 +23,6 @@ picture {
 
 :deep(img) {
   border-radius: $radii-md;
+  margin: auto;
 }
 </style>
