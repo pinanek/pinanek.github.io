@@ -45,6 +45,30 @@ This is ~~strike-through text~~
 >
 > > With nested blockquote
 
+>
+
+## InfoBars
+
+> **Note**
+>
+> This is **Note** variant
+
+> **Success**
+>
+> This is **Success** variant
+
+> **Warning**
+>
+> This is **Warning** variant
+
+> **Error**
+>
+> This is **Error** variant
+
+> **Note** With title
+>
+> This is InfoBar with title
+
 ## Links
 
 This is a [In-site Link](/), and this is an [External Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).

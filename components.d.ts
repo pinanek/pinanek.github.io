@@ -19,6 +19,8 @@ declare module '@vue/runtime-core' {
     HeadingLink: typeof import('./src/components/content/headings/heading-link.vue')['default']
     HeadSeo: typeof import('./src/components/head-seo.vue')['default']
     Image: typeof import('./src/components/content/image.vue')['default']
+    InfoBar: typeof import('./src/components/content/info-bar/index.vue')['default']
+    InfoBarIcon: typeof import('./src/components/content/info-bar/info-bar-icon.vue')['default']
     InlineCode: typeof import('./src/components/content/code/inline-code.vue')['default']
     Island: typeof import('./node_modules/.pnpm/iles@0.8.3_sass@1.54.0/node_modules/iles/dist/client/app/components/Island.vue')['default']
     Link: typeof import('./src/components/content/link.vue')['default']

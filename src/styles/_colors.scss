@@ -6,17 +6,32 @@ $text-default: (#1a1a1a, #ededed);
 $text-inverse: (#ededed, #1a1a1a);
 
 /* Accent */
-$accent-default: (#0a89ff, #85c4ff);
+$accent-default: (#0466c8, #82bffc);
 
 /* Content */
 $content-blockquote-indicator: (#e5e4e9, #2a2a2a);
+
+$content-info-bar-note-background: (#e0ecf8, #182430);
+$content-info-bar-icon-success: (#2a9d8f, #aeeae3);
+$content-info-bar-success-background: (#e4f3f1, #1c2b29);
+$content-info-bar-icon-warning: (#e9c46a, #f2dca6);
+$content-info-bar-warning-background: (#fcf8ec, #343024);
+$content-info-bar-icon-error: (#e63946, #ff9999);
+$content-info-bar-error-background: (#fce6e8, #341e20);
 
 $colors: (
   page-background: $page-background,
   text-default: $text-default,
   text-inverse: $text-inverse,
   accent-default: $accent-default,
-  content-blockquote-indicator: $content-blockquote-indicator
+  content-blockquote-indicator: $content-blockquote-indicator,
+  content-info-bar-note-background: $content-info-bar-note-background,
+  content-info-bar-icon-success: $content-info-bar-icon-success,
+  content-info-bar-success-background: $content-info-bar-success-background,
+  content-info-bar-icon-warning: $content-info-bar-icon-warning,
+  content-info-bar-warning-background: $content-info-bar-warning-background,
+  content-info-bar-icon-error: $content-info-bar-icon-error,
+  content-info-bar-error-background: $content-info-bar-error-background
 );
 
 :root {

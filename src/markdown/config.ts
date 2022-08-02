@@ -4,6 +4,7 @@ import remarkImageSize from './remark/remark-image-size'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeInlineCode from './rehype/rehype-inline-code'
 import rehypeCodeBlock from './rehype/rehype-code-block'
+import rehypeInfoBar from './rehype/rehype-info-bar'
 
 import { highlighter } from './highlighter'
 
@@ -18,7 +19,8 @@ const config: UserConfig['markdown'] = {
   rehypePlugins: [
     [rehypeExternalLinks, { target: '_blank', rel: ['nofollow', 'noopener', 'noreferrer'] }],
     [rehypeInlineCode, { highlighter }],
-    [rehypeCodeBlock, { highlighter }]
+    [rehypeCodeBlock, { highlighter }],
+    rehypeInfoBar
   ]
 }
 

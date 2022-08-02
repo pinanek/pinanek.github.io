@@ -11,6 +11,7 @@ import Blockquote from '@/components/content/blockquote.vue'
 import Image from '@/components/content/image.vue'
 import InlineCode from '@/components/content/code/inline-code.vue'
 import CodeBlock from '@/components/content/code/code-block.vue'
+import InfoBar from '@/components/content/info-bar/index.vue'
 
 import '@/styles/global.scss'
 
@@ -26,7 +27,8 @@ export default defineApp({
     blockquote: Blockquote,
     img: Image,
     inlineCode: InlineCode,
-    pre: CodeBlock
+    pre: CodeBlock,
+    infoBar: InfoBar
   },
 
   head: ({ site, route }) => {
