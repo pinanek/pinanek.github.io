@@ -43,7 +43,6 @@ const { title, seoTitle, description, image, publishedDate, lastUpdated } = $(pr
 
 .main {
   margin: $spacing-20 0;
-  transition: color $duration-default $ease-in-out;
 }
 
 .info {
@@ -51,6 +50,7 @@ const { title, seoTitle, description, image, publishedDate, lastUpdated } = $(pr
   flex-direction: column;
   align-items: center;
   gap: $spacing-8;
+  transition: color $duration-default $ease-in-out;
 
   :deep(img) {
     border-radius: $radii-md;
