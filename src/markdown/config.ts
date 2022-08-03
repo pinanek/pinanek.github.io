@@ -41,7 +41,7 @@ function extendMarkdownFrontmatter(images: ReturnType<typeof imagesPlugins>): Us
     validateFrontmatterFields(frontmatter, filename)
 
     // Extend frontmatter
-    updateImageFrontmatter(images, frontmatter, filename)
+    await updateImageFrontmatter(images, frontmatter, filename)
     updateDatesFrontmatter(frontmatter)
     updateCategoriesFrontmatter(frontmatter)
   }
@@ -104,6 +104,8 @@ async function updateImageFrontmatter(
   frontmatter.image.width = width
   frontmatter.image.height = height
   frontmatter.image.style = `max-width: 100%; height: auto; aspect-ratio: ${width}/${height}`
+
+  return frontmatter
 }
 
 function updateDatesFrontmatter(frontmatter: RawPageMatter) {
