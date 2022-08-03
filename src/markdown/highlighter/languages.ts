@@ -13,7 +13,10 @@ const languages = [
   'diff',
   'json',
   'jsonc',
-  'yaml'
+  'yaml',
+  'css',
+  'scss',
+  'md'
 ] as const
 
 const languageNames: Record<Language, string> = {
@@ -29,7 +32,10 @@ const languageNames: Record<Language, string> = {
   json: 'JSON',
   jsonc: 'JSONC',
   yaml: 'Yaml',
-  text: 'Text'
+  text: 'Text',
+  css: 'CSS',
+  scss: 'SCSS',
+  md: 'Markdown'
 }
 
 export { languages, languageNames, type Language }

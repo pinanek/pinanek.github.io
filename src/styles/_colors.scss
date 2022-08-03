@@ -34,14 +34,59 @@ $colors: (
   content-info-bar-error-background: $content-info-bar-error-background
 );
 
+/* Shiki colors */
+$color-header-background: (#e5e4e9, #282828);
+$color-background: (#f5f4f9, #212121);
+$color-text: $text-default;
+$token-keyword: $accent-default;
+$token-constant: $text-default;
+$token-type: (#ed5e90, #f28cb0);
+$token-string-expression: (#40916c, #71c19d);
+$token-number: (#74abd2, #9fc5e0);
+$token-comment: (#808080, #808080);
+$token-variable-parameter: $text-default;
+$token-function: (#bd7585, #cd98a3);
+$token-control-flow: (#6930c3, #b699e6);
+$token-punctuation: $text-default;
+$token-css-attribute-quantifier-regex: (#f28482, #f5a4a3);
+$token-string-regex: (#eaac8b, #eaac8b);
+$token-html-xml-tag: $text-default;
+
+$shiki-colors: (
+  color-header-background: $color-header-background,
+  color-background: $color-background,
+  color-text: $color-text,
+  token-keyword: $token-keyword,
+  token-constant: $token-constant,
+  token-type: $token-type,
+  token-string-expression: $token-string-expression,
+  token-number: $token-number,
+  token-comment: $token-comment,
+  token-variable-parameter: $token-variable-parameter,
+  token-function: $token-function,
+  token-control-flow: $token-control-flow,
+  token-punctuation: $color-text,
+  token-css-attribute-quantifier-regex: $token-css-attribute-quantifier-regex,
+  token-string-regex: $token-string-regex,
+  token-html-xml-tag: $token-html-xml-tag
+);
+
 :root {
   @each $color, $values in $colors {
     --color-#{$color}: #{nth($values, 1)};
+  }
+
+  @each $color, $values in $shiki-colors {
+    --shiki-#{$color}: #{nth($values, 1)};
   }
 }
 
 :root.color-mode-dark {
   @each $color, $values in $colors {
     --color-#{$color}: #{nth($values, 2)};
+  }
+
+  @each $color, $values in $shiki-colors {
+    --shiki-#{$color}: #{nth($values, 2)};
   }
 }

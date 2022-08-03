@@ -122,7 +122,18 @@ interface Props {
   children: React.ReactNode
 }
 
+const string = 'This is a string'
+const number = 302323
+const regex = /\b([-\w]+)(?:=(?:"([^"]*)"|'([^']*)'|([^"'\s]+)))?/g
+
+// This is the CodeBlock component
 function CodeBlock({ children }: Props): JSX.Element {
+  if (string === 'This is a string') {
+    console.log(string)
+  } else {
+    console.log('Error')
+  }
+
   return (
     <div>
       <h2>This is an code block with syntax highlighting 😍</h2>

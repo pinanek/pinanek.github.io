@@ -2,7 +2,7 @@ import { unified, type Plugin } from 'unified'
 import { visit } from 'unist-util-visit'
 import { toText } from 'hast-util-to-text'
 import rehypeParse from 'rehype-parse'
-import type { Highlighter } from 'shiki'
+import type { Highlighter } from '../highlighter'
 import type { Element, Parent } from 'hast'
 
 const codePropertyRegex = /\b([-\w]+)(?:=(?:"([^"]*)"|'([^']*)'|([^"'\s]+)))?/g
@@ -38,7 +38,7 @@ const rehypeCodeBlock: Plugin<
 
       // Get code and highlight it
       const code = toText(node).slice(0, -1)
-      const highlightedCode = highlighter.codeToHtml(code, { lang })
+      const highlightedCode = highlighter.codeToHtml(code, lang)
 
       // Set `lang` properties
       const newNode = hastParser.parse(highlightedCode).children[0] as Element

@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { useAttrs } from 'vue'
-import { languageNames, type Language } from '@/markdown/highlight-languages'
+import { languageNames, type Language } from '@/markdown/highlighter/languages'
 
 const { lang, title, className, ...props } = useAttrs() as {
   lang: Language
@@ -36,15 +36,18 @@ export default {
   border-radius: $radii-md;
   font-family: $font-mono;
   overflow: hidden;
+  transition: background-color $duration-default $ease-in-out;
 }
 
 .info {
   display: grid;
   grid-template-columns: 1fr auto;
-  color: #d4d4d4;
   padding: $spacing-2 $spacing-4;
-  background-color: #2c2c2c;
+  background-color: var(--shiki-color-header-background);
   border-radius: $radii-md;
+  transition-property: color, background-color;
+  transition-duration: $duration-default;
+  transition-timing-function: $ease-in-out;
 
   .lang {
     grid-column: 2;
@@ -57,6 +60,10 @@ pre {
 
   :deep(code) {
     font-family: $font-mono;
+
+    span.line > span {
+      transition: color $duration-default $ease-in-out;
+    }
   }
 }
 </style>
