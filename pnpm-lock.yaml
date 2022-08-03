@@ -7,6 +7,8 @@ specifiers:
   '@astrojs/sitemap': ^0.3.0
   '@astrojs/solid-js': ^0.4.1
   '@babel/core': ^7.18.10
+  '@types/hast': ^2.3.4
+  '@types/html-minifier-terser': ^6.1.0
   '@typescript-eslint/eslint-plugin': ^5.32.0
   '@typescript-eslint/parser': ^5.32.0
   astro: 1.0.0-rc.4
@@ -31,6 +33,7 @@ specifiers:
   sass: ^1.54.1
   solid-js: ^1.4.8
   typescript: ^4.7.4
+  unified: ^10.1.2
   unist-util-visit: ^4.1.0
 
 devDependencies:
@@ -40,6 +43,8 @@ devDependencies:
   '@astrojs/sitemap': 0.3.0
   '@astrojs/solid-js': 0.4.1_kpssc5aqipn2htirjadp2bthhm
   '@babel/core': 7.18.10
+  '@types/hast': 2.3.4
+  '@types/html-minifier-terser': 6.1.0
   '@typescript-eslint/eslint-plugin': 5.32.0_iosr3hrei2tubxveewluhu5lhy
   '@typescript-eslint/parser': 5.32.0_qugx7qdu5zevzvxaiqyxfiwquq
   astro: 1.0.0-rc.4_sass@1.54.1
@@ -64,6 +69,7 @@ devDependencies:
   sass: 1.54.1
   solid-js: 1.4.8
   typescript: 4.7.4
+  unified: 10.1.2
   unist-util-visit: 4.1.0
 
 packages:
@@ -724,6 +730,10 @@ packages:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
       '@types/unist': 2.0.6
+    dev: true
+
+  /@types/html-minifier-terser/6.1.0:
+    resolution: {integrity: sha512-oh/6byDPnL1zeNXFrDXFLyZjkr1MsBG667IM792caf1L2UPOOMf65NFzjUH/ltyfwjAGfs1rsX1eftK0jC/KIg==}
     dev: true
 
   /@types/json-schema/7.0.11:

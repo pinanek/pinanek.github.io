@@ -1,2 +1,2 @@
-'*.{md,mdx,json,yaml,js,mjs}': prettier --write
+'*.{md,mdx,json,yaml,scss}': prettier --write
 '*.{ts,tsx,astro}': [prettier --write, eslint]

@@ -4,7 +4,7 @@ import solid from '@astrojs/solid-js'
 import image from '@astrojs/image'
 import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
-import htmlMinifier from './integrations/astro-html-minifier.mjs'
+import htmlMinifier from './integrations/astro-html-minifier'
 
 import remarkGfm from 'remark-gfm'
 import remarkSmartypants from 'remark-smartypants'
@@ -12,7 +12,7 @@ import remarkMdxImages from 'remark-mdx-images'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
 import rehypeSlug from 'rehype-slug'
-import rehypeInlineCode from './plugins/rehype-inline-code.mjs'
+import rehypeInlineCode from './plugins/rehype-inline-code'
 
 export default defineConfig({
   site: 'http://pinanek23.pages.dev/',

@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["@astrojs/image/client", "vite/types/importMeta"],
+    "types": ["astro/client", "vite/types/importMeta"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

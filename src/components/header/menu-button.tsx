@@ -54,6 +54,7 @@ const MenuButton: Component<Props> = (props) => {
         aria-label={label()}
         aria-pressed={isMenuOpened()}
         onclick={handleToggleMenu}
+        type="button"
         {...restProps}
       >
         <svg class={Styles.svg} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -2,12 +2,12 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as htmlMinifierTerser from 'html-minifier-terser'
 import glob from 'fast-glob'
+import type { AstroIntegration } from 'astro'
 
 const baseDir = process.cwd()
 
-function astroHtmlMinifier() {
-  /** @type {import('astro').AstroIntegration} */
-  const integration = {
+function astroHtmlMinifier(): AstroIntegration {
+  return {
     name: 'astro-html-minifier',
     hooks: {
       'astro:build:done': async () => {
@@ -35,8 +35,6 @@ function astroHtmlMinifier() {
       }
     }
   }
-
-  return integration
 }
 
 export default astroHtmlMinifier
