@@ -15,7 +15,7 @@ import { getPostDateString, isPostValidDate } from '../utils/date'
 
 import type { default as imagesPlugins, ImageAttrs } from '@islands/images'
 import type { RawPageMatter, UserConfig } from 'iles'
-import type { PostCategory } from '../types/post'
+import type { PostCategory, PostImage } from '../types/post'
 
 const baseDir = process.cwd()
 
@@ -99,13 +99,20 @@ async function updateImageFrontmatter(
 
   const { width, height } = imageSize(path.join(baseDir, src))
 
-  frontmatter.image.srcSets = (await images.api.resolveImage(src, { preset: 'postThumbnail' })) as ImageAttrs[]
-  frontmatter.image.src = (await images.api.resolveImage(src, { preset: 'postThumbnail', src: true })) as string
-  frontmatter.image.width = width
-  frontmatter.image.height = height
-  frontmatter.image.style = `max-width: 100%; height: auto; aspect-ratio: ${width}/${height}`
+  if (width === undefined || height === undefined) {
+    throw new Error(`${filename}: Frontmatter image has invalid width or height`)
+  }
 
-  return frontmatter
+  const newImage: PostImage = {
+    srcSets: (await images.api.resolveImage(src, { preset: 'postThumbnail' })) as ImageAttrs[],
+    src: (await images.api.resolveImage(src, { preset: 'postThumbnail', src: true })) as string,
+    alt: frontmatter.image.alt,
+    width,
+    height,
+    style: `max-width: 100%; height: auto; aspect-ratio: ${width}/${height}`
+  }
+
+  frontmatter.image = newImage
 }
 
 function updateDatesFrontmatter(frontmatter: RawPageMatter) {
