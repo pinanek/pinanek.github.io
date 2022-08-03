@@ -1,3 +1,9 @@
+import { isValid, parse } from 'date-fns'
+
+function isPostValidDate(date: string) {
+  return isValid(parse(date, 'MM-dd-yyyy', new Date()))
+}
+
 function getPostDateString(date: string): string {
   return new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
@@ -6,4 +12,4 @@ function getPostDateString(date: string): string {
   })
 }
 
-export { getPostDateString }
+export { isPostValidDate, getPostDateString }

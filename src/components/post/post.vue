@@ -11,10 +11,13 @@
       <div class="frontmatter">
         <h1>{{ title }}</h1>
         <span class="description">{{ description }}</span>
-        <span class="dates">
+        <span v-if="publishedDate" class="dates">
           <span>{{ publishedDate }}</span>
           <span v-if="lastUpdated">-</span>
           <span v-if="lastUpdated">Last updated: {{ lastUpdated }}</span>
+        </span>
+        <span class="categories">
+          <CategoryItem v-for="category in categories" :key="category.raw" :category="category" />
         </span>
       </div>
       <Picture :src="image.srcSets" :alt="image.alt" :width="image.width" :height="image.height" :style="image.style" />
@@ -35,7 +38,7 @@ interface Props {
 const props = defineProps<Props>()
 
 // eslint-disable-next-line no-undef
-const { title, seoTitle, description, image, publishedDate, lastUpdated } = $(props.post.frontmatter)
+const { title, seoTitle, description, image, publishedDate, lastUpdated, categories } = $(props.post.frontmatter)
 </script>
 
 <style scoped lang="scss">
@@ -76,6 +79,12 @@ const { title, seoTitle, description, image, publishedDate, lastUpdated } = $(pr
     display: flex;
     align-items: center;
     gap: $spacing-2;
+  }
+
+  .categories {
+    display: flex;
+    align-items: center;
+    gap: $spacing-4;
   }
 }
 </style>

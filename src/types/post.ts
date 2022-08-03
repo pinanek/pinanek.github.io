@@ -9,15 +9,20 @@ interface PostImage {
   style: string
 }
 
+interface PostCategory {
+  raw: string
+  name: string
+}
+
 interface PostFrontmatter {
   title: string
   seoTitle: string
   description: string
-  categories: string[]
+  categories: PostCategory[]
   image: PostImage
   isEnablingToc?: boolean
-  publishedDate: string
+  publishedDate?: string
   lastUpdated?: string
 }
 
-export type { PostFrontmatter }
+export type { PostFrontmatter, PostCategory, PostImage }

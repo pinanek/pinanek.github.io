@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseLayout: typeof import('./src/layouts/base.vue')['default']
     Blockquote: typeof import('./src/components/content/blockquote.vue')['default']
+    CategoryItem: typeof import('./src/components/category-item.vue')['default']
     CodeBlock: typeof import('./src/components/content/code/code-block.vue')['default']
     Head: typeof import('@vueuse/head')['Head']
     Header: typeof import('./src/components/header/header.vue')['default']

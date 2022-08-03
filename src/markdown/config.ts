@@ -10,10 +10,12 @@ import rehypeCodeBlock from './rehype/rehype-code-block'
 import rehypeInfoBar from './rehype/rehype-info-bar'
 
 import { highlighter } from './highlighter'
-import { getPostDateString } from '../utils/date'
+import { categoryNames } from './categories'
+import { getPostDateString, isPostValidDate } from '../utils/date'
 
 import type { default as imagesPlugins, ImageAttrs } from '@islands/images'
-import type { UserConfig } from 'iles'
+import type { RawPageMatter, UserConfig } from 'iles'
+import type { PostCategory } from '../types/post'
 
 const baseDir = process.cwd()
 
@@ -33,25 +35,99 @@ const markdownConfig: UserConfig['markdown'] = {
 
 function extendMarkdownFrontmatter(images: ReturnType<typeof imagesPlugins>): UserConfig['extendFrontmatter'] {
   return async function extendFrontmatter(frontmatter, filename) {
-    if (frontmatter.image !== undefined && frontmatter.image.src !== undefined) {
-      const imageDir = path.dirname(filename)
-      const src = path.join(imageDir, frontmatter.image.src)
+    // Only extend frontmatter of markdown files 🥴
+    if (!filename.endsWith('.md') || Object.keys(frontmatter).length === 3) return
 
-      const { width, height } = imageSize(path.join(baseDir, src))
+    validateFrontmatterFields(frontmatter, filename)
 
-      frontmatter.image.srcSets = (await images.api.resolveImage(src, { preset: 'postThumbnail' })) as ImageAttrs[]
-      frontmatter.image.src = (await images.api.resolveImage(src, { preset: 'postThumbnail', src: true })) as string
-      frontmatter.image.width = width
-      frontmatter.image.height = height
-      frontmatter.image.style = `max-width: 100%; height: auto; aspect-ratio: ${width}/${height}`
+    // Extend frontmatter
+    updateImageFrontmatter(images, frontmatter, filename)
+    updateDatesFrontmatter(frontmatter)
+    updateCategoriesFrontmatter(frontmatter)
+  }
+}
 
-      frontmatter.publishedDate = getPostDateString(frontmatter.publishedDate)
+function validateFrontmatterFields(frontmatter: RawPageMatter, filename: string) {
+  const invalidFields: string[] = []
 
-      if (frontmatter.lastUpdated !== undefined) {
-        frontmatter.lastUpdated = getPostDateString(frontmatter.lastUpdated)
+  if (frontmatter.title === undefined) invalidFields.push('title')
+  if (frontmatter.seoTitle === undefined) invalidFields.push('seoTitle')
+  if (frontmatter.description === undefined) invalidFields.push('description')
+
+  // Validate categories
+  if (
+    frontmatter.categories === undefined ||
+    !Array.isArray(frontmatter.categories) ||
+    frontmatter.categories.length === 0
+  ) {
+    invalidFields.push('categories')
+  } else {
+    for (const category of frontmatter.categories) {
+      if (categoryNames[category] === undefined) {
+        invalidFields.push(`categories[${category}]`)
       }
     }
   }
+
+  // Validate image
+  if (frontmatter.image === undefined) {
+    invalidFields.push('image')
+  } else {
+    if (frontmatter.image.src === undefined) invalidFields.push('image.src')
+    if (frontmatter.image.alt === undefined) invalidFields.push('image.alt')
+  }
+
+  // Validate dates
+  if (!frontmatter.draft) {
+    if (frontmatter.publishedDate === undefined || !isPostValidDate(frontmatter.publishedDate))
+      invalidFields.push('publishedDate')
+
+    if (frontmatter.lastUpdated !== undefined && !isPostValidDate(frontmatter.lastUpdated))
+      invalidFields.push('lastUpdated')
+  }
+
+  if (invalidFields.length > 0) throw new Error(`${filename}: Invalid fields (${invalidFields.join(', ')})`)
+}
+
+async function updateImageFrontmatter(
+  images: ReturnType<typeof imagesPlugins>,
+  frontmatter: RawPageMatter,
+  filename: string
+) {
+  const imageDir = path.dirname(filename)
+  const src = path.join(imageDir, frontmatter.image.src)
+
+  const { width, height } = imageSize(path.join(baseDir, src))
+
+  frontmatter.image.srcSets = (await images.api.resolveImage(src, { preset: 'postThumbnail' })) as ImageAttrs[]
+  frontmatter.image.src = (await images.api.resolveImage(src, { preset: 'postThumbnail', src: true })) as string
+  frontmatter.image.width = width
+  frontmatter.image.height = height
+  frontmatter.image.style = `max-width: 100%; height: auto; aspect-ratio: ${width}/${height}`
+}
+
+function updateDatesFrontmatter(frontmatter: RawPageMatter) {
+  // Date
+  if (frontmatter.publishedDate !== undefined) {
+    frontmatter.publishedDate = getPostDateString(frontmatter.publishedDate)
+  }
+
+  if (frontmatter.lastUpdated !== undefined) {
+    frontmatter.lastUpdated = getPostDateString(frontmatter.lastUpdated)
+  }
+}
+
+function updateCategoriesFrontmatter(frontmatter: RawPageMatter) {
+  const newCategories: PostCategory[] = []
+
+  for (const category of frontmatter.categories) {
+    newCategories.push({
+      raw: category,
+      name: categoryNames[category]
+    })
+  }
+
+  frontmatter.categories = newCategories
 }
 
 export { markdownConfig, extendMarkdownFrontmatter }
