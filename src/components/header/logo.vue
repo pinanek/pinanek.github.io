@@ -6,7 +6,15 @@
 @use 'src/styles/tokens' as *;
 
 span {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: $font-weight-extra-bold;
+
+  @media ($breakpoint-sm) {
+    font-size: 1.75rem;
+  }
+
+  @media ($breakpoint-md) {
+    font-size: 2rem;
+  }
 }
 </style>
