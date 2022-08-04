@@ -14,7 +14,7 @@
           <ThemeButton client:visible />
         </div>
       </div>
-      <MenuButton client:visible class="menu-button" />
+      <MenuButton client:visible />
     </div>
   </div>
 </template>
@@ -85,7 +85,8 @@
   }
 }
 
-:deep(.container) .menu-button {
+// Menu button
+.container > :deep(ile-root) {
   display: inline-block;
 
   @media ($breakpoint-md) {
