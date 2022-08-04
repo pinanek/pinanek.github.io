@@ -23,7 +23,7 @@ declare module '@vue/runtime-core' {
     InfoBar: typeof import('./src/components/content/info-bar/info-bar.vue')['default']
     InfoBarIcon: typeof import('./src/components/content/info-bar/info-bar-icon.vue')['default']
     InlineCode: typeof import('./src/components/content/code/inline-code.vue')['default']
-    Island: typeof import('./node_modules/.pnpm/iles@0.8.3_sass@1.54.0/node_modules/iles/dist/client/app/components/Island.vue')['default']
+    Island: typeof import('./node_modules/.pnpm/iles@0.8.3_sass@1.54.2/node_modules/iles/dist/client/app/components/Island.vue')['default']
     Link: typeof import('./src/components/content/link.vue')['default']
     ListItem: typeof import('./src/components/content/lists/list-item.vue')['default']
     Logo: typeof import('./src/components/header/logo.vue')['default']
