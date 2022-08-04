@@ -1,6 +1,7 @@
 import { defineConfig } from 'iles'
 
 import imagesPlugins, { widthPreset } from '@islands/images'
+import feed from '@islands/feed'
 
 import site from './src/site'
 import { markdownConfig, extendMarkdownFrontmatter } from './src/markdown/config'
@@ -30,7 +31,7 @@ const images = imagesPlugins({
 export default defineConfig({
   siteUrl: site.url,
 
-  modules: [images],
+  modules: [images, feed()],
 
   extendFrontmatter: extendMarkdownFrontmatter(images),
   markdown: markdownConfig,

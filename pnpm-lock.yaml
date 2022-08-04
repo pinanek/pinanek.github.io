@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@islands/feed': ^0.8.0
   '@islands/images': ^0.8.1
   '@types/html-minifier-terser': ^6.1.0
   '@types/mdast': ^3.0.10
@@ -35,10 +36,12 @@ specifiers:
   unist-util-visit: ^4.1.0
   vite: ^3.0.4
   vite-plugin-solid: ^2.3.0
+  vue: ^3.2.37
   vue-eslint-parser: ^9.0.3
   vue-tsc: ^0.38.9
 
 devDependencies:
+  '@islands/feed': 0.8.0_iles@0.8.3+vue@3.2.37
   '@islands/images': 0.8.1
   '@types/html-minifier-terser': 6.1.0
   '@types/mdast': 3.0.10
@@ -73,6 +76,7 @@ devDependencies:
   unist-util-visit: 4.1.0
   vite: 3.0.4_sass@1.54.2
   vite-plugin-solid: 2.3.0_solid-js@1.4.8+vite@3.0.4
+  vue: 3.2.37
   vue-eslint-parser: 9.0.3_eslint@8.21.0
   vue-tsc: 0.38.9_typescript@4.7.4
 
@@ -460,6 +464,18 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@islands/feed/0.8.0_iles@0.8.3+vue@3.2.37:
+    resolution: {integrity: sha512-mUhQQRRtff7rtB480W/exa/FObAm1QWKXLokz2oFOAjqvw0YAJDxKCBPCxqNG243zj+1VutwE5LVM5nc8XDvtQ==}
+    peerDependencies:
+      iles: ^0.8
+      vue: ^3.2.37
+    dependencies:
+      feed: 4.2.2
+      iles: 0.8.3_sass@1.54.2
+      pathe: 0.2.0
+      vue: 3.2.37
     dev: true
 
   /@islands/hydration/0.8.0:
@@ -2158,6 +2174,13 @@ packages:
     resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
     dependencies:
       format: 0.2.2
+    dev: true
+
+  /feed/4.2.2:
+    resolution: {integrity: sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==}
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      xml-js: 1.6.11
     dev: true
 
   /file-entry-cache/6.0.1:
@@ -4364,6 +4387,10 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: true
+
   /section-matter/1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
@@ -5209,6 +5236,13 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+    dev: true
+
+  /xml-js/1.6.11:
+    resolution: {integrity: sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==}
+    hasBin: true
+    dependencies:
+      sax: 1.2.4
     dev: true
 
   /xml-name-validator/4.0.0:

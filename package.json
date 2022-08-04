@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@islands/feed": "^0.8.0",
     "@islands/images": "^0.8.1",
     "@types/html-minifier-terser": "^6.1.0",
     "@types/mdast": "^3.0.10",
@@ -47,6 +48,7 @@
     "unist-util-visit": "^4.1.0",
     "vite": "^3.0.4",
     "vite-plugin-solid": "^2.3.0",
+    "vue": "^3.2.37",
     "vue-eslint-parser": "^9.0.3",
     "vue-tsc": "^0.38.9"
   }

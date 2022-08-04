@@ -32,6 +32,7 @@ declare module '@vue/runtime-core' {
     Paragraph: typeof import('./src/components/content/paragraph.vue')['default']
     Picture: typeof import('./node_modules/.pnpm/@islands+images@0.8.1/node_modules/@islands/images/src/Picture.vue')['default']
     Post: typeof import('./src/components/post/post.vue')['default']
+    RenderFeed: typeof import('./node_modules/.pnpm/@islands+feed@0.8.0_iles@0.8.3+vue@3.2.37/node_modules/@islands/feed/dist/render-feed')['RenderFeed']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeButton: typeof import('./src/components/header/theme-button.tsx')['default']
