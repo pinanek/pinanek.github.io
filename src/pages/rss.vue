@@ -3,7 +3,7 @@ path: /rss.xml
 </page>
 
 <template>
-  <RenderFeed format="rss" :options="options" :items="items" />
+  <RenderFeed format="atom" :options="options" :items="items" />
 </template>
 
 <script setup lang="ts">
@@ -30,13 +30,22 @@ const options: FeedOptions = {
 const items = posts.map<FeedItem>((post) => {
   const slug = getSlugByFileName(post.filename)
 
+  const publishedDate = post.publishedDate !== undefined ? new Date(post.publishedDate) : new Date()
+  const lastUpdated = post.lastUpdated !== undefined ? new Date(post.lastUpdated) : publishedDate
+
   return {
     link: new URL(`posts/${slug}`, site.url).toString(),
-    date: post.date,
     title: post.seoTitle,
     description: post.description,
-    published: post.publishedDate !== undefined ? new Date(post.publishedDate) : undefined,
-    image: new URL(post.image.src, site.url).toString()
+    published: publishedDate,
+    date: lastUpdated,
+    image: new URL(post.image.src, site.url).toString(),
+    author: [
+      {
+        name: 'Pinanek23',
+        link: site.url
+      }
+    ]
   }
 })
 </script>
