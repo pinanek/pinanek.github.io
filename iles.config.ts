@@ -11,6 +11,7 @@ import htmlMinifier from './scripts/html-minifier'
 const images = imagesPlugins({
   postThumbnail: widthPreset({
     loading: 'eager',
+    decoding: 'async',
     widths: ['original'],
     formats: {
       webp: { quality: 75 },
