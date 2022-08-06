@@ -53,6 +53,7 @@ const { title, seoTitle, description, image, publishedDate, lastUpdated, categor
   flex-direction: column;
   align-items: center;
   gap: $spacing-8;
+  text-align: center;
   transition: color $duration-default $ease-in-out;
 
   :deep(img) {
