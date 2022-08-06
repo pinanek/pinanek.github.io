@@ -35,4 +35,5 @@ rules:
   '@typescript-eslint/consistent-type-imports': error
   '@typescript-eslint/no-useless-empty-export': error
 
+  no-undef: off
   no-console: warn

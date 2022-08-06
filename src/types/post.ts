@@ -1,4 +1,4 @@
-import type { JSX } from 'solid-js/jsx-runtime'
+import type { MarkdownInstance } from 'astro'
 
 interface PostImage {
   url: string
@@ -23,11 +23,10 @@ interface PostFrontmatter {
   lastUpdated?: string
 }
 
-type Post = {
-  frontmatter: PostFrontmatter
-  default: ({ components }: { components?: Record<string, unknown> }) => JSX.Element
-  file: string
+interface Post
+  extends Omit<MarkdownInstance<PostFrontmatter>, 'default' | 'url' | 'compiledContent' | 'rawContent' | 'Content'> {
   url: string
+  default: ({ components }: { components?: Record<string, unknown> }) => astroHTML.JSX.Element
 }
 
 export type { Post, PostFrontmatter }

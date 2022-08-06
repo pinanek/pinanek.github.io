@@ -4,16 +4,14 @@ type Props = astroHTML.JSX.HTMLAttributes
 const { ...props } = Astro.props as Props
 ---
 
-<pre {...props}> 
-  <slot />
-</pre>
+<p {...props}><slot /></p>
 
 <style lang="scss">
   @use 'src/styles/tokens' as *;
 
-  pre {
-    :global(code) {
-      font-family: $font-mono;
-    }
+  p {
+    margin: 1em 0;
+    line-height: calc(1em + 0.75rem);
+    transition: color $duration-default $ease-in-out;
   }
 </style>

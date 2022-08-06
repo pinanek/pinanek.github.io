@@ -4,12 +4,14 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "esModuleInterop": true,
+    "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["astro/client", "vite/types/importMeta"],
+    "types": ["astro/client", "astro/astro-jsx", "vite/types/importMeta"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

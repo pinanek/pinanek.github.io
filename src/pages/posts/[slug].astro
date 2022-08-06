@@ -2,12 +2,13 @@
 import PostLayout from '@/layouts/post-layout.astro'
 import Content from '@/components/content/content.astro'
 import type { GetStaticPaths } from 'astro'
-import type { Post } from '@/types/post'
+import type { Post, PostFrontmatter } from '@/types/post'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await Astro.glob<Post>('/src/content/posts/{*,**/index}.mdx')
+  // Default MarkdownInstance type is for Astro-flavored markdown, and some of properties type are incorrect
+  const posts = (await Astro.glob<PostFrontmatter>('/src/content/posts/{*,**/index}.mdx')) as Post[]
 
-  const data = posts.map(async ({ default: MdxContent, frontmatter, url }) => {
+  const data = posts.map(async ({ default: MdxComponent, frontmatter, url }) => {
     const slug = url
       .replace(/\/index.mdx$/, '')
       .split(/[/\\]/)
@@ -16,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return {
       params: { slug },
       props: {
-        MdxContent,
+        MdxComponent,
         frontmatter
       }
     }
@@ -26,11 +27,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 interface Props {
-  MdxContent: Post['default']
+  MdxComponent: Post['default']
   frontmatter: Post['frontmatter']
 }
 
-const { MdxContent, frontmatter } = Astro.props as Props
+const { MdxComponent, frontmatter } = Astro.props as Props
 ---
 
 <PostLayout
@@ -42,5 +43,5 @@ const { MdxContent, frontmatter } = Astro.props as Props
     imageAlt: frontmatter.image.alt
   }}
 >
-  <Content MdxContent={MdxContent} />
+  <Content MdxComponent={MdxComponent} />
 </PostLayout>

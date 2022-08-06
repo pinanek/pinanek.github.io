@@ -1,13 +1,15 @@
 ---
 import HeadingLink from './heading-link.astro'
 
-// eslint-disable-next-line no-undef
 type Props = astroHTML.JSX.HTMLAttributes
 
 const { id, ...props } = Astro.props as Props
 ---
 
-<h2 id={id} {...props}><HeadingLink href={`#${id}`} /><slot /></h2>
+<h2 id={id} {...props}>
+  <HeadingLink href={`#${id}`} />
+  <span><slot /></span>
+</h2>
 
 <style lang="scss">
   @use 'src/styles/tokens' as *;
