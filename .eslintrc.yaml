@@ -8,20 +8,20 @@ env:
 extends:
   - eslint:recommended
   - plugin:@typescript-eslint/recommended
-  - plugin:vue/vue3-recommended
+  - plugin:astro/recommended
   - plugin:jsx-a11y/recommended
-  - prettier
+  - 'prettier'
 
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-  project: tsconfig.json
-  extraFileExtensions: ['.vue']
+  project: [./web/tsconfig.json, ./packages/astro-html-minifier/tsconfig.json]
+  extraFileExtensions: [.astro]
 
 overrides:
-  - files: ['*.vue']
-    parser: vue-eslint-parser
+  - files: ['*.astro']
+    parser: astro-eslint-parser
     parserOptions:
       parser: '@typescript-eslint/parser'
 
@@ -35,6 +35,5 @@ rules:
   '@typescript-eslint/consistent-type-imports': error
   '@typescript-eslint/no-useless-empty-export': error
 
-  vue/multi-word-component-names: off
-
+  no-undef: off
   no-console: warn

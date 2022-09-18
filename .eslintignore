@@ -1,5 +1,6 @@
+## Packages manager
 node_modules/
-public/
-dist/
-components.d.ts
-composables.d.ts
+
+## Web
+web/public/
+web/_dist/

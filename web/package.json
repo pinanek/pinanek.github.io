@@ -1,0 +1,23 @@
+{
+  "name": "@pinanek23/site",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^1.0.0",
+    "@pinanek23/astro-html-minifier": "workspace:*",
+    "@vanilla-extract/css": "^1.9.0",
+    "@vanilla-extract/vite-plugin": "^3.5.0",
+    "astro": "^1.2.6"
+  },
+  "devDependencies": {
+    "vite": "^3.1.2"
+  }
+}

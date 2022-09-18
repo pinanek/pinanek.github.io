@@ -1,0 +1,13 @@
+---
+import BaseLayout, { type Props as BaseLayoutProps } from './base.astro'
+
+type Props = BaseLayoutProps
+
+const { head } = Astro.props as Props
+---
+
+<BaseLayout head={head}>
+  <main>
+    <slot />
+  </main>
+</BaseLayout>

@@ -1,0 +1,15 @@
+{
+  "name": "@pinanek23/astro-html-minifier",
+  "version": "0.0.1",
+  "description": "An astro integration to minify build output HTMLs 😘",
+  "main": "index.ts",
+  "type": "module",
+  "author": "pinanek23",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/html-minifier-terser": "^7.0.0",
+    "@types/node": "^18.7.18",
+    "fast-glob": "^3.2.12",
+    "html-minifier-terser": "^7.0.0"
+  }
+}

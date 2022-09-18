@@ -1,7 +1,38 @@
-# pinanek23's personal site
+# pinanek23' personal site
 
-This is my personal site, using [Iles](https://iles.pages.dev), [SolidJS](https://www.solidjs.com) and [SCSS](https://sass-lang.com)
+This is the monorepo source code for my site 😎. [Live site](http://pinanek23.pages.dev).
 
-**WIP** btw 😎
+## Tech stack
 
-![Logo of pinanek23's personal site](public/default-logo.png)
+- ⚙️ Generator: [Astro](http://astro.build)
+- 🎨 Styling: [vanilla-extract](http://vanilla-extract.style)
+- 🏝️ Island: [Solid JS](https://www.solidjs.com)
+- 📝 Content: [MDX](http://mdxjs.com)
+- 🚇 Deployment: [Cloudflare Pages](https://pages.cloudflare.com)
+
+## Run locally
+
+Make sure you have [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io) installed.
+
+```console
+pnpm i
+pnpm dev
+```
+
+## Directory structure
+
+```bash
+├── packages                # 📦 All packages which are used by `web`
+│   └── astro-html-minifier # 🚀 An Astro integration is used to minify build output HTMLs
+│
+└── web                     # 📦 Main website code
+     ├── content            # 📝 Containing `.mdx` posts
+     ├── public             # 🖼️ Fonts, SEO images,...
+     └── src
+         ├── components     # 🧩 Site components
+         ├── constants      # 🪧 Global constants
+         ├── layouts        # 📏 Components that wrap page content
+         ├── pages          # 📄 Components are used to create pages
+         ├── styles         # 🎨 Global styles
+         └── utils          # 🛠️ Utils functions
+```
