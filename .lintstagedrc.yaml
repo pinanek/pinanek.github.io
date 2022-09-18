@@ -1,0 +1,2 @@
+'*.{md,mdx,json,yaml}': prettier --write
+'*.{ts,tsx,astro}': [prettier --write, eslint]
