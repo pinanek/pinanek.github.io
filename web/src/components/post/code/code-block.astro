@@ -1,0 +1,24 @@
+---
+import { getHighlightLangName, type Language } from '@pinanek23/highlighter'
+import * as styles from './code-block.css'
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  lang: Language
+  title?: string
+}
+
+const { lang, title, ...props } = Astro.props as Props
+const isShowHeader = title || (!title && lang !== 'text')
+---
+
+<div class={styles.main} {...props}>
+  {
+    isShowHeader && (
+      <div class={styles.header}>
+        {title && <span>{title}</span>}
+        {isShowHeader && <span class={styles.headerLang}>{getHighlightLangName(lang)}</span>}
+      </div>
+    )
+  }
+  <pre class={styles.pre}><slot /></pre>
+</div>

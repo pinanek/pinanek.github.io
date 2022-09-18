@@ -16,7 +16,14 @@ parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-  project: [./web/tsconfig.json, ./packages/astro-html-minifier/tsconfig.json]
+  project:
+    [
+      ./web/tsconfig.json,
+      ./packages/astro-html-minifier/tsconfig.json,
+      ./packages/highlighter/tsconfig.json,
+      ./packages/remark-code-block/tsconfig.json,
+      ./packages/remark-inline-code/tsconfig.json
+    ]
   extraFileExtensions: [.astro]
 
 overrides:

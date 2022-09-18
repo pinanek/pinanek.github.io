@@ -10,6 +10,11 @@ const commonColorVars = createGlobalThemeContract(commonColorTokens.light, gener
 createGlobalTheme(':root', commonColorVars, commonColorTokens.light)
 createGlobalTheme(`:root.${constants.colorMode.darkClass}`, commonColorVars, commonColorTokens.dark)
 
+const shikiColorTokens = getColorTokens(color.shiki)
+const shikiColorVars = createGlobalThemeContract(shikiColorTokens.light, generateColorVarName)
+createGlobalTheme('article', shikiColorVars, shikiColorTokens.light)
+createGlobalTheme(`:root.${constants.colorMode.darkClass} article`, shikiColorVars, shikiColorTokens.dark)
+
 const vars = {
   color: commonColorVars,
   breakpoint,

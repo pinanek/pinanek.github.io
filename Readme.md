@@ -23,7 +23,10 @@ pnpm dev
 
 ```bash
 ├── packages                # 📦 All packages which are used by `web`
-│   └── astro-html-minifier # 🚀 An Astro integration is used to minify build output HTMLs
+│   ├── astro-html-minifier # 🚀 An Astro integration is used to minify build output HTMLs
+│   ├── highlighter         # ✨ A custom MDX code block highlighter base on Shiki
+│   ├── remark-code-block   # 💅 A Remark plugin is used to highlight MDX code block
+│   └── remark-inline-code  # 💅 A Remark plugin is used to highlight MDX inline code
 │
 └── web                     # 📦 Main website code
      ├── content            # 📝 Containing `.mdx` posts
@@ -34,5 +37,6 @@ pnpm dev
          ├── layouts        # 📏 Components that wrap page content
          ├── pages          # 📄 Components are used to create pages
          ├── styles         # 🎨 Global styles
+         ├── types          # 🦺 Common typescript types
          └── utils          # 🛠️ Utils functions
 ```

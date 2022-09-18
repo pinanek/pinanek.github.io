@@ -1,0 +1,13 @@
+{
+  "name": "@pinanek23/highlighter",
+  "description": "Crappy custom highlighter with a custom theme for MDX code block 😁, based on Shiki",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "pinanek23",
+  "license": "MIT",
+  "main": "index.ts",
+  "devDependencies": {
+    "shiki": "^0.11.1",
+    "vscode-textmate": "^7.0.1"
+  }
+}

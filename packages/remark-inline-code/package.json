@@ -1,0 +1,16 @@
+{
+  "name": "@pinanek23/remark-inline-code",
+  "description": "A remark plugin that renders MDX inline code using using @pinanek23/highlighter",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "pinanek23",
+  "license": "MIT",
+  "main": "index.ts",
+  "devDependencies": {
+    "@pinanek23/highlighter": "workspace:*",
+    "@types/mdast": "^3.0.10",
+    "mdast-util-mdx-expression": "^1.3.0",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.1"
+  }
+}

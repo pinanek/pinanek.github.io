@@ -1,0 +1,43 @@
+---
+import PostLayout from '@/layouts/post.astro'
+import Post from '@/components/post/post.astro'
+import type { GetStaticPaths } from 'astro'
+import type { PostData, PostFrontmatter } from '@/types/post'
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await Astro.glob<PostFrontmatter>('/content/posts/**/index.mdx')
+
+  const data = posts.map(async ({ Content, frontmatter, url }) => {
+    const slug = url
+      ?.replace(/\/index.mdx$/, '')
+      .split(/[/\\]/)
+      .pop()
+
+    return {
+      params: { post: slug },
+      props: {
+        Content,
+        frontmatter
+      }
+    }
+  })
+
+  return Promise.all(data)
+}
+
+type PostPageProps = Pick<PostData, 'Content' | 'frontmatter'>
+
+const { Content, frontmatter } = Astro.props as PostPageProps
+---
+
+<PostLayout
+  head={{
+    title: frontmatter.title,
+    seoTitle: frontmatter.seoTitle,
+    description: frontmatter.description,
+    imageSrc: frontmatter.imageSrc,
+    imageAlt: frontmatter.imageAlt
+  }}
+>
+  <Post Content={Content} />
+</PostLayout>

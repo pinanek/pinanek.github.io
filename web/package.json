@@ -11,17 +11,24 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/mdx": "^0.11.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/solid-js": "^1.1.0",
     "@pinanek23/astro-html-minifier": "workspace:*",
+    "@pinanek23/highlighter": "workspace:^0.0.1",
+    "@pinanek23/remark-code-block": "workspace:*",
+    "@pinanek23/remark-inline-code": "workspace:^0.0.1",
     "@vanilla-extract/css": "^1.9.0",
+    "@vanilla-extract/css-utils": "^0.1.2",
     "@vanilla-extract/vite-plugin": "^3.5.0",
-    "astro": "^1.2.6",
+    "astro": "1.2.6",
     "clsx": "^1.2.1",
+    "remark-gfm": "^3.0.1",
     "solid-js": "^1.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
+    "rollup": "^2.79.0",
     "vite": "^3.1.2"
   }
 }

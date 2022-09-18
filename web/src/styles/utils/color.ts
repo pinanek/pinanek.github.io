@@ -59,4 +59,14 @@ function generateColorVarName(_value: string | null, path: string[]): string {
   return `color-${name}`
 }
 
-export { getColorTokens, generateColorVarName }
+/** Transform input color token names to kebab-case with a prefix `shiki-` */
+function generateShikiColorVarName(_value: string | null, path: string[]): string {
+  const name = path
+    .join('-')
+    .replace(/((?<=[a-z\d])[A-Z]|(?<=[A-Z\d])[A-Z](?=[a-z]))/g, '-$1') // camelCase to kebab case
+    .toLowerCase()
+
+  return `color-${name}`
+}
+
+export { getColorTokens, generateColorVarName, generateShikiColorVarName }

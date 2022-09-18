@@ -1,0 +1,29 @@
+---
+import Heading2 from './headings/heading-2.astro'
+import Heading3 from './headings/heading-3.astro'
+import Heading4 from './headings/heading-4.astro'
+import Paragraph from './paragraph.astro'
+import Link from './link.astro'
+import CodeBlock from './code/code-block.astro'
+import InlineCode from './code/inline-code.astro'
+
+import type { PostData } from '@/types/post'
+
+interface Props {
+  Content: PostData['Content']
+}
+
+const { Content } = Astro.props as Props
+
+const customComponents = {
+  h2: Heading2,
+  h3: Heading3,
+  h4: Heading4,
+  p: Paragraph,
+  a: Link,
+  pre: CodeBlock,
+  inlinecode: InlineCode
+}
+---
+
+<Content components={customComponents} />
