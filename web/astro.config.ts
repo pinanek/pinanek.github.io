@@ -4,6 +4,7 @@ import constants from './src/constants'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 // Integrations
+import solid from '@astrojs/solid-js'
 import sitemap from '@astrojs/sitemap'
 import htmlMinifier from '@pinanek23/astro-html-minifier'
 
@@ -12,7 +13,7 @@ export default defineConfig({
 
   site: constants.site.url,
 
-  integrations: [sitemap(), htmlMinifier()],
+  integrations: [solid(), sitemap(), htmlMinifier()],
 
   vite: {
     plugins: [

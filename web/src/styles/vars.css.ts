@@ -1,4 +1,5 @@
 import { createGlobalThemeContract, createGlobalTheme } from '@vanilla-extract/css'
+import constants from '@/constants'
 import { generateColorVarName, getColorTokens } from './utils/color'
 import tokens from './tokens'
 
@@ -7,7 +8,7 @@ const { color, breakpoint, ...other } = tokens
 const commonColorTokens = getColorTokens(color.common)
 const commonColorVars = createGlobalThemeContract(commonColorTokens.light, generateColorVarName)
 createGlobalTheme(':root', commonColorVars, commonColorTokens.light)
-createGlobalTheme(`:root.dark`, commonColorVars, commonColorTokens.dark)
+createGlobalTheme(`:root.${constants.colorMode.darkClass}`, commonColorVars, commonColorTokens.dark)
 
 const vars = {
   color: commonColorVars,
