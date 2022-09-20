@@ -16,6 +16,9 @@ import remarkMdxImages from 'remark-mdx-images'
 import remarkCodeBlock from '@pinanek23/remark-code-block'
 import remarkInlineCode from '@pinanek23/remark-inline-code'
 
+// Rehype
+import rehypeInfoBar from '@pinanek23/rehype-info-bar'
+
 // Markdown highlighter
 import { Highlighter } from '@pinanek23/highlighter'
 
@@ -39,7 +42,8 @@ export default defineConfig({
         remarkMdxImages,
         [remarkCodeBlock, { highlighter }],
         [remarkInlineCode, { highlighter }]
-      ]
+      ],
+      rehypePlugins: [rehypeInfoBar]
     }),
     image(),
     sitemap(),

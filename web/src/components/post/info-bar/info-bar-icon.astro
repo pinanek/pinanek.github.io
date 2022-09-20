@@ -1,0 +1,27 @@
+---
+import CheckIcon from './check-icon.astro'
+import ErrorIcon from './error-icon.astro'
+import InfoIcon from './info-icon.astro'
+import WarningIcon from './warning-icon.astro'
+
+interface Props {
+  variant: 'note' | 'success' | 'warning' | 'error'
+}
+
+const { variant } = Astro.props as Props
+---
+
+{
+  (() => {
+    switch (variant) {
+      case 'note':
+        return <InfoIcon />
+      case 'success':
+        return <CheckIcon />
+      case 'warning':
+        return <WarningIcon />
+      case 'error':
+        return <ErrorIcon />
+    }
+  })()
+}

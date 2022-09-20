@@ -50,6 +50,18 @@ importers:
       shiki: 0.11.1
       vscode-textmate: 7.0.1
 
+  packages/rehype-info-bar:
+    specifiers:
+      '@types/hast': ^2.3.4
+      hast-util-to-text: ^3.1.1
+      unified: ^10.1.2
+      unist-util-visit: ^4.1.1
+    devDependencies:
+      '@types/hast': 2.3.4
+      hast-util-to-text: 3.1.1
+      unified: 10.1.2
+      unist-util-visit: 4.1.1
+
   packages/remark-code-block:
     specifiers:
       '@pinanek23/highlighter': workspace:*
@@ -83,12 +95,14 @@ importers:
       '@astrojs/sitemap': ^1.0.0
       '@astrojs/solid-js': ^1.1.0
       '@babel/core': ^7.19.1
-      '@pinanek23/astro-html-minifier': workspace:0.0.1
-      '@pinanek23/highlighter': workspace:^0.0.1
-      '@pinanek23/remark-code-block': workspace:0.0.1
-      '@pinanek23/remark-inline-code': workspace:^0.0.1
+      '@pinanek23/astro-html-minifier': workspace:*
+      '@pinanek23/highlighter': workspace:*
+      '@pinanek23/rehype-info-bar': workspace:*
+      '@pinanek23/remark-code-block': workspace:*
+      '@pinanek23/remark-inline-code': workspace:*
       '@vanilla-extract/css': ^1.9.0
       '@vanilla-extract/css-utils': ^0.1.2
+      '@vanilla-extract/recipes': ^0.2.5
       '@vanilla-extract/vite-plugin': ^3.5.0
       astro: 1.2.6
       clsx: ^1.2.1
@@ -104,10 +118,12 @@ importers:
       '@astrojs/solid-js': 1.1.0_5rg4dnswasq3v2swklzbg2ywdq
       '@pinanek23/astro-html-minifier': link:../packages/astro-html-minifier
       '@pinanek23/highlighter': link:../packages/highlighter
+      '@pinanek23/rehype-info-bar': link:../packages/rehype-info-bar
       '@pinanek23/remark-code-block': link:../packages/remark-code-block
       '@pinanek23/remark-inline-code': link:../packages/remark-inline-code
       '@vanilla-extract/css': 1.9.0
       '@vanilla-extract/css-utils': 0.1.2
+      '@vanilla-extract/recipes': 0.2.5_@vanilla-extract+css@1.9.0
       '@vanilla-extract/vite-plugin': 3.5.0_vite@3.1.3
       astro: 1.2.6
       clsx: 1.2.1
@@ -1022,6 +1038,14 @@ packages:
 
   /@vanilla-extract/private/1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
+    dev: false
+
+  /@vanilla-extract/recipes/0.2.5_@vanilla-extract+css@1.9.0:
+    resolution: {integrity: sha512-OWXUUiFJdswD3+Xg8f8avuw/vAHZRFS4oHqFeoV1TcO8cfbDQ0zmkreBHvyspoJU+qsyWK48yPHKSptqNRPy9Q==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
+    dependencies:
+      '@vanilla-extract/css': 1.9.0
     dev: false
 
   /@vanilla-extract/vite-plugin/3.5.0_vite@3.1.3:
@@ -2791,7 +2815,6 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       '@types/unist': 2.0.6
-    dev: false
 
   /hast-util-parse-selector/3.1.0:
     resolution: {integrity: sha512-AyjlI2pTAZEOeu7GeBPZhROx0RHBnydkQIXlhnFzDi0qfXTmGUWoCYZtomHbrdrheV4VFUlPcfJ6LMF5T6sQzg==}
@@ -2862,6 +2885,14 @@ packages:
       web-namespaces: 2.0.1
       zwitch: 2.0.2
     dev: false
+
+  /hast-util-to-text/3.1.1:
+    resolution: {integrity: sha512-7S3mOBxACy8syL45hCn3J7rHqYaXkxRfsX6LXEU5Shz4nt4GxdjtMUtG+T6G/ZLUHd7kslFAf14kAN71bz30xA==}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-is-element: 2.1.2
+      unist-util-find-after: 4.0.0
+    dev: true
 
   /hast-util-whitespace/2.0.0:
     resolution: {integrity: sha512-Pkw+xBHuV6xFeJprJe2BBEoDV+AvQySaz3pPDRUs5PNZEMQjpXJJueqrpcHIXxnWTcAGi/UOCgVShlkY6kLoqg==}
@@ -5141,6 +5172,13 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
     dev: false
+
+  /unist-util-find-after/4.0.0:
+    resolution: {integrity: sha512-gfpsxKQde7atVF30n5Gff2fQhAc4/HTOV4CvkXpTg9wRfQhZWdXitpyXHWB6YcYgnsxLx+4gGHeVjCTAAp9sjw==}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 5.1.1
+    dev: true
 
   /unist-util-generated/2.0.0:
     resolution: {integrity: sha512-TiWE6DVtVe7Ye2QxOVW9kqybs6cZexNwTwSMVgkfjEReqy/xwGpAXb99OxktoWwmL+Z+Epb0Dn8/GNDYP1wnUw==}

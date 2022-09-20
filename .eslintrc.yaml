@@ -22,7 +22,8 @@ parserOptions:
       ./packages/astro-html-minifier/tsconfig.json,
       ./packages/highlighter/tsconfig.json,
       ./packages/remark-code-block/tsconfig.json,
-      ./packages/remark-inline-code/tsconfig.json
+      ./packages/remark-inline-code/tsconfig.json,
+      ./packages/rehype-info-bar/tsconfig.json
     ]
   extraFileExtensions: [.astro]
 

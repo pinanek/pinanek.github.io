@@ -7,6 +7,7 @@ import Link from './link.astro'
 import Picture from './picture.astro'
 import CodeBlock from './code/code-block.astro'
 import InlineCode from './code/inline-code.astro'
+import InfoBar from './info-bar/info-bar.astro'
 
 import type { PostData } from '@/types/post'
 
@@ -24,7 +25,8 @@ const customComponents = {
   a: Link,
   img: Picture,
   pre: CodeBlock,
-  inlinecode: InlineCode
+  inlinecode: InlineCode,
+  infobar: InfoBar
 }
 ---
 

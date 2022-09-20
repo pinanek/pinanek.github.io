@@ -34,7 +34,7 @@ const remarkInlineCode: Plugin<[RemarkInlineCodeOptions]> = ({ highlighter }) =>
         lang,
         renderOptions: {
           wrapperTag: 'none',
-          codeTag: 'inlineCode'
+          codeTag: 'inlinecode'
         }
       })
 

@@ -9,7 +9,15 @@ const common = {
   accentDefault: ['#0466c8', '#82bffc'],
 
   // Content
-  codeBlockHeaderBackground: ['#e5e4e9', '#282828']
+  codeBlockHeaderBackground: ['#e5e4e9', '#282828'],
+
+  infoBarNoteBackground: ['#e0ecf8', '#182430'],
+  infoBarSuccessIcon: ['#2a9d8f', '#aeeae3'],
+  infoBarSuccessBackground: ['#e4f3f1', '#1c2b29'],
+  infoBarWarningIcon: ['#e9c46a', '#f2dca6'],
+  infoBarWarningBackground: ['#fcf8ec', '#343024'],
+  infoBarErrorIcon: ['#e63946', '#ff9999'],
+  infoBarErrorBackground: ['#fce6e8', '#341e20']
 }
 
 const shiki = {

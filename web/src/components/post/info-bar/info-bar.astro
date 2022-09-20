@@ -1,0 +1,20 @@
+---
+import InfoBarIcon from './info-bar-icon.astro'
+import { capitalizeFirstLetter } from '@/utils/common'
+import * as styles from './info-bar.css'
+
+interface Props {
+  variant: 'note' | 'success' | 'warning' | 'error'
+  title?: string
+}
+
+const { variant, title } = Astro.props as Props
+---
+
+<aside class={styles.main({ variant })}>
+  <div class={styles.titleContainer}>
+    <InfoBarIcon variant={variant} />
+    <span>{title ?? capitalizeFirstLetter(variant)}</span>
+  </div>
+  <div><slot /></div>
+</aside>
