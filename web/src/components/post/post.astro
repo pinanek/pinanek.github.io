@@ -4,10 +4,14 @@ import Heading3 from './headings/heading-3.astro'
 import Heading4 from './headings/heading-4.astro'
 import Paragraph from './paragraph.astro'
 import Link from './link.astro'
+import Blockquote from './blockquote.astro'
 import Picture from './picture.astro'
 import CodeBlock from './code/code-block.astro'
 import InlineCode from './code/inline-code.astro'
 import InfoBar from './info-bar/info-bar.astro'
+import ListItem from './list/list-item.astro'
+import OrderedList from './list/ordered-list.astro'
+import UnorderedList from './list/unordered-list.astro'
 
 import type { PostData } from '@/types/post'
 
@@ -23,10 +27,14 @@ const customComponents = {
   h4: Heading4,
   p: Paragraph,
   a: Link,
+  blockquote: Blockquote,
   img: Picture,
   pre: CodeBlock,
   inlinecode: InlineCode,
-  infobar: InfoBar
+  infobar: InfoBar,
+  li: ListItem,
+  ol: OrderedList,
+  ul: UnorderedList
 }
 ---
 

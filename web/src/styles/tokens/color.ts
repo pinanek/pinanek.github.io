@@ -11,6 +11,8 @@ const common = {
   // Content
   codeBlockHeaderBackground: ['#e5e4e9', '#282828'],
 
+  blockquoteIndicator: ['#e5e4e9', '#2a2a2a'],
+
   infoBarNoteBackground: ['#e0ecf8', '#182430'],
   infoBarSuccessIcon: ['#2a9d8f', '#aeeae3'],
   infoBarSuccessBackground: ['#e4f3f1', '#1c2b29'],
