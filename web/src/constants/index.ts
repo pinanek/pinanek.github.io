@@ -1,9 +1,11 @@
-import site from './site'
 import colorMode from './color-mode'
+import image from './image'
+import site from './site'
 
 const constants = {
-  site,
-  colorMode
+  colorMode,
+  image,
+  site
 }
 
 export default constants

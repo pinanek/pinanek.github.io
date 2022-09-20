@@ -6,11 +6,13 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 // Integrations
 import solid from '@astrojs/solid-js'
 import mdx from '@astrojs/mdx'
+import image from '@astrojs/image'
 import sitemap from '@astrojs/sitemap'
 import htmlMinifier from '@pinanek23/astro-html-minifier'
 
 // Remark
 import remarkGfm from 'remark-gfm'
+import remarkMdxImages from 'remark-mdx-images'
 import remarkCodeBlock from '@pinanek23/remark-code-block'
 import remarkInlineCode from '@pinanek23/remark-inline-code'
 
@@ -32,8 +34,14 @@ export default defineConfig({
   integrations: [
     solid(),
     mdx({
-      remarkPlugins: [remarkGfm, [remarkCodeBlock, { highlighter }], [remarkInlineCode, { highlighter }]]
+      remarkPlugins: [
+        remarkGfm,
+        remarkMdxImages,
+        [remarkCodeBlock, { highlighter }],
+        [remarkInlineCode, { highlighter }]
+      ]
     }),
+    image(),
     sitemap(),
     htmlMinifier()
   ],

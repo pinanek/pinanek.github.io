@@ -1,5 +1,5 @@
-import { vars } from '@/styles'
 import { style } from '@vanilla-extract/css'
+import { vars } from '@/styles'
 
 const main = style(
   {

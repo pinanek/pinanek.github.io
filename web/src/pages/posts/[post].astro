@@ -30,14 +30,6 @@ type PostPageProps = Pick<PostData, 'Content' | 'frontmatter'>
 const { Content, frontmatter } = Astro.props as PostPageProps
 ---
 
-<PostLayout
-  head={{
-    title: frontmatter.title,
-    seoTitle: frontmatter.seoTitle,
-    description: frontmatter.description,
-    imageSrc: frontmatter.imageSrc,
-    imageAlt: frontmatter.imageAlt
-  }}
->
+<PostLayout {...frontmatter}>
   <Post Content={Content} />
 </PostLayout>
