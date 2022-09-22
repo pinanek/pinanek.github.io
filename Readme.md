@@ -26,14 +26,15 @@ pnpm dev
 │   ├── astro-html-minifier # 🚀 An Astro integration is used to minify build output HTMLs
 │   ├── highlighter         # ✨ A custom MDX code block highlighter base on Shiki
 │   ├── remark-code-block   # 💅 A Remark plugin is used to highlight MDX code block
-│   └── remark-inline-code  # 💅 A Remark plugin is used to highlight MDX inline code
+│   ├── remark-inline-code  # 💅 A Remark plugin is used to highlight MDX inline code
+│   └── rehype-info-bar     # 🪧 A Rehype plugin that can add additional variants for MDX blockquote
 │
 └── web                     # 📦 Main website code
      ├── content            # 📝 Containing `.mdx` posts
      ├── public             # 🖼️ Fonts, SEO images,...
      └── src
          ├── components     # 🧩 Site components
-         ├── constants      # 🪧 Global constants
+         ├── constants      # 🗿 Global constants
          ├── layouts        # 📏 Components that wrap page content
          ├── pages          # 📄 Components are used to create pages
          ├── styles         # 🎨 Global styles

@@ -1,6 +1,6 @@
 {
   "name": "@pinanek23/rehype-info-bar",
-  "description": "A rehype plugin that can add addition variants for MDX blockquote 😧, using Github blockquote style",
+  "description": "A Rehype plugin that can add addition variants for MDX blockquote 😧, using Github blockquote style",
   "version": "0.0.1",
   "type": "module",
   "author": "pinanek23",
