@@ -30,14 +30,14 @@ pnpm dev
 │   └── rehype-info-bar     # 🪧 A Rehype plugin that can add additional variants for MDX blockquote
 │
 └── web                     # 📦 Main website code
-     ├── content            # 📝 Containing `.mdx` posts
-     ├── public             # 🖼️ Fonts, SEO images,...
-     └── src
-         ├── components     # 🧩 Site components
-         ├── constants      # 🗿 Global constants
-         ├── layouts        # 📏 Components that wrap page content
-         ├── pages          # 📄 Components are used to create pages
-         ├── styles         # 🎨 Global styles
-         ├── types          # 🦺 Common typescript types
-         └── utils          # 🛠️ Utils functions
+    ├── content             # 📝 Containing `.mdx` posts
+    ├── public              # 🖼️ Fonts, SEO images,...
+    └── src
+        ├── components      # 🧩 Site components
+        ├── constants       # 🗿 Global constants
+        ├── layouts         # 📏 Components that wrap page content
+        ├── pages           # 📄 Components are used to create pages
+        ├── styles          # 🎨 Global styles
+        ├── types           # 🦺 Common typescript types
+        └── utils           # 🛠️ Utils functions
 ```
