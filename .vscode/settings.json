@@ -1,7 +1,7 @@
 {
   "editor.tabSize": 2,
   "prettier.documentSelectors": ["**/*.astro"],
-  "eslint.validate": ["typescript", "typescriptreact", "astro"],
+  "eslint.validate": ["typescript", "typescriptreact", "astro", "markdown"],
   "files.associations": {
     "*.mdx": "markdown"
   }

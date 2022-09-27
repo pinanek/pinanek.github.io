@@ -7,41 +7,47 @@ env:
 
 extends:
   - eslint:recommended
-  - plugin:@typescript-eslint/recommended
   - plugin:astro/recommended
-  - plugin:jsx-a11y/recommended
-  - 'prettier'
+  - prettier
 
-parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-  project:
-    [
-      ./web/tsconfig.json,
-      ./packages/astro-html-minifier/tsconfig.json,
-      ./packages/highlighter/tsconfig.json,
-      ./packages/remark-code-block/tsconfig.json,
-      ./packages/remark-inline-code/tsconfig.json,
-      ./packages/rehype-info-bar/tsconfig.json
-    ]
   extraFileExtensions: [.astro]
 
+rules:
+  no-undef: off
+  no-console: warn
+
 overrides:
-  - files: ['*.astro']
+  - files: ["*.astro"]
     parser: astro-eslint-parser
     parserOptions:
-      parser: '@typescript-eslint/parser'
+      parser: "@typescript-eslint/parser"
 
-  - files: ['*.tsx']
+  - files: ["*.ts", "*.tsx"]
+    extends: [plugin:@typescript-eslint/recommended]
+    parser: "@typescript-eslint/parser"
+
+  - files: ["*.tsx"]
     parserOptions:
       ecmaFeatures:
         jsx: true
 
-rules:
-  '@typescript-eslint/consistent-type-exports': error
-  '@typescript-eslint/consistent-type-imports': error
-  '@typescript-eslint/no-useless-empty-export': error
+  - files: ["*.astro", "*.ts", "*.tsx"]
+    parserOptions:
+      project: [./tsconfig.eslint.json]
+    rules:
+      "@typescript-eslint/consistent-type-exports": error
+      "@typescript-eslint/consistent-type-imports": error
+      "@typescript-eslint/no-useless-empty-export": error
 
-  no-undef: off
-  no-console: warn
+  - files: ["*.md", "*.mdx"]
+    parser: "eslint-plugin-markdownlint/parser"
+    extends: ["plugin:markdownlint/recommended"]
+    rules:
+      markdownlint/md013:
+        - error
+        - line_length: 120
+          heading_line_length: 120
+          code_block_line_length: 120
