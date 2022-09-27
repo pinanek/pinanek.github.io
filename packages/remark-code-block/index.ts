@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 import type { Highlighter } from '@pinanek23/highlighter'
-import type { Code, Parent, HTML } from 'mdast'
+import type { Root, Code, Parent, HTML } from 'mdast'
 import type { Plugin } from 'unified'
 
 interface RemarkCodeBlockOptions {
@@ -14,9 +14,14 @@ const codePropertyRegex = /\b([-\w]+)(?:=(?:"([^"]*)"|'([^']*)'|([^"'\s]+)))?/g
  * A remark plugin that renders MDX code block using `@pinanek23/highlighter`
  * @param options User options
  */
-const remarkCodeBlock: Plugin<[RemarkCodeBlockOptions]> = ({ highlighter }) =>
+const remarkCodeBlock: Plugin<[RemarkCodeBlockOptions], Root> = ({ highlighter }) =>
   function transformer(tree) {
-    visit(tree, 'code', (node: Code, index: number, parent: Parent) => {
+    visit(tree, 'code', (node: Code, index: number | null, parent: Parent | null) => {
+      // Make Typescript happy 😏
+      if (index === null || parent === null) {
+        return
+      }
+
       // Fallback to `text` if `lang` doesn't exist
       if (!node.lang) {
         node.lang = 'text'
@@ -27,6 +32,7 @@ const remarkCodeBlock: Plugin<[RemarkCodeBlockOptions]> = ({ highlighter }) =>
         lang: node.lang
       }
 
+      // Get meta data (file name, ...)
       if (node.meta) {
         let match
         codePropertyRegex.lastIndex = 0

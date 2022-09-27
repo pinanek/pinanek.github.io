@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
 import { toText } from 'hast-util-to-text'
 import type { Plugin } from 'unified'
-import type { Element } from 'hast'
+import type { Root, Element } from 'hast'
 
 const variantRegex = /^(Note|Success|Warning|Error)$/
 
@@ -9,7 +9,7 @@ const variantRegex = /^(Note|Success|Warning|Error)$/
  * A rehype plugin that can add addition variants for MDX blockquote 😧,
  * using Github blockquote style
  */
-const rehypeInfoBar: Plugin<[]> = () =>
+const rehypeInfoBar: Plugin<[], Root> = () =>
   function transformer(tree) {
     visit(tree, 'element', (node: Element) => {
       if (node.tagName !== 'blockquote' || node.children.length < 2) {

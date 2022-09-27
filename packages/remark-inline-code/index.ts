@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
 import type { MDXTextExpression } from 'mdast-util-mdx-expression'
 import type { Highlighter } from '@pinanek23/highlighter'
-import type { Parent, HTML, InlineCode, Content } from 'mdast'
+import type { Root, Parent, HTML, InlineCode, Content } from 'mdast'
 import type { Plugin } from 'unified'
 
 interface RemarkInlineCodeOptions {
@@ -15,9 +15,14 @@ const langRegex = /lang=\w+/
  * A remark plugin that renders MDX inline code using using `@pinanek23/highlighter`
  * @param options User options
  */
-const remarkInlineCode: Plugin<[RemarkInlineCodeOptions]> = ({ highlighter }) =>
+const remarkInlineCode: Plugin<[RemarkInlineCodeOptions], Root> = ({ highlighter }) =>
   function transformer(tree) {
-    visit(tree, 'inlineCode', (node: InlineCode, index: number, parent: Parent) => {
+    visit(tree, 'inlineCode', (node: InlineCode, index: number | null, parent: Parent | null) => {
+      // Make Typescript happy 😏
+      if (index === null || parent === null) {
+        return
+      }
+
       let lang = 'text'
 
       if (parent.children.length > index + 1) {

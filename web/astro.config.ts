@@ -1,7 +1,5 @@
-import { defineConfig } from 'astro/config'
 import constants from './src/constants'
-
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
+import type { AstroUserConfig } from 'astro'
 
 // Integrations
 import solid from '@astrojs/solid-js'
@@ -9,6 +7,9 @@ import mdx from '@astrojs/mdx'
 import image from '@astrojs/image'
 import sitemap from '@astrojs/sitemap'
 import htmlMinifier from '@pinanek23/astro-html-minifier'
+
+// Vite
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 // Remark
 import remarkGfm from 'remark-gfm'
@@ -24,31 +25,23 @@ import { Highlighter } from '@pinanek23/highlighter'
 
 const highlighter = new Highlighter({ theme: 'kenanip' })
 
-// Config
-export default defineConfig({
+const config: AstroUserConfig = {
   outDir: '_dist',
 
   site: constants.site.url,
 
   markdown: {
-    syntaxHighlight: false
+    syntaxHighlight: false,
+    remarkPlugins: [
+      remarkGfm,
+      remarkMdxImages,
+      [remarkCodeBlock, { highlighter }],
+      [remarkInlineCode, { highlighter }]
+    ],
+    rehypePlugins: [rehypeInfoBar]
   },
 
-  integrations: [
-    solid(),
-    mdx({
-      remarkPlugins: [
-        remarkGfm,
-        remarkMdxImages,
-        [remarkCodeBlock, { highlighter }],
-        [remarkInlineCode, { highlighter }]
-      ],
-      rehypePlugins: [rehypeInfoBar]
-    }),
-    image(),
-    sitemap(),
-    htmlMinifier()
-  ],
+  integrations: [solid(), mdx(), image(), sitemap(), htmlMinifier()],
 
   vite: {
     plugins: [
@@ -57,4 +50,6 @@ export default defineConfig({
       }) as never
     ]
   }
-})
+}
+
+export default config
