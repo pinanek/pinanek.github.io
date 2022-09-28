@@ -41,7 +41,15 @@ const config: AstroUserConfig = {
     rehypePlugins: [rehypeInfoBar]
   },
 
-  integrations: [solid(), mdx(), image(), sitemap(), htmlMinifier()],
+  integrations: [
+    solid(),
+    mdx(),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp'
+    }),
+    sitemap(),
+    htmlMinifier()
+  ],
 
   vite: {
     plugins: [
