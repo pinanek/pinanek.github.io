@@ -29,6 +29,9 @@ overrides:
     extends: [plugin:@typescript-eslint/recommended]
     parser: "@typescript-eslint/parser"
 
+  - files: ["*.astro", "*.tsx"]
+    extends: [plugin:jsx-a11y/recommended]
+
   - files: ["*.tsx"]
     parserOptions:
       ecmaFeatures:
