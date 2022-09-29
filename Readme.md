@@ -1,5 +1,7 @@
 # pinanek23' personal site
 
+**Work-In-Process** btw 😉.
+
 This is the monorepo source code for my site 😎. [Live site](http://pinanek23.pages.dev).
 
 ## Tech stack
