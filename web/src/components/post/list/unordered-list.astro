@@ -1,0 +1,9 @@
+---
+import * as styles from './unordered-list.css'
+
+type Props = astroHTML.JSX.HTMLAttributes
+
+const { class: className, ...props } = Astro.props as Props
+---
+
+<ul class:list={[styles.main, className]} {...props}><slot /></ul>

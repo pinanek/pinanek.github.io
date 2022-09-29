@@ -1,0 +1,4 @@
+{
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "exclude": ["node_modules"]
+}

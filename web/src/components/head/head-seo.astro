@@ -1,0 +1,47 @@
+---
+import constants from '@/constants'
+
+export interface Props {
+  title?: string
+  seoTitle?: string
+  description?: string
+  imageSrc?: string
+  imageAlt?: string
+}
+
+const {
+  title,
+  seoTitle,
+  description = constants.site.description,
+  imageSrc = constants.site.imageSrc,
+  imageAlt = constants.site.imageAlt
+} = Astro.props as Props
+
+const formattedTitle = title === undefined ? constants.site.name : `${title} • ${constants.site.name}`
+const formattedSeoTitle = seoTitle === undefined ? formattedTitle : `${seoTitle} • ${constants.site.name}`
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString()
+const imageUrl = new URL(imageSrc, Astro.site).toString()
+---
+
+<title>{formattedTitle}</title>
+
+<meta name="description" content={description} />
+
+<meta property="og:site_name" content={constants.site.name} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={formattedSeoTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={formattedSeoTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<meta name="generator" content={Astro.generator} />
+
+<link rel="canonical" href={canonicalUrl} />

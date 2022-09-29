@@ -1,0 +1,9 @@
+---
+import * as styles from './link.css'
+
+type Props = astroHTML.JSX.AnchorHTMLAttributes
+
+const { class: className, ...props } = Astro.props as Props
+---
+
+<a class:list={[styles.main, className]} {...props}><slot /></a>

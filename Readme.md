@@ -1,7 +1,62 @@
-# pinanek23's personal site
+# pinanek23' personal site
 
-This is my personal site, using [Iles](https://iles.pages.dev), [SolidJS](https://www.solidjs.com) and [SCSS](https://sass-lang.com)
+**Work-In-Process** btw 😉.
 
-**WIP** btw 😎
+This is the monorepo source code for my personal site 😎. [Live site](http://pinanek23.pages.dev).
 
-![Logo of pinanek23's personal site](public/default-logo.png)
+## Tech stack
+
+- ⚙️ Generator: [Astro](http://astro.build)
+- 🎨 Styling: [vanilla-extract](http://vanilla-extract.style)
+- 🏝️ Island: [Solid JS](https://www.solidjs.com)
+- 📝 Content: [MDX](http://mdxjs.com)
+- 🚇 Deployment: [Cloudflare Pages](https://pages.cloudflare.com)
+
+## Run locally
+
+Make sure you have [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io) installed.
+
+```bash
+pnpm i
+pnpm dev
+```
+
+## Directory structure
+
+```bash
+├── packages                # 📦 All packages which are used by `web`
+│   ├── astro-html-minifier # 🚀 An Astro integration is used to minify build output HTMLs
+│   ├── highlighter         # ✨ A custom MDX code block highlighter base on Shiki
+│   ├── remark-code-block   # 💅 A Remark plugin is used to highlight MDX code block
+│   ├── remark-inline-code  # 💅 A Remark plugin is used to highlight MDX inline code
+│   └── rehype-info-bar     # 🪧 A Rehype plugin that can add additional variants for MDX blockquote
+│
+└── web                     # 📦 Main website code
+    ├── content             # 📝 Containing `.mdx` posts
+    ├── public              # 🖼️ Fonts, SEO images,...
+    └── src
+        ├── components      # 🧩 Site components
+        ├── constants       # 🗿 Global constants
+        ├── layouts         # 📏 Components that wrap page content
+        ├── pages           # 📄 Components are used to create pages
+        ├── styles          # 🎨 Global styles
+        ├── types           # 🦺 Common typescript types
+        └── utils           # 🛠️ Utils functions
+```
+
+## To do
+
+- [ ] Update logo
+- [ ] Content
+  - [x] Custom syntax highlighting
+  - [x] Optimize image using `@astrojs/image`
+  - [ ] Table of content
+  - [ ] Relative posts
+- [ ] Category system
+- [ ] Pagination
+- [ ] RSS
+- [ ] Searching?
+- [x] Dark mode
+- [x] Migrate from `SCSS` to `vanilla-extract`
+- [x] Monorepo migtation
+- [x] Linting and formatting

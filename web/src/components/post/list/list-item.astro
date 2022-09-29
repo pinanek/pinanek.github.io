@@ -1,0 +1,9 @@
+---
+import * as styles from './list-item.css'
+
+type Props = astroHTML.JSX.LiHTMLAttributes
+
+const { class: className, ...props } = Astro.props as Props
+---
+
+<li class:list={[styles.main, className]} {...props}><slot /></li>

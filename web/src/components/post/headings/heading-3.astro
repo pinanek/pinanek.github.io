@@ -1,0 +1,14 @@
+---
+import HeadingLink from './heading-link.astro'
+import * as styles from './heading-3.css'
+import * as stylesCommon from './heading.css'
+
+type Props = astroHTML.JSX.HTMLAttributes
+
+const { id, class: className, ...props } = Astro.props as Props
+---
+
+<h3 class:list={[stylesCommon.common, styles.main, className]} id={id} {...props}>
+  <HeadingLink href={`#${id}`} />
+  <span><slot /></span>
+</h3>

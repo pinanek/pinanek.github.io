@@ -1,0 +1,27 @@
+---
+import BaseLayout from './base.astro'
+import Header from '@/components/header/header.astro'
+import { classes } from '@/styles'
+import type { PostFrontmatter } from '@/types/post'
+
+type Props = PostFrontmatter
+
+const { title, seoTitle, description, imageSrc, imageAlt } = Astro.props as Props
+---
+
+<BaseLayout
+  head={{
+    title: title,
+    seoTitle: seoTitle,
+    description: description,
+    imageSrc: imageSrc,
+    imageAlt: imageAlt
+  }}
+>
+  <Header />
+  <main class:list={[classes.pageSizing, classes.pageSpacing]}>
+    <article>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import Logo from './logo.astro'
+import HeaderItem from './header-item.astro'
+import ThemeButton from './theme-button'
+import MenuButton from './menu-button'
+import { classes } from '@/styles'
+import * as styles from './header.css'
+---
+
+<div class={styles.wrapper}>
+  <div class:list={[classes.pageSizing, classes.pageSpacing, styles.container]}>
+    <a href="/" class={styles.logo} aria-label="Go to home">
+      <Logo />
+    </a>
+    <div class={styles.items}>
+      <div class={styles.headerItems}>
+        <HeaderItem href="/posts">--posts</HeaderItem>
+        <HeaderItem href="/categories">--categories</HeaderItem>
+        <HeaderItem href="/about">--about-me-🌻</HeaderItem>
+      </div>
+      <div>
+        <ThemeButton client:visible />
+      </div>
+    </div>
+    <MenuButton client:visible class={styles.menuButton} />
+  </div>
+</div>

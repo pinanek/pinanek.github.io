@@ -1,0 +1,9 @@
+---
+import * as styles from './blockquote.css'
+
+type Props = astroHTML.JSX.BlockquoteHTMLAttributes
+
+const { class: className, ...props } = Astro.props as Props
+---
+
+<blockquote class:list={[styles.main, className]} {...props}><slot /></blockquote>

@@ -1,0 +1,14 @@
+---
+import * as styles from './header-item.css'
+
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props as Props
+---
+
+<a class={styles.main} href={href}>
+  <span><slot /></span>
+  <span class={styles.indicator}></span>
+</a>

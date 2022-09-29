@@ -1,6 +1,7 @@
+## Packages manager
 node_modules/
-public/
-dist/
 pnpm-lock.yaml
-components.d.ts
-composables.d.ts
+
+## Web
+web/public/
+web/_dist/
