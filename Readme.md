@@ -43,3 +43,20 @@ pnpm dev
         ├── types           # 🦺 Common typescript types
         └── utils           # 🛠️ Utils functions
 ```
+
+## To do
+
+- [ ] Update logo
+- [ ] Content
+  - [x] Custom syntax highlighting
+  - [x] Optimize image using `@astrojs/image`
+  - [ ] Table of content
+  - [ ] Relative posts
+- [ ] Category system
+- [ ] Pagination
+- [ ] RSS
+- [ ] Searching?
+- [x] Dark mode
+- [x] Migrate from `SCSS` to `vanilla-extract`
+- [x] Monorepo migtation
+- [x] Linting and formatting
