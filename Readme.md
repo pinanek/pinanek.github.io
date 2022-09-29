@@ -2,7 +2,7 @@
 
 **Work-In-Process** btw 😉.
 
-This is the monorepo source code for my site 😎. [Live site](http://pinanek23.pages.dev).
+This is the monorepo source code for my personal site 😎. [Live site](http://pinanek23.pages.dev).
 
 ## Tech stack
 
@@ -16,7 +16,7 @@ This is the monorepo source code for my site 😎. [Live site](http://pinanek23.
 
 Make sure you have [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io) installed.
 
-```console
+```bash
 pnpm i
 pnpm dev
 ```
