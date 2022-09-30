@@ -51,22 +51,19 @@ function getColorTokens<T extends Record<string, string[]>>(colors: T): ColorTok
 
 /** Transform input color token names to kebab-case with a prefix `color-` */
 function generateColorVarName(_value: string | null, path: string[]): string {
-  const name = path
-    .join('-')
-    .replace(/((?<=[a-z\d])[A-Z]|(?<=[A-Z\d])[A-Z](?=[a-z]))/g, '-$1') // camelCase to kebab case
-    .toLowerCase()
-
-  return `color-${name}`
+  return `color-${getColorVarName(path)}`
 }
 
 /** Transform input color token names to kebab-case with a prefix `shiki-` */
 function generateShikiColorVarName(_value: string | null, path: string[]): string {
-  const name = path
+  return `shiki-${getColorVarName(path)}`
+}
+
+function getColorVarName(path: string[]): string {
+  return path
     .join('-')
     .replace(/((?<=[a-z\d])[A-Z]|(?<=[A-Z\d])[A-Z](?=[a-z]))/g, '-$1') // camelCase to kebab case
     .toLowerCase()
-
-  return `color-${name}`
 }
 
 export { getColorTokens, generateColorVarName, generateShikiColorVarName }

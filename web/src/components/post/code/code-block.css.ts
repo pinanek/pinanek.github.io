@@ -18,6 +18,7 @@ const header = style(
     padding: `${vars.spacing[2]} ${vars.spacing[6]}`,
     borderRadius: vars.radii.md,
     backgroundColor: vars.color.codeBlockHeaderBackground,
+    fontFamily: vars.font.mono,
     transitionProperty: 'color, background-color',
     transitionDuration: vars.duration.default,
     transitionTimingFunction: vars.ease.inOut

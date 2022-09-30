@@ -1,6 +1,6 @@
 # pinanek23' personal site
 
-**Work-In-Process** btw 😉.
+**Work-In-Process** btw 😉. But you can preview a sample post written in MDX: [Here](http://pinanek23.pages.dev/posts/hello)
 
 This is the monorepo source code for my personal site 😎. [Live site](http://pinanek23.pages.dev).
 
