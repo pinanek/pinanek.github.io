@@ -16,3 +16,4 @@ pnpm-debug.log*
 
 # Web
 web/_dist/
+web/_cache/

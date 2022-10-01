@@ -45,7 +45,8 @@ const config: AstroUserConfig = {
     solid(),
     mdx(),
     image({
-      serviceEntryPoint: '@astrojs/image/sharp'
+      serviceEntryPoint: '@astrojs/image/sharp',
+      cacheDir: '_cache'
     }),
     sitemap(),
     htmlMinifier()

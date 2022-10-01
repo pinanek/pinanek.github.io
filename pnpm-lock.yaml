@@ -92,7 +92,7 @@ importers:
 
   web:
     specifiers:
-      '@astrojs/image': ^0.8.1
+      '@astrojs/image': ^0.9.1
       '@astrojs/mdx': ^0.11.3
       '@astrojs/sitemap': ^1.0.0
       '@astrojs/solid-js': ^1.1.0
@@ -115,7 +115,7 @@ importers:
       solid-js: ^1.5.7
       vite: ^3.1.4
     dependencies:
-      '@astrojs/image': 0.8.1_sharp@0.31.1
+      '@astrojs/image': 0.9.1_sharp@0.31.1
       '@astrojs/mdx': 0.11.3_rollup@2.79.1
       '@astrojs/sitemap': 1.0.0
       '@astrojs/solid-js': 1.1.0_o5do7oxr2hbtrv24zykqvegilq
@@ -158,8 +158,8 @@ packages:
   /@astrojs/compiler/0.25.1:
     resolution: {integrity: sha512-rDuTM9p8HVeHB0/qUiBHgEHRBf/3otcP+wLs3kRXk/quJs0vpCruq42vGsmE1ZFuBi8Ie5mz8fWGm7F6nHhXaQ==}
 
-  /@astrojs/image/0.8.1_sharp@0.31.1:
-    resolution: {integrity: sha512-vlfPFYHt9vpAZwZG4O9flumFM2fNkCKleOucqaDngu7pNHxSpf14j9ywlBNz4JryVehUupeffbVn561kBhhOJQ==}
+  /@astrojs/image/0.9.1_sharp@0.31.1:
+    resolution: {integrity: sha512-tnrL9tL539gIzkM9oqRd+asOePPUE/ehtQjmrcsTjJtQx8aPhKHEteJIMuDhby94wRhV6vMK1Wqt4u5DBf6GQQ==}
     peerDependencies:
       sharp: '>=0.31.0'
     peerDependenciesMeta:
@@ -167,6 +167,7 @@ packages:
         optional: true
     dependencies:
       '@altano/tiny-async-pool': 1.0.2
+      http-cache-semantics: 4.1.0
       image-size: 1.0.2
       magic-string: 0.25.9
       mime: 3.0.0
@@ -3014,6 +3015,10 @@ packages:
 
   /html-void-elements/2.0.1:
     resolution: {integrity: sha512-0quDb7s97CfemeJAnW9wC0hw78MtW7NU3hqtCD75g2vFlDLt36llsYD7uB7SUzojLMP24N5IatXf7ylGXiGG9A==}
+    dev: false
+
+  /http-cache-semantics/4.1.0:
+    resolution: {integrity: sha512-carPklcUh7ROWRK7Cv27RPtdhYhUsela/ue5/jKzjegVvXDqM2ILE9Q2BGn9JZJh1g87cp56su/FgQSzcWS8cQ==}
     dev: false
 
   /human-signals/3.0.1:

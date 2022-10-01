@@ -4,3 +4,4 @@ node_modules/
 ## Web
 web/public/
 web/_dist/
+web/_cache/
