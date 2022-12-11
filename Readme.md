@@ -7,7 +7,7 @@ This is the source code for my personal site 😎. [Live site](http://pinanek.gi
 ## Tech stack
 
 - ⚙️ Generator: [Astro](http://astro.build)
-- 🎨 Styling: [PostCSSs](https://postcss.org)
+- 🎨 Styling: [PostCSS](https://postcss.org)
 - 📝 Content: [MDX](http://mdxjs.com)
 - 🚇 Deployment: [Github Pages](https://pages.github.com/)
 

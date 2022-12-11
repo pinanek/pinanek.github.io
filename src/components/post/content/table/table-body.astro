@@ -2,15 +2,15 @@
 
 <style>
   :global([color-scheme="light"]) tbody {
-    --color-table-border: #e8e8e8;
+    --color-table-border: hsl(0, 0%, 91%);
   }
 
   :global([color-scheme="dark"]) tbody {
-    --color-table-border: #e8e8e8;
+    --color-table-border: hsl(0, 0%, 91%);
   }
 
   tbody {
-    --border-styles: 1px solid var( --color-table-border);
+    --border-styles: 1px solid var(--color-table-border);
   }
 
   tbody :global(tr td) {
@@ -19,11 +19,11 @@
   }
 
   tbody :global(tr td:not(:first-child)) {
-   border-right: var(--border-styles);
+    border-right: var(--border-styles);
   }
 
   tbody :global(tr td:not(:last-child)) {
-   border-left: var(--border-styles);
+    border-left: var(--border-styles);
   }
 
   tbody :global(tr:last-child td:first-child) {
@@ -33,5 +33,4 @@
   tbody :global(tr:last-child td:last-child) {
     border-bottom-right-radius: var(--radii-md);
   }
-
 </style>
