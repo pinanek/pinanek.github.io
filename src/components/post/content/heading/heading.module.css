@@ -1,0 +1,8 @@
+.main {
+  color: var(--color-accent-text-secondary);
+  scroll-margin-top: 8.5rem;
+}
+
+.main:hover :global(.heading-link-icon) {
+  opacity: 1;
+}

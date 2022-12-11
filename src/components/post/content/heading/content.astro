@@ -1,0 +1,10 @@
+---
+import Link, { type Props as LinkProps } from "./link.astro";
+
+type Props = LinkProps;
+
+const { id } = Astro.props as Props;
+---
+
+<span><slot /></span>
+<Link id={id} />

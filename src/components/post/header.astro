@@ -1,0 +1,14 @@
+---
+import { Figure } from "@/components/common";
+import type { PostFrontmatter } from "@/types/post";
+
+interface Props {
+  frontmatter: PostFrontmatter;
+}
+
+const {
+  frontmatter: { image },
+} = Astro.props as Props;
+---
+
+<Figure {...image} />

@@ -1,56 +1,52 @@
-root: true
-
 env:
   browser: true
-  node: true
   es2022: true
+  node: true
 
-extends:
-  - eslint:recommended
-  - plugin:astro/recommended
-  - prettier
+extends: [eslint:recommended, plugin:@typescript-eslint/recommended, prettier]
 
 parserOptions:
   ecmaVersion: latest
+  project: ./tsconfig.eslint.json
   sourceType: module
-  extraFileExtensions: [.astro]
+  extraFileExtensions: [".astro"]
 
 rules:
+  no-console: error
   no-undef: off
-  no-console: warn
+
+  "@typescript-eslint/consistent-type-exports": error
+  "@typescript-eslint/consistent-type-imports": error
+  "@typescript-eslint/no-useless-empty-export": error
 
 overrides:
   - files: ["*.astro"]
-    parser: astro-eslint-parser
+    env:
+      node: true
+      astro/astro: true
+      es2022: true
+    plugins: ["astro"]
+    extends: ["plugin:astro/jsx-a11y-recommended"]
+    parser: "astro-eslint-parser"
     parserOptions:
       parser: "@typescript-eslint/parser"
+    rules:
+      astro/no-conflict-set-directives: error
+      astro/no-unused-define-vars-in-style: error
+      astro/no-set-text-directive: error
+      astro/no-unused-css-selector: error
+
+  - files: ["**/*.astro/*.js", "*.astro/*.js"]
+    parser: "@typescript-eslint/parser"
+    env:
+      browser: true
+      es2022: true
 
   - files: ["*.ts", "*.tsx"]
-    extends: [plugin:@typescript-eslint/recommended]
     parser: "@typescript-eslint/parser"
 
-  - files: ["*.astro", "*.tsx"]
-    extends: [plugin:jsx-a11y/recommended]
-
   - files: ["*.tsx"]
+    extends: [plugin:jsx-a11y/recommended]
     parserOptions:
       ecmaFeatures:
         jsx: true
-
-  - files: ["*.astro", "*.ts", "*.tsx"]
-    parserOptions:
-      project: [./tsconfig.eslint.json]
-    rules:
-      "@typescript-eslint/consistent-type-exports": error
-      "@typescript-eslint/consistent-type-imports": error
-      "@typescript-eslint/no-useless-empty-export": error
-
-  - files: ["*.md", "*.mdx"]
-    parser: "eslint-plugin-markdownlint/parser"
-    extends: ["plugin:markdownlint/recommended"]
-    rules:
-      markdownlint/md013:
-        - error
-        - line_length: 120
-          heading_line_length: 120
-          code_block_line_length: 120

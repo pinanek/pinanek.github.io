@@ -1,0 +1,37 @@
+<tbody><slot /></tbody>
+
+<style>
+  :global([color-scheme="light"]) tbody {
+    --color-table-border: #e8e8e8;
+  }
+
+  :global([color-scheme="dark"]) tbody {
+    --color-table-border: #e8e8e8;
+  }
+
+  tbody {
+    --border-styles: 1px solid var( --color-table-border);
+  }
+
+  tbody :global(tr td) {
+    padding: var(--spacing-0_5) var(--spacing-2);
+    border-bottom: var(--border-styles);
+  }
+
+  tbody :global(tr td:not(:first-child)) {
+   border-right: var(--border-styles);
+  }
+
+  tbody :global(tr td:not(:last-child)) {
+   border-left: var(--border-styles);
+  }
+
+  tbody :global(tr:last-child td:first-child) {
+    border-bottom-left-radius: var(--radii-md);
+  }
+
+  tbody :global(tr:last-child td:last-child) {
+    border-bottom-right-radius: var(--radii-md);
+  }
+
+</style>

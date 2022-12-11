@@ -1,0 +1,148 @@
+---
+title: Example post
+seoTitle: Example post
+categories: [Example]
+image:
+  src: images/thumbnail.png
+  alt: A lonely car
+  caption: A lonely car
+dates:
+  published: 09-14-2001
+---
+
+## Headings
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+## Horizontal Rule
+
+---
+
+## Paragraph
+
+"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with
+the results of other people's thinking." - Steve Jobs
+
+## Emphasis
+
+This is **bold text**
+
+This is _italic text_
+
+This is **_italic text_**
+
+This is ~~strike-through text~~
+
+## Link
+
+This is a [in-site link](/), and this is an [external link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+
+## Image
+
+![Hello](images/default-logo.png "Hello")
+
+![Hello](images/hello.png "Hello")
+
+## Blockquote
+
+> This is a blockquote.
+>
+> Hello there 💖.
+
+Another one:
+
+> This is a blockquote
+>
+> > With a nested blockquote
+
+## Inline code
+
+This is an `inline code`.
+
+This is an `let inline_code= 'inline code'`{lang=rs} with syntax highlighting.
+
+## Codeblock
+
+```rs title=example.rs
+use utils::read_lines;
+use regex::Regex;
+
+const HELLO: &str = "Hello there 💖";
+
+struct Template<'a> {
+  source: &'a str;
+}
+
+impl<'a> Template {
+  fn new(source: &'a str) -> Template {
+    Template{ source }
+  }
+}
+
+fn main() {
+  let re = Regex::new(r"^\d{4}-\d{2}-\d{2}$").unwrap();
+  let lines: Vec<String> = read_lines("input.txtakskdjalskdjaskldjasldjaslkdjaslkdjaslkdjaslkdjalskdjalskdjsalkasdjalskjdlaskjdlkasjdk");
+
+  if lines === vec![] {
+    
+  }
+
+  let template = Template::new("🎉 Hurray!");
+}
+```
+
+## List
+
+This is an unordered list:
+
+- One.
+- Two.
+- Three.
+- Four.
+- And so on 😊.
+
+This is an ordered list:
+
+1. One.
+2. Two.
+3. Three.
+4. Four.
+5. And so on 😊.
+
+## Table
+
+|                        First column                         | Second column | Third column |
+| :---------------------------------------------------------: | :-----------: | :----------: |
+|                             One                             |      Two      |    Three     |
+|                              1                              |       2       |      3       |
+| Long long long long long long long long long long long data |               |              |
+
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
+
+## Long long long long long long long heading
+
+Just a test.
+
+## Another heading
+
+Another heading
+
+## Another heading 1
+
+Another heading
+
+## Another heading 2
+
+Another heading
+
+## Another heading 3
+
+Another heading
+
+## Another heading 4
+
+Another heading

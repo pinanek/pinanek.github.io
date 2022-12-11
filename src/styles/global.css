@@ -1,0 +1,49 @@
+@import "tokens.css";
+@import "colors.css";
+@import "media.css";
+@import "reset.css";
+@import "classes.css";
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-text-default);
+  background-color: var(--color-base-default);
+  font-family: var(--font-sans);
+  font-variation-settings: var(--font-variant-sans);
+  font-weight: var(--font-weight-normal);
+  transition: background-color var(--duration-default) var(--ease-in-out);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-scrollbar-track);
+  box-shadow: var(--box-shadow-inset);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb-default);
+  border-radius: var(--radii-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scrollbar-thumb-secondary);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-scrollbar-thumb-tertiary);
+}
+
+@supports (-moz-appearance: meterbar) {
+  :root,
+  pre {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb-default) var(--color-scrollbar-track);
+  }
+}

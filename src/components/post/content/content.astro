@@ -1,0 +1,37 @@
+---
+import Link from "./link.astro";
+import Blockquote from "./blockquote.astro";
+import { Heading2, Heading3, Heading4 } from "./heading";
+import HorizontalRule from "./horizontal-rule.astro";
+import Image from "./image.astro";
+import Paragraph from "./paragraph.astro";
+import CodeBlock from "./code-block.astro";
+import InlineCode from "./inline-code.astro";
+import { Table, TableHead, TableBody } from "./table";
+
+import type { AstroComponentFactory } from "astro/dist/runtime/server";
+
+interface Props {
+  Content: AstroComponentFactory;
+}
+
+const { Content } = Astro.props as Props;
+---
+
+<Content
+  components={{
+    a: Link,
+    blockquote: Blockquote,
+    h2: Heading2,
+    h3: Heading3,
+    h4: Heading4,
+    hr: HorizontalRule,
+    img: Image,
+    p: Paragraph,
+    pre: CodeBlock,
+    inlinecode: InlineCode,
+    table: Table,
+    thead: TableHead,
+    tbody: TableBody,
+  }}
+/>

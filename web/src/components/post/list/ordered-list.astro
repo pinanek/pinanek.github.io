@@ -1,9 +1,0 @@
----
-import * as styles from './ordered-list.css'
-
-type Props = astroHTML.JSX.OlHTMLAttributes
-
-const { class: className, ...props } = Astro.props as Props
----
-
-<ol class:list={[styles.main, className]} {...props}><slot /></ol>

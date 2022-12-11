@@ -1,0 +1,57 @@
+:root {
+  color-scheme: light dark;
+
+  --base-hue: 36;
+  --base-saturation: 100%;
+
+  --accent-hue: 26;
+  --accent-saturation: 100%;
+
+  --kenanip-theme-text: var(--color-text-default);
+}
+
+[color-scheme="light"] {
+  color-scheme: light;
+
+  --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
+  --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 94%);
+  --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 89%);
+
+  --color-accent-text-default: hsl(var(--accent-hue), var(--accent-saturation), 24%);
+  --color-accent-text-secondary: hsl(var(--accent-hue), var(--accent-saturation), 18%);
+
+  --color-text-default: hsl(0, 0%, 7%);
+  --color-text-alt: hsl(0, 0%, 28%);
+
+  --color-transparent-default: hsla(0, 0%, 0%, 0);
+  --color-transparent-secondary: hsla(0, 0%, 0%, 0.06);
+  --color-transparent-tertiary: hsla(0, 0%, 0%, 0.08);
+
+  --color-scrollbar-thumb-default: hsl(var(--base-hue), var(--base-saturation), 80%);
+  --color-scrollbar-thumb-secondary: hsl(var(--base-hue), calc(var(--base-saturation)), 76%);
+  --color-scrollbar-thumb-tertiary: hsl(var(--base-hue), calc(var(--base-saturation) / 1.25), 72%);
+  --color-scrollbar-track: hsl(252, 29%, 97%);
+}
+
+[color-scheme="dark"] {
+  color-scheme: dark;
+
+  --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
+  --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 94%);
+  --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 89%);
+
+  --color-accent-text-default: hsl(var(--accent-hue), var(--accent-saturation), 24%);
+  --color-accent-text-secondary: hsl(var(--accent-hue), var(--accent-saturation), 16%);
+
+  --color-text-default: hsl(0, 0%, 7%);
+  --color-text-alt: hsl(0, 0%, 31%);
+
+  --color-transparent-default: hsla(0, 0%, 0%, 0);
+  --color-transparent-secondary: hsla(0, 0%, 0%, 0.06);
+  --color-transparent-tertiary: hsla(0, 0%, 0%, 0.08);
+
+  --color-scrollbar-thumb-default: hsl(var(--base-hue), var(--base-saturation), 80%);
+  --color-scrollbar-thumb-secondary: hsl(var(--base-hue), calc(var(--base-saturation)), 76%);
+  --color-scrollbar-thumb-tertiary: hsl(var(--base-hue), calc(var(--base-saturation) / 1.25), 72%);
+  --color-scrollbar-track: hsl(252, 29%, 97%);
+}

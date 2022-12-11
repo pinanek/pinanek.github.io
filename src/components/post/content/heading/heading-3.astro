@@ -1,0 +1,20 @@
+---
+import Content from "./content.astro";
+import styles from "./heading.module.css";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"h3">;
+
+const { id, class: className, ...props } = Astro.props as Props;
+---
+
+<h3 class:list={[styles.main, className]} id={id} {...props}>
+  <Content id={id}><slot /></Content>
+</h3>
+
+<style>
+  h3 {
+    margin: 1.5em 0 0.5em;
+    font-size: 1.375em;
+  }
+</style>

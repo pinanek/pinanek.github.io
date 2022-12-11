@@ -1,0 +1,15 @@
+.main {
+  cursor: pointer;
+  padding: var(--spacing-1);
+}
+
+.main svg[aria-hidden="true"] {
+  display: none;
+}
+
+.main svg {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+  stroke-width: 1.75;
+  stroke: currentColor;
+}

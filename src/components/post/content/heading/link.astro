@@ -1,0 +1,41 @@
+---
+export interface Props {
+  id: string | null | undefined;
+}
+
+const { id } = Astro.props as Props;
+---
+
+<a href={`#${id}`} aria-hidden="true" tabindex="-1">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="heading-link-icon"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path>
+    <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path>
+  </svg>
+</a>
+
+<style>
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.15em;
+  }
+
+  svg {
+    width: var(--spacing-5);
+    height: var(--spacing-5);
+    stroke: var(--color-text-default);
+    stroke-width: 1.5;
+    opacity: 0;
+    transition-property: stroke, opacity;
+    transition-duration: var(--duration-default);
+    transition-timing-function: var(--ease-in-out);
+  }
+</style>

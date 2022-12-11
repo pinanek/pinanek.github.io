@@ -1,0 +1,12 @@
+<a {...Astro.props}><slot /></a>
+
+<style>
+  a {
+    color: var(--color-accent-text-default);
+    transition: color var(--duration-default) var(--ease-in-out);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>

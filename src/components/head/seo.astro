@@ -1,0 +1,50 @@
+---
+import siteConfig from "~/site.config";
+
+export interface Props {
+  title?: string;
+  seoTitle?: string;
+  description?: string;
+  socialImage?: {
+    src: string;
+    alt: string;
+  };
+}
+
+const {
+  title,
+  seoTitle,
+  description = siteConfig.description,
+  socialImage = siteConfig.socialImage,
+} = Astro.props as Props;
+
+function getTitle(title: string | undefined, fallback: string): string {
+  return title === undefined ? fallback : `${title} | ${siteConfig.name}`;
+}
+
+const formattedTitle = getTitle(title, siteConfig.name);
+const formattedSeoTitle = getTitle(seoTitle, formattedTitle);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const socialImageUrl = new URL(socialImage.src, Astro.site).toString();
+---
+
+<title>{formattedTitle}</title>
+
+<meta name="description" content={description} />
+
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={formattedSeoTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageUrl} />
+<meta property="og:image:alt" content={socialImage.alt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={formattedSeoTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageUrl} />
+<meta name="twitter:image:alt" content={socialImage.alt} />
+
+<link rel="canonical" href={canonicalUrl} />

@@ -1,6 +1,4 @@
-trailingComma: none
-semi: false
-singleQuote: true
+trailingComma: all
 printWidth: 120
 endOfLine: auto
 
@@ -11,6 +9,6 @@ overrides:
     options:
       parser: astro
 
-  - files: "*.yaml"
+  - files: "*.mdx"
     options:
-      singleQuote: false
+      proseWrap: "always"

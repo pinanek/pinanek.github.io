@@ -1,0 +1,23 @@
+---
+import { HeadCommon, HeadScripts, HeadSeo, type HeadSeoProps } from "@/components/head";
+import "@/styles/global.css";
+
+export interface Props {
+  head?: HeadSeoProps;
+}
+
+const { head } = Astro.props as Props;
+---
+
+<html dir="ltr" lang="en">
+  <head>
+    <HeadCommon />
+    <HeadSeo {...head} />
+    <HeadScripts />
+  </head>
+  <body>
+    <div id="__root">
+      <slot />
+    </div>
+  </body>
+</html>

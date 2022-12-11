@@ -1,3 +1,10 @@
+# Build output
+dist/
+
+# Web
+_cache
+_dist
+
 # Dependencies
 node_modules/
 
@@ -7,13 +14,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+
 # Environment variables
 .env
 .env.production
 
 # MacOS-specific files
 .DS_Store
-
-# Web
-web/_dist/
-web/_cache/

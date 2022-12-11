@@ -1,0 +1,46 @@
+---
+import Header from "@/components/header";
+import BaseLayout, { type Props as BaseLayoutProps } from "./base.astro";
+
+type Props = BaseLayoutProps;
+
+const { head } = Astro.props as Props;
+---
+
+<BaseLayout head={head}>
+  <div class="background header-spacing-top"></div>
+  <Header />
+  <div class="background header-spacing-bottom"></div>
+  <svg viewBox="0 0 1600 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M0 96.1675L133.3 140.745C266.7 185.323 533.3 274.478 800 275.981C1066.7 277.483 1333.3 191.333 1466.7 148.258L1600 105.183V0H1466.7C1333.3 0 1066.7 0 800 0C533.3 0 266.7 0 133.3 0H0V96.1675Z"
+    ></path>
+  </svg>
+
+  <main class="page-spacing page-sizing">
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .background {
+    background-color: var(--color-base-secondary);
+    transition: background-color var(--duration-default) var(--ease-in-out);
+  }
+
+  .header-spacing-top {
+    height: 6rem;
+  }
+
+  .header-spacing-bottom {
+    height: 4rem;
+  }
+
+  svg path {
+    fill: var(--color-base-secondary);
+  }
+
+  main {
+    margin-top: var(--spacing-12);
+  }
+</style>

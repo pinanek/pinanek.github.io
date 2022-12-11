@@ -1,0 +1,142 @@
+---
+import styles from "./header-button.module.css";
+---
+
+<theme-button class={styles.main}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    id="theme-button-system-icon"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M9.173 14.83a4 4 0 1 1 5.657 -5.657"></path>
+    <path d="M11.294 12.707l.174 .247a7.5 7.5 0 0 0 8.845 2.492a9 9 0 0 1 -14.671 2.914"></path>
+    <path d="M3 12h1"></path>
+    <path d="M12 3v1"></path>
+    <path d="M5.6 5.6l.7 .7"></path>
+    <path d="M3 21l18 -18"></path>
+  </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    id="theme-button-light-icon"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+  </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    id="theme-button-dark-icon"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+  </svg>
+</theme-button>
+
+<script>
+  import { ColorMode, setColorScheme } from "@/utils/color-mode";
+
+  type HtmlSvg = HTMLElement & SVGElement;
+
+  type Data = {
+    [key in ColorMode]: {
+      next: ColorMode;
+      element: HtmlSvg;
+      title: string;
+    };
+  };
+
+  class ThemeButton extends HTMLElement {
+    private data: Data;
+
+    constructor() {
+      super();
+      this.setAttribute("role", "button");
+
+      this.dataset.colorMode = "system";
+
+      this.data = {
+        system: {
+          next: "dark",
+          element: this.querySelector("#theme-button-system-icon") as HtmlSvg,
+          title: "Use light color mode",
+        },
+        light: {
+          next: "system",
+          element: this.querySelector("#theme-button-light-icon") as HtmlSvg,
+          title: "Use dark color mode",
+        },
+        dark: {
+          next: "light",
+          element: this.querySelector("#theme-button-dark-icon") as HtmlSvg,
+          title: "Use system preference color scheme",
+        },
+      };
+
+      this.handleStorageChange();
+      window.addEventListener("storage", this.handleStorageChange);
+      this.addEventListener("click", this.handleClick);
+    }
+
+    private setColorMode(colorMode: ColorMode) {
+      this.dataset.colorMode = colorMode;
+
+      const currentColorModeData = this.data[colorMode];
+
+      currentColorModeData.element.removeAttribute("aria-hidden");
+      this.data[currentColorModeData.next].element.setAttribute("aria-hidden", "true");
+      this.title = currentColorModeData.title;
+    }
+
+    private handleStorageChange() {
+      const savedColorMode = localStorage.getItem("color-mode");
+
+      if (savedColorMode !== "light" && savedColorMode !== "dark" && savedColorMode !== "system") return;
+
+      this.setColorMode(savedColorMode);
+    }
+
+    private handleClick() {
+      let newColorMode: ColorMode;
+
+      switch (this.dataset.colorMode) {
+        case "system":
+          newColorMode = "light";
+          break;
+        case "light":
+          newColorMode = "dark";
+          break;
+        default:
+          newColorMode = "system";
+          break;
+      }
+
+      localStorage.setItem("color-mode", newColorMode);
+
+      let newColorScheme = newColorMode;
+      if (newColorScheme === "system") {
+        newColorScheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      setColorScheme(newColorScheme);
+
+      this.setColorMode(newColorMode);
+    }
+  }
+
+  customElements.define("theme-button", ThemeButton);
+</script>

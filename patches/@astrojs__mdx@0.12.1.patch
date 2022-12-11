@@ -1,0 +1,13 @@
+diff --git a/dist/index.js b/dist/index.js
+index f7fb4209ffd57c4d6f794b4485cf16aa58ad7422..52824a12b7d891591ef6aa287b210016ebe72cad 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -47,7 +47,7 @@ function mdx(mdxOptions = {}) {
+           recmaPlugins: mdxOptions.recmaPlugins,
+           jsx: true,
+           jsxImportSource: "astro",
+-          format: "mdx",
++          format: "md",
+           mdExtensions: [],
+           remarkRehypeOptions
+         };

@@ -1,0 +1,23 @@
+<!-- Preventing FOUC 😊 -->
+<script is:inline>
+  const savedColorMode = localStorage.getItem("color-mode");
+
+  let currentColorScheme = "light";
+
+  if (
+    savedColorMode === "dark" ||
+    ((savedColorMode === "system" || !savedColorMode) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    currentColorScheme = "dark";
+  }
+
+  document.documentElement.setAttribute("color-scheme", currentColorScheme);
+</script>
+
+<script>
+  import { updateColorMode } from "@/utils/color-mode";
+
+  updateColorMode();
+  window.addEventListener("storage", updateColorMode);
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateColorMode);
+</script>

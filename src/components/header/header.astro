@@ -1,0 +1,104 @@
+---
+import Link from "./link.astro";
+import Logo from "./logo.astro";
+import MenuButton from "./menu-button.astro";
+import ThemeButton from "./theme-button.astro";
+---
+
+<div class:list={["wrapper", Astro.url.pathname === "/" ? "wrapper-home" : "wrapper-other"]}>
+  <div class="container page-spacing page-sizing">
+    <a href="/" aria-label="Go to home"> <Logo /></a>
+    <div class="items">
+      <div class="links">
+        <Link href="/posts">--posts</Link>
+        <Link href="/categories">--categories</Link>
+        <Link href="/about">--about-me</Link>
+      </div>
+      <ThemeButton />
+    </div>
+    <MenuButton class="menu-button" />
+  </div>
+</div>
+
+<style>
+  .wrapper {
+    padding-top: var(--spacing-6);
+    padding-bottom: var(--spacing-6);
+  }
+
+  .wrapper-home {
+    background-color: var(--color-base-secondary);
+  }
+
+  .wrapper-other {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-base-default);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-12);
+  }
+
+  @media (--md) {
+    .container {
+      align-items: center;
+    }
+  }
+
+  .items {
+    order: 1;
+    display: none;
+    flex-grow: 1;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: var(--spacing-8);
+  }
+
+  :global(:root[data-menu-state="opened"]) .items {
+    display: flex;
+  }
+
+  @media (--md) {
+    .items {
+      order: 0;
+      flex-basis: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+  }
+
+  @media (--md) {
+    .links {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--spacing-8);
+    }
+  }
+
+  .menu-button {
+    display: inline-block;
+  }
+
+  @media (--md) {
+    .menu-button {
+      display: none;
+    }
+  }
+</style>

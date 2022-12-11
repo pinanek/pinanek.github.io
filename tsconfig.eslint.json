@@ -1,4 +1,4 @@
 {
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "**/*.astro/*.js", "*.astro/*.js"],
   "exclude": ["node_modules"]
 }

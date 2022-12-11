@@ -1,8 +1,15 @@
 {
   "editor.tabSize": 2,
+
   "prettier.documentSelectors": ["**/*.astro"],
-  "eslint.validate": ["typescript", "typescriptreact", "astro", "markdown"],
+  "eslint.validate": ["astro", "typescript", "typescriptreact"],
+  "cssvar.files": ["./src/styles/colors.css", "./src/styles/tokens.css"],
+
   "files.associations": {
     "*.mdx": "markdown"
+  },
+
+  "[markdown]": {
+    "editor.wordWrap": "off"
   }
 }

@@ -1,0 +1,22 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="color-scheme" content="light dark" />
+
+<meta name="generator" content={Astro.generator} />
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<!-- Improve font loading time -->
+<link rel="preload" href="/fonts/recursive-subset-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<style is:inline>
+  @font-face {
+    font-family: Recursive;
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300 1000;
+    src: url("/fonts/recursive-subset-latin.woff2") format("woff2");
+  }
+</style>

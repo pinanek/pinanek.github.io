@@ -1,0 +1,83 @@
+---
+import { getPicture, type GetPictureOptions } from "./get-picture";
+import type { HTMLAttributes } from "astro/types";
+
+type HoistedImgProps = GetPictureOptions & Pick<HTMLAttributes<"img">, "loading" | "decoding">;
+
+interface Props extends HTMLAttributes<"figure">, HoistedImgProps {
+  caption?: string;
+  pictureProps?: HTMLAttributes<"picture">;
+  imgProps?: Omit<HTMLAttributes<"img">, keyof HoistedImgProps>;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  imgProps = {},
+  pictureProps = {},
+  loading = "lazy",
+  decoding = "async",
+  ...props
+} = Astro.props as Props;
+
+const { img, sources, sizes, placeholder } = await getPicture({ src, width, height, alt });
+---
+
+<figure {...props}>
+  <picture {...pictureProps}>
+    <div class="placeholder" style={placeholder}></div>
+    {sources.map((source) => <source sizes={sizes} {...source} />)}
+    <img
+      src={img.src}
+      width={img.width}
+      height={img.height}
+      alt={alt}
+      sizes={sizes}
+      loading={loading}
+      decoding={decoding}
+      {...imgProps}
+    />
+  </picture>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  figure {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+  }
+
+  picture {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radii-md);
+  }
+
+  .placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(40px);
+    z-index: -1;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: var(--radii-md);
+  }
+
+  figcaption {
+    font-size: 0.875em;
+    color: var(--color-text-alt);
+    transition: color var(--duration-default) var(--ease-in-out);
+  }
+</style>
