@@ -13,6 +13,7 @@
 [color-scheme="light"] {
   color-scheme: light;
 
+  --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 98%);
   --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
   --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 94%);
   --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 89%);
@@ -36,6 +37,7 @@
 [color-scheme="dark"] {
   color-scheme: dark;
 
+  --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 98%);
   --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
   --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 94%);
   --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 89%);

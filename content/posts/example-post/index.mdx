@@ -65,7 +65,7 @@ Another one:
 
 This is an `inline code`.
 
-This is an `let inline_code= 'inline code'`{lang=rs} with syntax highlighting.
+This is an `let inline_code= "inline code"`{lang=rs} with syntax highlighting.
 
 ## Codeblock
 
@@ -74,6 +74,8 @@ use utils::read_lines;
 use regex::Regex;
 
 const HELLO: &str = "Hello there 💖";
+
+// This is a comment
 
 struct Template<'a> {
   source: &'a str;
@@ -86,11 +88,22 @@ impl<'a> Template {
 }
 
 fn main() {
+  let num: i32 = 3;
   let re = Regex::new(r"^\d{4}-\d{2}-\d{2}$").unwrap();
   let lines: Vec<String> = read_lines("input.txtakskdjalskdjaskldjasldjaslkdjaslkdjaslkdjaslkdjalskdjalskdjsalkasdjalskjdlaskjdlkasjdk");
 
   let template = Template::new("🎉 Hurray!");
+
+  if num == 3 {
+    println!("{num}");
+  }
 }
+```
+
+```html
+<div>
+  <p>Hello</p>
+</div>
 ```
 
 ## List
@@ -98,6 +111,7 @@ fn main() {
 This is an unordered list:
 
 - One.
+  - ads
 - Two.
 - Three.
 - Four.

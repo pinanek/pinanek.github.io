@@ -7,7 +7,10 @@
     border-radius: var(--radii-sm);
     margin: 1em 0;
     box-shadow: var(--box-shadow-inset);
-    transition: border-left-color var(--duration-default) var(--ease-in-out);
+    background-color: var(--color-base-lighter);
+    transition-property: background-color, border-left-color;
+    transition-duration: var(--duration-default);
+    transition-timing-function: var(--ease-in-out);
   }
 
   blockquote :global(p) {

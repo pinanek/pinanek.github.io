@@ -8,6 +8,9 @@
   thead :global(tr th) {
     background-color: var(--color-base-tertiary);
     padding: var(--spacing-0_5) var(--spacing-2);
+    transition-property: background-color, border-color;
+    transition-duration: var(--duration-default);
+    transition-timing-function: var(--ease-in-out);
   }
 
   thead :global(tr th:not(:first-child):not(:last-child)) {

@@ -2,10 +2,10 @@
 import BaseLayout from "./base.astro";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { PostHeader } from "@/components/post";
+import { PostHeader, PostTableOfContent } from "@/components/post";
 import type { PostFrontmatter } from "@/types/post";
 import type { MarkdownHeading } from "astro";
-import TableOfContent from "@/components/post/table-of-content/table-of-content.astro";
+import "@/styles/highlighter.css";
 
 interface Props {
   frontmatter: PostFrontmatter;
@@ -35,7 +35,7 @@ const isShowTableOfContent = tableOfContent !== false;
         isShowTableOfContent && (
           <div class="table-of-content-container">
             <h2>Table of content</h2>
-            <TableOfContent headings={headings} />
+            <PostTableOfContent headings={headings} />
           </div>
         )
       }
@@ -85,11 +85,15 @@ const isShowTableOfContent = tableOfContent !== false;
     border-radius: 0;
   }
 
+  .post-content-container h2 {
+    transition: color var(--duration-default) var(--ease-in-out);
+  }
+
   .table-of-content-container {
     position: block;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--spacing-3);
   }
 
   @media (--lg) {

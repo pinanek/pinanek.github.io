@@ -1,8 +1,7 @@
-<p {...Astro.props}><slot /></p>
+<li><slot /></li>
 
 <style>
-  p {
-    margin: 1em 0;
+  li:not(li li) {
     transition: color var(--duration-default) var(--ease-in-out);
   }
 </style>

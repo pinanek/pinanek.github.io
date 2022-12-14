@@ -1,6 +1,7 @@
 .main {
   color: var(--color-accent-text-secondary);
   scroll-margin-top: 8.5rem;
+  transition: color var(--duration-default) var(--ease-in-out);
 }
 
 .main:hover :global(.heading-link-icon) {

@@ -8,6 +8,7 @@ import Paragraph from "./paragraph.astro";
 import CodeBlock from "./code-block.astro";
 import InlineCode from "./inline-code.astro";
 import { Table, TableHead, TableBody } from "./table";
+import { ListItem, OrderedList, UnorderedList } from "./list";
 
 import type { AstroComponentFactory } from "astro/dist/runtime/server";
 
@@ -33,5 +34,8 @@ const { Content } = Astro.props as Props;
     table: Table,
     thead: TableHead,
     tbody: TableBody,
+    li: ListItem,
+    ol: OrderedList,
+    ul: UnorderedList,
   }}
 />

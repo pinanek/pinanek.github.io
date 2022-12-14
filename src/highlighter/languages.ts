@@ -18,6 +18,7 @@ const languageNames = {
   text: "Text",
   css: "CSS",
   scss: "SCSS",
+  html: "HTML",
   md: "Markdown",
 };
 
