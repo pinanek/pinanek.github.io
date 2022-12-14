@@ -2,7 +2,7 @@ import type { OutputFormat as BuiltImageFormat } from "@astrojs/image/dist/loade
 
 const siteConfig: SiteConfig = {
   url: "https://pinanek.github.io/",
-  name: "pinanek's blog",
+  name: "Pinanek's blog",
   description: "My little garden 🌻 with knowledge and experience of what I have gained 😁",
   socialImage: {
     src: "/images/default-logo.png",

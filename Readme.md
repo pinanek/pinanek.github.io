@@ -30,7 +30,7 @@ pnpm dev
   - [ ] Relative posts
 - [ ] Category system
 - [ ] Pagination
-- [ ] RSS
+- [x] RSS
 - [ ] Searching?
-- [x] Dark mode
+- [ ] Dark mode
 - [x] Linting and formatting
