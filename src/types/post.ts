@@ -10,8 +10,11 @@ interface RawPostFrontmatter {
     alt: string;
     caption?: string;
   };
-  publishedDate: string;
-  lastUpdated?: string;
+  dates: {
+    published: string;
+    updated: string;
+  };
+  tableOfContent?: boolean;
 }
 
 interface PostFrontmatter extends RawPostFrontmatter {

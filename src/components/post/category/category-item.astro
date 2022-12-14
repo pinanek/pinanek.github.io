@@ -1,0 +1,48 @@
+---
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props as Props;
+---
+
+<a href={`/categories/${category}`}>
+  <span class="background"></span>
+  <span>{category}</span>
+</a>
+
+<style>
+  a {
+    position: relative;
+    padding: var(--spacing-1) var(--spacing-4);
+    text-align: center;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: var(--color-text-default);
+    transition: color var(--duration-default) var(--ease-in-out);
+  }
+
+  .background {
+    position: absolute;
+    background-color: var(--color-base-tertiary);
+    border-radius: var(--radii-md);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: auto;
+    transform-origin: center;
+    transition-property: transform, background-color;
+    transition-duration: var(--duration-default);
+    transition-timing-function: var(--ease-in-out);
+  }
+
+  a:hover .background {
+    transform: scale(1.1);
+  }
+
+  a:active .background {
+    transform: scale(0.95);
+  }
+</style>

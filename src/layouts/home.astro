@@ -29,7 +29,13 @@ const { head } = Astro.props as Props;
   }
 
   .header-spacing-top {
-    height: 6rem;
+    height: 3rem;
+  }
+
+  @media (--md) {
+    .header-spacing-top {
+      height: 6rem;
+    }
   }
 
   .header-spacing-bottom {

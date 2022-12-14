@@ -13,9 +13,11 @@ interface Props {
 }
 
 const {
-  frontmatter: { title, seoTitle, description },
+  frontmatter: { title, seoTitle, description, tableOfContent },
   headings,
 } = Astro.props as Props;
+
+const isShowTableOfContent = tableOfContent !== false;
 ---
 
 <BaseLayout
@@ -26,13 +28,17 @@ const {
   }}
 >
   <Header />
-  <main class="page-spacing content-with-toc-sizing">
+  <main class:list={["page-spacing", isShowTableOfContent ? "content-with-toc-sizing" : "content-without-toc-sizing"]}>
     <PostHeader frontmatter={Astro.props.frontmatter} />
     <div class="post-content-container" id="post-content-container">
-      <div class="table-of-content-container">
-        <h2>Table of content</h2>
-        <TableOfContent headings={headings} />
-      </div>
+      {
+        isShowTableOfContent && (
+          <div class="table-of-content-container">
+            <h2>Table of content</h2>
+            <TableOfContent headings={headings} />
+          </div>
+        )
+      }
       <article>
         <slot />
       </article>
@@ -42,12 +48,24 @@ const {
 </BaseLayout>
 
 <style>
+  main {
+    margin-top: var(--spacing-20);
+  }
+
+  .content-with-toc-sizing {
+    max-width: 73rem;
+  }
+
+  .content-without-toc-sizing {
+    max-width: 53rem;
+  }
+
   .post-content-container {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-12);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-4);
   }
 
   @media (--lg) {
@@ -71,7 +89,7 @@ const {
     position: block;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-4);
+    gap: var(--spacing-2);
   }
 
   @media (--lg) {

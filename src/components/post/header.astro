@@ -1,14 +1,78 @@
 ---
 import { Figure } from "@/components/common";
 import type { PostFrontmatter } from "@/types/post";
+import CategoryItem from "./category/category-item.astro";
 
 interface Props {
   frontmatter: PostFrontmatter;
 }
 
+function getDisplayDate(date: string): string {
+  return new Date(date).toLocaleDateString("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
+
 const {
-  frontmatter: { image },
+  frontmatter: { title, description, image, categories, dates },
 } = Astro.props as Props;
 ---
 
-<Figure {...image} />
+<div class="main">
+  <h1>{title}</h1>
+  <div class="info-container">
+    <span class="description">{description}</span>
+    <div class="dates-container">
+      <span>{getDisplayDate(dates.published)}</span>
+      {
+        dates.updated && (
+          <>
+            <span>-</span>
+            <span>Last updated: {getDisplayDate(dates.updated)}</span>
+          </>
+        )
+      }
+    </div>
+  </div>
+  <div class="categories-items">
+    {categories.map((category) => <CategoryItem category={category} />)}
+  </div>
+  <Figure {...image} />
+</div>
+
+<style>
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-4);
+    text-align: center;
+  }
+
+  .description {
+    color: var(--color-text-alt);
+    transition: color var(--duration-default) var(--ease-in-out);
+    font-size: 0.95rem;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .categories-items,
+  .dates-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+    justify-content: center;
+  }
+
+  .dates-container {
+    gap: var(--spacing-2);
+    color: var(--color-text-alt);
+    font-size: 0.95rem;
+  }
+</style>
