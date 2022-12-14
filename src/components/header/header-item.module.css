@@ -12,4 +12,5 @@
   height: var(--spacing-6);
   stroke-width: 1.75;
   stroke: currentColor;
+  transition: stroke var(--duration-default) var(--ease-in-out);
 }

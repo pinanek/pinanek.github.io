@@ -2,6 +2,7 @@
 import Link from "./link.astro";
 import Logo from "./logo.astro";
 import MenuButton from "./menu-button.astro";
+import RssLink from "./rss-link.astro";
 import ThemeButton from "./theme-button.astro";
 ---
 
@@ -14,7 +15,10 @@ import ThemeButton from "./theme-button.astro";
         <Link href="/categories">--categories</Link>
         <Link href="/about">--about-me</Link>
       </div>
-      <ThemeButton />
+      <div class="utils-items">
+        <ThemeButton />
+        <RssLink />
+      </div>
     </div>
     <MenuButton class="menu-button" />
   </div>
@@ -90,6 +94,11 @@ import ThemeButton from "./theme-button.astro";
       align-items: center;
       gap: var(--spacing-8);
     }
+  }
+
+  .utils-items {
+    display: flex;
+    gap: var(--spacing-6);
   }
 
   .menu-button {

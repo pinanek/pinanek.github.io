@@ -28,6 +28,7 @@ const get: APIRoute = () =>
         pubDate: new Date(dates.published),
       };
     }),
+    stylesheet: "/rss/styles.xsl",
   });
 
 export { get };
