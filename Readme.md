@@ -24,13 +24,13 @@ pnpm dev
 
 - [ ] Update logo
 - [ ] Content
-  - [ ] Custom syntax highlighting
+  - [x] Custom syntax highlighting
   - [x] Optimize image using `@astrojs/image`
-  - [ ] Table of content
+  - [x] Table of content
   - [ ] Relative posts
 - [ ] Category system
 - [ ] Pagination
 - [ ] RSS
 - [ ] Searching?
-- [ ] Dark mode
+- [x] Dark mode
 - [x] Linting and formatting
