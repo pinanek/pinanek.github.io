@@ -1,17 +1,18 @@
 :root {
   color-scheme: light dark;
 
-  --base-hue: 36;
-  --base-saturation: 100%;
-
   --accent-hue: 26;
-  --accent-saturation: 100%;
 
   --kenanip-theme-text: var(--color-text-default);
 }
 
 [color-scheme="light"] {
   color-scheme: light;
+
+  --base-hue: 36;
+  --base-saturation: 100%;
+
+  --accent-saturation: 100%;
 
   --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 98%);
   --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
@@ -37,16 +38,21 @@
 [color-scheme="dark"] {
   color-scheme: dark;
 
-  --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 98%);
-  --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
-  --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 94%);
-  --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 89%);
+  --base-hue: 0;
+  --base-saturation: 0%;
 
-  --color-accent-text-default: hsl(var(--accent-hue), var(--accent-saturation), 24%);
-  --color-accent-text-secondary: hsl(var(--accent-hue), var(--accent-saturation), 16%);
+  --accent-saturation: 60%;
 
-  --color-text-default: hsl(0, 0%, 7%);
-  --color-text-alt: hsl(0, 0%, 31%);
+  --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 12%);
+  --color-base-default: hsl(var(--base-hue), var(--base-saturation), 10%);
+  --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 14%);
+  --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 18%);
+
+  --color-accent-text-default: hsl(var(--accent-hue), var(--accent-saturation), 92%);
+  --color-accent-text-secondary: hsl(var(--accent-hue), var(--accent-saturation), 84%);
+
+  --color-text-default: hsl(0, 0%, 100%);
+  --color-text-alt: hsl(0, 0%, 69%);
 
   --color-transparent-default: hsla(0, 0%, 0%, 0);
   --color-transparent-secondary: hsla(0, 0%, 0%, 0.06);

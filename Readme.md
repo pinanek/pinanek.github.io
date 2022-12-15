@@ -32,5 +32,5 @@ pnpm dev
 - [ ] Pagination
 - [x] RSS
 - [ ] Searching?
-- [ ] Dark mode
+- [x] Dark mode
 - [x] Linting and formatting
