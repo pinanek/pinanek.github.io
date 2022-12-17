@@ -26,9 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 
     return {
-      params: {
-        post: post.slug,
-      },
+      params: { post: post.slug },
       props: { post },
     };
   });

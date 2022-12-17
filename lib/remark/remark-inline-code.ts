@@ -1,5 +1,5 @@
 import { visit } from "unist-util-visit";
-import type { Highlighter } from "@/highlighter";
+import type { Highlighter } from "~/lib/highlighter";
 import type { Root, Parent, HTML, InlineCode } from "mdast";
 import type { Plugin } from "unified";
 

@@ -8,13 +8,13 @@ import mdx from "@astrojs/mdx";
 
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from "remark-unwrap-images";
-import remarkMdxImages from "./src/plugins/remark/remark-mdx-images";
-import remarkCodeblock from "./src/plugins/remark/remark-code-block";
-import remarkInlineCode from "./src/plugins/remark/remark-inline-code";
+import remarkMdxImages from "./lib/remark/remark-mdx-images";
+import remarkCodeblock from "./lib/remark/remark-code-block";
+import remarkInlineCode from "./lib/remark/remark-inline-code";
 
 import postcssPresetEnv from "postcss-preset-env";
 
-import { Highlighter } from "./src/highlighter";
+import { Highlighter } from "./lib/highlighter";
 
 const markdownCodeblockHighlighter = new Highlighter();
 
