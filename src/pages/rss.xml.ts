@@ -1,26 +1,16 @@
 import rss from "@astrojs/rss";
 import siteConfig from "~/site.config";
 import type { APIRoute } from "astro";
-import type { MarkdownInstance } from "astro";
-import type { PostFrontmatter } from "@/types/post";
+import { getCollection } from "astro:content";
 
-const postsImportResult = import.meta.glob<MarkdownInstance<PostFrontmatter>>("/content/posts/**/index.mdx", {
-  eager: true,
-});
+const get: APIRoute = async () => {
+  const posts = await getCollection("posts");
 
-const posts = Object.values(postsImportResult);
-
-const get: APIRoute = () =>
-  rss({
+  return rss({
     title: siteConfig.name,
     description: siteConfig.description,
     site: import.meta.env.SITE,
-    items: posts.map(({ file, frontmatter: { seoTitle, description, dates } }) => {
-      const slug = file
-        .replace(/\/index.mdx$/, "")
-        .split(/[/\\]/)
-        .pop();
-
+    items: posts.map(({ slug, data: { seoTitle, description, dates } }) => {
       return {
         link: `/posts/${slug}/`,
         description: description,
@@ -30,5 +20,6 @@ const get: APIRoute = () =>
     }),
     stylesheet: "/rss/styles.xsl",
   });
+};
 
 export { get };

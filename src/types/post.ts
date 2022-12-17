@@ -12,7 +12,7 @@ interface RawPostFrontmatter {
   };
   dates: {
     published: string;
-    updated: string;
+    updated?: string;
   };
   tableOfContent?: boolean;
 }

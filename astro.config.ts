@@ -40,6 +40,9 @@ export default defineConfig({
     sitemap(),
     htmlMinifier(),
   ],
+  experimental: {
+    contentCollections: true,
+  },
 
   vite: {
     css: {

@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
-    "@astrojs/mdx": "0.12.2",
+    "@astrojs/mdx": "0.13.0",
     "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
-    "astro": "1.6.15",
+    "astro": "1.7.1",
     "fast-glob": "^3.2.12",
     "hastscript": "^7.1.0",
     "html-minifier-terser": "^7.1.0",
@@ -52,11 +52,11 @@
     "@types/hast": "^2.3.4",
     "@types/html-minifier-terser": "^7.0.0",
     "@types/mdast": "^3.0.10",
-    "@types/node": "^18.11.15",
+    "@types/node": "^18.11.16",
     "@types/postcss-preset-env": "^7.7.0",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-astro": "0.21.1",
     "eslint-plugin-jsx-a11y": "^6.6.1",
@@ -72,7 +72,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "@astrojs/mdx@0.12.2": "patches/@astrojs__mdx@0.12.2.patch"
+      "@astrojs/mdx@0.13.0": "patches/@astrojs__mdx@0.13.0.patch"
     }
   }
 }

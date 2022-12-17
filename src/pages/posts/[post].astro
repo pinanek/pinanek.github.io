@@ -1,62 +1,50 @@
 ---
 import * as path from "path";
-import { PostLayout } from "@/layouts";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { PostContent } from "@/components/post";
-import type { GetStaticPaths, MarkdownHeading } from "astro";
-import type { PostData, PostFrontmatter, RawPostFrontmatter } from "@/types/post";
+import { PostLayout } from "@/layouts";
+import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await Astro.glob<RawPostFrontmatter>("/content/posts/**/index.mdx");
+  const posts = await getCollection("posts");
 
-  const data = posts.map(async ({ Content, frontmatter: rawPostFrontmatter, url, getHeadings }) => {
-    const postDirPath = url?.replace(/\/index.mdx$/, "") as string;
+  const postImages = await import.meta.glob<ImageMetadata>("/src/content/posts/**/images/*", { import: "default" });
 
-    const slug = postDirPath.split(/[/\\]/).pop();
-
-    // Update frontmatter
-    const images = await import.meta.glob<ImageMetadata>("/content/posts/**/images/*", { import: "default" });
-    const thumbnailPath = path.join("/", postDirPath, rawPostFrontmatter.image.src).replace(/\\/g, "/");
-    const imageData = images[thumbnailPath];
+  const generatePaths = posts.map(async (post) => {
+    const thumbnailPath = path.join("/src/content/posts", post.slug, post.data.image.src).replace(/\\/g, "/");
+    const imageData = postImages[thumbnailPath];
 
     if (!imageData) throw Error("Post thumbnail image: Invalid image path!");
 
     const { src, width, height } = await imageData();
 
-    // Headings
-    const headings = getHeadings();
-
-    const frontmatter: PostFrontmatter = {
-      ...rawPostFrontmatter,
-      image: {
-        ...rawPostFrontmatter.image,
-        src,
-        width,
-        height,
-      },
+    post.data.image = {
+      ...post.data.image,
+      src,
+      width,
+      height,
     };
 
     return {
-      params: { post: slug },
-      props: {
-        Content,
-        frontmatter,
-        headings,
+      params: {
+        post: post.slug,
       },
+      props: { post },
     };
   });
 
-  return Promise.all(data);
+  return Promise.all(generatePaths);
 };
 
 interface Props {
-  Content: PostData["Content"];
-  frontmatter: PostFrontmatter;
-  headings: MarkdownHeading[];
+  post: CollectionEntry<"posts">;
 }
 
-const { Content, frontmatter, headings } = Astro.props as Props;
+const { post } = Astro.props as Props;
+
+const { Content, headings } = await post.render();
 ---
 
-<PostLayout frontmatter={frontmatter} headings={headings}>
+<PostLayout frontmatter={post.data} headings={headings}>
   <PostContent Content={Content} />
 </PostLayout>

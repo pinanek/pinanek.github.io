@@ -83,14 +83,14 @@ async function getPicture({
 async function getPlaceHolder(src: string): Promise<IGetCSSReturn> {
   let baseDir;
 
-  if (import.meta.env.PROD) {
+  if (import.meta.env.MODE === "production") {
     // Set base dir to build output folder
     baseDir = "_dist";
   } else {
-    baseDir = ".";
+    baseDir = "src";
   }
 
-  const { css: placeholder } = await getPlaiceholder(src, { dir: baseDir, size: 10 });
+  const { css: placeholder } = await getPlaiceholder(src.replace("/@astroimage", ""), { dir: baseDir, size: 10 });
 
   return placeholder;
 }

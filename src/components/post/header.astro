@@ -1,18 +1,11 @@
 ---
 import { Figure } from "@/components/common";
-import type { PostFrontmatter } from "@/types/post";
 import CategoryItem from "./category/category-item.astro";
+import { getDisplayDate } from "@/utils/common";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  frontmatter: PostFrontmatter;
-}
-
-function getDisplayDate(date: string): string {
-  return new Date(date).toLocaleDateString("vi-VN", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
+  frontmatter: CollectionEntry<"posts">["data"];
 }
 
 const {

@@ -5,3 +5,4 @@ node_modules/
 # Web
 public/
 _dist/
+src/content/types.generated.d.ts

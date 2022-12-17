@@ -3,12 +3,12 @@ import BaseLayout from "./base.astro";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { PostHeader, PostTableOfContent } from "@/components/post";
-import type { PostFrontmatter } from "@/types/post";
 import type { MarkdownHeading } from "astro";
+import type { CollectionEntry } from "astro:content";
 import "@/styles/highlighter.css";
 
 interface Props {
-  frontmatter: PostFrontmatter;
+  frontmatter: CollectionEntry<"posts">["data"];
   headings: MarkdownHeading[];
 }
 
