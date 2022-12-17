@@ -9,24 +9,24 @@ article {
 
 [color-scheme="light"] article {
   --kenanip-theme-token-keyword: hsl(210, 96%, 40%);
-  --kenanip-theme-token-type: hsl(350, 60%, 55%);
+  --kenanip-theme-token-type: hsl(261, 55%, 50%);
   --kenanip-theme-token-string-expression: hsl(153, 39%, 41%);
   --kenanip-theme-token-number: hsl(210, 65%, 60%);
   --kenanip-theme-token-comment: hsl(0, 0%, 50%);
   --kenanip-theme-token-function: hsl(var(--base-hue), 60%, 40%);
-  --kenanip-theme-token-control-flow: hsl(261, 55%, 50%);
+  --kenanip-theme-token-control-flow: hsl(338, 100%, 36%);
   --kenanip-theme-token-css-attribute-quantifier-regex: hsl(1, 81%, 73%);
   --kenanip-theme-token-string-regex: hsl(21, 69%, 73%);
 }
 
 [color-scheme="dark"] article {
   --kenanip-theme-token-keyword: hsl(210, 60%, 70%);
-  --kenanip-theme-token-type: hsl(350, 70%, 80%);
+  --kenanip-theme-token-type: hsl(261, 55%, 75%);
   --kenanip-theme-token-string-expression: hsl(153, 39%, 65%);
   --kenanip-theme-token-number: hsl(210, 65%, 80%);
   --kenanip-theme-token-comment: hsl(0, 0%, 50%);
-  --kenanip-theme-token-function: hsl(var(--base-hue), 69%, 70%);
-  --kenanip-theme-token-control-flow: hsl(261, 55%, 75%);
+  --kenanip-theme-token-function: hsl(var(--base-hue), 40%, 80%);
+  --kenanip-theme-token-control-flow: hsl(338, 60%, 75%);
   --kenanip-theme-token-css-attribute-quantifier-regex: hsl(1, 81%, 73%);
   --kenanip-theme-token-string-regex: hsl(21, 69%, 83%);
 }

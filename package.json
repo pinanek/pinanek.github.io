@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "author": {
+    "name": "pinanek",
+    "url": "https://pinanek.github.io"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/pinanek/pinanek.github.io"
@@ -10,9 +14,9 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.12.1",
-    "pnpm": ">=7.18.0"
+    "pnpm": ">=7.18.2"
   },
-  "packageManager": "pnpm@7.18.0",
+  "packageManager": "pnpm@7.18.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -23,7 +27,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
-    "@astrojs/mdx": "0.12.1",
+    "@astrojs/mdx": "0.12.2",
     "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
     "astro": "1.6.15",
@@ -49,11 +53,12 @@
     "@types/html-minifier-terser": "^7.0.0",
     "@types/mdast": "^3.0.10",
     "@types/node": "^18.11.15",
+    "@types/postcss-preset-env": "^7.7.0",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-astro": "^0.21.0",
+    "eslint-plugin-astro": "0.21.1",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
@@ -67,7 +72,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "@astrojs/mdx@0.12.1": "patches/@astrojs__mdx@0.12.1.patch"
+      "@astrojs/mdx@0.12.2": "patches/@astrojs__mdx@0.12.2.patch"
     }
   }
 }

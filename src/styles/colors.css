@@ -54,9 +54,9 @@
   --color-text-default: hsl(0, 0%, 100%);
   --color-text-alt: hsl(0, 0%, 69%);
 
-  --color-transparent-default: hsla(0, 0%, 0%, 0);
-  --color-transparent-secondary: hsla(0, 0%, 0%, 0.06);
-  --color-transparent-tertiary: hsla(0, 0%, 0%, 0.08);
+  --color-transparent-default: hsla(0, 0%, 100%, 0);
+  --color-transparent-secondary: hsla(0, 0%, 100%, 0.06);
+  --color-transparent-tertiary: hsla(0, 0%, 100%, 0.08);
 
   --color-scrollbar-thumb-default: hsl(var(--base-hue), var(--base-saturation), 80%);
   --color-scrollbar-thumb-secondary: hsl(var(--base-hue), calc(var(--base-saturation)), 76%);

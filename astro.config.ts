@@ -12,6 +12,8 @@ import remarkMdxImages from "./src/plugins/remark/remark-mdx-images";
 import remarkCodeblock from "./src/plugins/remark/remark-code-block";
 import remarkInlineCode from "./src/plugins/remark/remark-inline-code";
 
+import postcssPresetEnv from "postcss-preset-env";
+
 import { Highlighter } from "./src/highlighter";
 
 const markdownCodeblockHighlighter = new Highlighter();
@@ -38,4 +40,23 @@ export default defineConfig({
     sitemap(),
     htmlMinifier(),
   ],
+
+  vite: {
+    css: {
+      postcss: {
+        plugins: [
+          postcssPresetEnv({
+            autoprefixer: false,
+            features: {
+              "custom-properties": false,
+              "custom-selectors": true,
+              "custom-media-queries": {
+                importFrom: ["./src/styles/media.css"],
+              },
+            },
+          }),
+        ],
+      },
+    },
+  },
 });
