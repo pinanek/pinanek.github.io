@@ -8,7 +8,7 @@ const { category } = Astro.props as Props;
 
 <a href={`/categories/${category}`}>
   <span class="background"></span>
-  <span>{category}</span>
+  <span class="category">{category}</span>
 </a>
 
 <style>
@@ -20,6 +20,12 @@ const { category } = Astro.props as Props;
     text-decoration: none;
     color: var(--color-text-default);
     transition: color var(--duration-default) var(--ease-in-out);
+    z-index: 2;
+  }
+
+  .category {
+    position: relative;
+    z-index: 2;
   }
 
   .background {
@@ -30,7 +36,7 @@ const { category } = Astro.props as Props;
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 1;
     margin: auto;
     transform-origin: center;
     transition-property: transform, background-color;

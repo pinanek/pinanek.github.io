@@ -14,6 +14,8 @@
 
   --accent-saturation: 100%;
 
+  --color-shadow: hsla(0, 0%, 0%, 0.1);
+
   --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 98%);
   --color-base-default: hsl(var(--base-hue), var(--base-saturation), 97%);
   --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 94%);
@@ -41,15 +43,17 @@
   --base-hue: 0;
   --base-saturation: 0%;
 
-  --accent-saturation: 60%;
+  --accent-saturation: 50%;
+
+  --color-shadow: hsla(0, 1%, 100%, 0.02);
 
   --color-base-lighter: hsl(var(--base-hue), var(--base-saturation), 12%);
   --color-base-default: hsl(var(--base-hue), var(--base-saturation), 10%);
   --color-base-secondary: hsl(var(--base-hue), var(--base-saturation), 14%);
   --color-base-tertiary: hsl(var(--base-hue), var(--base-saturation), 18%);
 
-  --color-accent-text-default: hsl(var(--accent-hue), var(--accent-saturation), 92%);
-  --color-accent-text-secondary: hsl(var(--accent-hue), var(--accent-saturation), 84%);
+  --color-accent-text-default: hsl(var(--accent-hue), var(--accent-saturation), 90%);
+  --color-accent-text-secondary: hsl(var(--accent-hue), var(--accent-saturation), 86%);
 
   --color-text-default: hsl(0, 0%, 100%);
   --color-text-alt: hsl(0, 0%, 69%);

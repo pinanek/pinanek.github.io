@@ -1,22 +1,15 @@
 ---
-import * as path from "path";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { PostContent } from "@/components/post";
 import { PostLayout } from "@/layouts";
+import { getThumbnailImages } from "@/content/image";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection("posts");
 
-  const postImages = await import.meta.glob<ImageMetadata>("/src/content/posts/**/images/*", { import: "default" });
-
   const generatePaths = posts.map(async (post) => {
-    const thumbnailPath = path.join("/src/content/posts", post.slug, post.data.image.src).replace(/\\/g, "/");
-    const imageData = postImages[thumbnailPath];
-
-    if (!imageData) throw Error("Post thumbnail image: Invalid image path!");
-
-    const { src, width, height } = await imageData();
+    const { src, width, height } = await getThumbnailImages(post.slug, post.data);
 
     const newData: typeof post.data = {
       ...post.data,

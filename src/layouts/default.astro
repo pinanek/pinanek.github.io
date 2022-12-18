@@ -1,0 +1,22 @@
+---
+import Header from "@/components/header";
+import BaseLayout, { type Props as BaseLayoutProps } from "./base.astro";
+
+type Props = BaseLayoutProps;
+
+const { head } = Astro.props as Props;
+---
+
+<BaseLayout head={head}>
+  <Header />
+  <div class="spacing-bottom"></div>
+  <main class="page-spacing page-sizing">
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .spacing-bottom {
+    height: var(--spacing-20);
+  }
+</style>
