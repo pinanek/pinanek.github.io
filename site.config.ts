@@ -10,7 +10,7 @@ const siteConfig: SiteConfig = {
   },
 
   imageOptimization: {
-    formats: ["png", "webp"],
+    formats: ["avif", "webp", "png"],
     widths: [320, 480, 640, 960, 1280, 1600, 1920, 2560, 3840],
   },
 };

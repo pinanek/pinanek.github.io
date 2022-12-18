@@ -18,12 +18,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const { src, width, height } = await imageData();
 
-    post.data.image = {
-      ...post.data.image,
-      src,
-      width,
-      height,
+    const newData: typeof post.data = {
+      ...post.data,
+      image: {
+        ...post.data.image,
+        src,
+        width,
+        height,
+      },
     };
+
+    post.data = newData;
 
     return {
       params: { post: post.slug },
