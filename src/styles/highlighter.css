@@ -15,7 +15,7 @@ article {
   --kenanip-theme-token-comment: hsl(0, 0%, 50%);
   --kenanip-theme-token-function: hsl(var(--base-hue), 60%, 40%);
   --kenanip-theme-token-control-flow: hsl(338, 100%, 36%);
-  --kenanip-theme-token-css-attribute-quantifier-regex: hsl(1, 81%, 73%);
+  --kenanip-theme-token_css-attribute_quantifier-regex: hsl(1, 81%, 73%);
   --kenanip-theme-token-string-regex: hsl(21, 69%, 73%);
 }
 
@@ -27,6 +27,6 @@ article {
   --kenanip-theme-token-comment: hsl(0, 0%, 50%);
   --kenanip-theme-token-function: hsl(var(--base-hue), 40%, 80%);
   --kenanip-theme-token-control-flow: hsl(338, 60%, 75%);
-  --kenanip-theme-token-css-attribute-quantifier-regex: hsl(1, 81%, 73%);
+  --kenanip-theme-token_css-attribute_quantifier-regex: hsl(1, 81%, 73%);
   --kenanip-theme-token-string-regex: hsl(21, 69%, 83%);
 }

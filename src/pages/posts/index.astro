@@ -6,7 +6,12 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("posts");
 ---
 
-<DefaultLayout>
+<DefaultLayout
+  head={{
+    title: "All posts",
+    description: "All posts that are written by pinanek 📄",
+  }}
+>
   <h1>All posts</h1>
   <div class="posts-container">
     {posts.map(({ slug, data }) => <PostItem slug={slug} frontmatter={data} />)}

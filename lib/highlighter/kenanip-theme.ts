@@ -546,7 +546,7 @@ const colors: Record<string, string> = {
   "#009": "var(--kenanip-theme-token-function)",
   "#010": "var(--kenanip-theme-token-control-flow)",
   "#011": "var(--kenanip-theme-token-punctuation)",
-  "#012": "var(--kenanip-theme-token-css-attribute-quantifier-regex)",
+  "#012": "var(--kenanip-theme-token_css-attribute_quantifier-regex)",
   "#013": "var(--kenanip-theme-token-string-regex)",
   "#014": "var(--kenanip-theme-token-html-xml-tag)",
 };
