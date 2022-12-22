@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"code">;
+
+const props = Astro.props as Props;
+---
+
+<code {...props}><slot /></code>
+
+<style>
+  code {
+    font-family: var(--font-mono);
+    font-variation-settings: var(--font-variant-mono);
+    box-shadow: var(--box-shadow-inset);
+    border-radius: var(--radii-sm);
+    background-color: var(--color-base-secondary);
+    padding: var(--spacing-0_5) var(--spacing-2);
+    transition: background-color var(--duration-default) var(--ease-in-out);
+  }
+</style>

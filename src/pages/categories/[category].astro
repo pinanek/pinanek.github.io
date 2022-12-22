@@ -1,0 +1,64 @@
+---
+/* eslint astro/no-unused-css-selector: "off" */
+
+import { PostsLayout } from "@/layouts";
+import type { GetStaticPaths } from "astro";
+import { postsInfo, type PostInfo } from "@/content/_content";
+import { Code } from "@/components/common";
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const categories = new Map<string, PostInfo[]>();
+
+  for (const { slug, data } of postsInfo) {
+    for (const category of data.categories) {
+      const postsByCategory = categories.get(category);
+      const postInfo = { slug, data };
+
+      if (postsByCategory) {
+        postsByCategory.push(postInfo);
+      } else {
+        categories.set(category, [postInfo]);
+      }
+    }
+  }
+
+  const paths = [];
+
+  for (const [category, postsInfoByCategory] of categories) {
+    paths.push({
+      params: { category },
+      props: { category, postsInfoByCategory },
+    });
+  }
+
+  return paths;
+};
+
+interface Props {
+  category: string;
+  postsInfoByCategory: PostInfo[];
+}
+
+const { category, postsInfoByCategory } = Astro.props as Props;
+---
+
+<PostsLayout
+  head={{
+    title: `Posts by category: "${category}"`,
+    description: `All posts are in "${category}" category, written by pinanek 📄`,
+  }}
+  postsInfo={postsInfoByCategory}
+>
+  <Fragment slot="heading">
+    <span>Posts by category:</span>
+    <Code class="inline-code">{category}</Code>
+  </Fragment>
+</PostsLayout>
+
+<style>
+  .inline-code {
+    font-size: 2.5rem;
+    vertical-align: middle;
+    margin-left: 0.25em;
+  }
+</style>

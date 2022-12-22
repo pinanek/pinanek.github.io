@@ -1,13 +1,12 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
 import { PostContent } from "@/components/post";
 import { PostLayout } from "@/layouts";
-import { getThumbnailImages } from "@/content/image";
+import { posts } from "@/content/_content";
+import { getThumbnailImages } from "@/content/_image";
 import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getCollection("posts");
-
   const generatePaths = posts.map(async (post) => {
     const { src, width, height } = await getThumbnailImages(post.slug, post.data);
 

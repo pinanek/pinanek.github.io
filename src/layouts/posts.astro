@@ -1,0 +1,52 @@
+---
+import Header from "@/components/header";
+import BaseLayout, { type Props as BaseLayoutProps } from "./base.astro";
+import { PostItem } from "@/components/post";
+import type { CollectionEntry } from "astro:content";
+
+interface PostInfo {
+  slug: string;
+  data: CollectionEntry<"posts">["data"];
+}
+
+interface Props extends BaseLayoutProps {
+  postsInfo: PostInfo[];
+}
+
+const { postsInfo, head } = Astro.props as Props;
+---
+
+<BaseLayout head={head}>
+  <Header />
+  <div class="spacing-bottom"></div>
+  <main class="page-spacing page-sizing">
+    <h1><slot name="heading" /></h1>
+    <div class="posts-container">
+      {postsInfo.map(({ slug, data }) => <PostItem slug={slug} frontmatter={data} />)}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2.75rem;
+    padding: var(--spacing-4) 0;
+    color: var(--color-accent-text-secondary);
+    border-bottom: 3px solid var(--color-accent-text-secondary);
+    transition-property: color, border-bottom;
+    transition-duration: var(--duration-default);
+    transition-timing-function: var(--ease-in-out);
+  }
+
+  .posts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: var(--spacing-8);
+    padding: 0 var(--spacing-3);
+    gap: var(--spacing-4);
+  }
+
+  .spacing-bottom {
+    height: var(--spacing-20);
+  }
+</style>

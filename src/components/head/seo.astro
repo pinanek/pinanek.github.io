@@ -24,8 +24,8 @@ function getTitle(title: string | undefined, fallback: string): string {
 
 const formattedTitle = getTitle(title, siteConfig.name);
 const formattedSeoTitle = getTitle(seoTitle, formattedTitle);
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const socialImageUrl = new URL(socialImage.src, Astro.site).toString();
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialImageUrl = new URL(socialImage.src, Astro.site);
 ---
 
 <title>{formattedTitle}</title>

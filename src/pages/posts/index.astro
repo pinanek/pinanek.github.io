@@ -1,39 +1,14 @@
 ---
-import { DefaultLayout } from "@/layouts";
-import { PostItem } from "@/components/post";
-import { getCollection } from "astro:content";
-
-const posts = await getCollection("posts");
+import { PostsLayout } from "@/layouts";
+import { postsInfo } from "@/content/_content";
 ---
 
-<DefaultLayout
+<PostsLayout
   head={{
     title: "All posts",
-    description: "All posts that are written by pinanek 📄",
+    description: "All posts are written by pinanek 📄",
   }}
+  postsInfo={postsInfo}
 >
-  <h1>All posts</h1>
-  <div class="posts-container">
-    {posts.map(({ slug, data }) => <PostItem slug={slug} frontmatter={data} />)}
-  </div>
-</DefaultLayout>
-
-<style>
-  h1 {
-    font-size: 2.75rem;
-    padding: var(--spacing-4) 0;
-    color: var(--color-accent-text-secondary);
-    border-bottom: 3px solid var(--color-accent-text-secondary);
-    transition-property: color, border-bottom;
-    transition-duration: var(--duration-default);
-    transition-timing-function: var(--ease-in-out);
-  }
-
-  .posts-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: var(--spacing-8);
-    padding: 0 var(--spacing-3);
-    gap: var(--spacing-4);
-  }
-</style>
+  <Fragment slot="heading">All posts</Fragment>
+</PostsLayout>
