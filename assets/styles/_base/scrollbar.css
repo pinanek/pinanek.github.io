@@ -1,0 +1,23 @@
+html,
+.scrollable {
+  --c-scrollbar-thumb: var(--c-code-number);
+  --c-scrollbar-thumb-hover: var(--c-text-subtle);
+  --c-scrollbar-track: var(--c-bg-muted);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-scrollbar-thumb) var(--c-scrollbar-track);
+}
+
+html:hover:not(:has(body:hover)),
+.scrollable:hover:not(:has(> .scrollable-content:hover)) {
+  scrollbar-color: var(--c-scrollbar-thumb-hover) var(--c-scrollbar-track);
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+.scrollable-content {
+  min-inline-size: 100%;
+  min-block-size: 100%;
+}

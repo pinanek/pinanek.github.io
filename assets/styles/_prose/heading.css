@@ -1,0 +1,55 @@
+.prose-heading {
+  position: relative;
+  overflow: visible;
+}
+
+.prose-heading__anchor {
+  position: absolute;
+  inset-block-start: 0.15em;
+  inset-inline-end: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-inline: 0.25rem 0.5rem;
+
+  color: var(--c-text-muted);
+  text-decoration: none;
+
+  opacity: 0;
+  cursor: pointer;
+
+  transition:
+    opacity var(--duration-normal) var(--ease-default),
+    color var(--duration-normal) var(--ease-default);
+}
+
+.prose-heading:hover > .prose-heading__anchor,
+.prose-heading:focus-within > .prose-heading__anchor,
+.prose-heading__anchor:focus-visible {
+  opacity: 1;
+}
+
+.prose-heading__anchor:hover {
+  color: var(--c-text);
+}
+
+.prose-heading__anchor:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.prose-heading__anchor-icon {
+  display: block;
+  width: 0.75em;
+  height: 0.75em;
+  flex: none;
+}
+
+@media (hover: none) {
+  .prose-heading__anchor {
+    opacity: 1;
+  }
+}

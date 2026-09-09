@@ -1,0 +1,100 @@
+.prose-footnote-ref a {
+  color: var(--c-link-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.prose-footnote-ref a:hover {
+  text-decoration: underline;
+}
+
+.prose-footnotes__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose-footnote {
+  display: flex;
+  align-items: start;
+  column-gap: 0.25rem;
+
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.prose-footnote__number {
+  color: var(--c-link-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.prose-footnote__number::after {
+  content: ":";
+}
+
+.prose-footnote__content > :has(+ .prose-footnote__backrefs) {
+  display: inline;
+}
+
+.prose-footnote__backrefs {
+  display: inline;
+  margin-inline-start: 0.35rem;
+  white-space: nowrap;
+}
+
+.prose-footnote__backrefs > a + a {
+  margin-inline-start: 0.35rem;
+}
+
+.prose-footnote__backrefs a {
+  color: var(--c-link-text);
+  font-weight: 600;
+}
+
+@media (--viewport-md) {
+  @supports ((anchor-name: --test) and (position-anchor: --test) and (top: anchor(top))) {
+    .prose-footnote {
+      --available-footnote-width: calc(
+        (100vw - var(--content-width)) / 2 - var(--footnote-gap) - 1rem
+      );
+
+      position: absolute;
+      inset-inline-start: calc(100% + var(--footnote-gap));
+
+      inline-size: min(var(--footnote-width), var(--available-footnote-width));
+      max-inline-size: var(--footnote-width);
+      min-inline-size: 0;
+      margin: 0;
+
+      overflow-wrap: anywhere;
+    }
+
+    .prose-footnote__content {
+      min-inline-size: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .prose-footnotes__title {
+    display: none;
+  }
+
+  .prose-footnote {
+    gap: 0.15rem;
+  }
+
+  .prose-footnote__number {
+    display: inline;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 0.85;
+    text-decoration: none;
+    vertical-align: super;
+  }
+
+  .prose-footnote__number::after {
+    content: "";
+  }
+}

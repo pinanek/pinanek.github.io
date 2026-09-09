@@ -1,0 +1,146 @@
+[[publication]]
+title = "Poisoning the Swarm: Evaluating data-level vulnerabilities in decentralized Internet of Medical Things-enabled healthcare networks"
+authors = [
+  "Ngo Duc Hoang Son",
+  "Vuong Dinh Thanh Ngan",
+  "Le Minh Nha",
+  "Tran Duc Luong",
+  "Van-Hau Pham",
+  "Phan The Duy",
+]
+year = 2026
+type = "journal"
+venue = "Computers and Electrical Engineering"
+link = "https://doi.org/10.1016/j.compeleceng.2026.111349"
+
+[[publication]]
+title = "G-FLEX: A Graph-Based and Fine-Tuned Transformer Framework with Explainable AI for Fileless Malware Detection"
+authors = ["Bao Pham-Thai", "Nghi Hoang Khoa", "Ngo Duc Hoang Son", "Khanh Ho-Vi", "Phan The Duy"]
+year = 2025
+type = "conference"
+venue = "20th International Conference on Information Security Practice and Experience (ISPEC 2025)"
+link = "https://doi.org/10.1007/978-981-95-9284-5_15"
+
+[[publication]]
+title = "PhishFusion: A Multimodal Phishing Website Detection Framework Using Joint URL and JavaScript Features"
+authors = [
+  "Doan Manh Duc",
+  "Tran Kim Ngoc Ngan",
+  "Ngo Duc Hoang Son",
+  "Phan The Duy",
+  "Tram Truong-Huu",
+  "Van-Hau Pham",
+]
+year = 2026
+type = "conference"
+venue = "18th Asian Conference on Intelligent Information and Database Systems (ACIIDS 2026)"
+link = "https://doi.org/10.1007/978-981-92-0263-8_39"
+
+[[publication]]
+title = "Phishing Website Detection via Multimodal Learning and Retrieval-Augmented Reasoning"
+authors = [
+  "Doan Manh Duc",
+  "Do Thien Khang",
+  "Do Thi Thu Hien",
+  "Ngo Duc Hoang Son",
+  "Phan The Duy",
+]
+year = 2025
+type = "conference"
+venue = "2025 RIVF International Conference on Computing and Communication Technologies (RIVF)"
+link = "https://doi.org/10.1109/RIVF68649.2025.11365186"
+
+[[publication]]
+title = "PowerGNN: A source code structural and textual awareness approach for identifying malicious PowerShell scripts"
+authors = [
+  "Nghi Hoang Khoa",
+  "Ngo Duc Hoang Son",
+  "Nguyen Hoang Tuan",
+  "Le Phan Huu Nghia",
+  "Van-Hau Pham",
+  "Phan The Duy",
+]
+year = 2025
+type = "conference"
+venue = "2025 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)"
+link = "https://doi.org/10.1109/MAPR67746.2025.11133781"
+
+[[publication]]
+title = "PowerGAN: Enhancing PowerShell Attack Detection Through GAN-Driven Data Generation"
+authors = ["Nghi Hoang Khoa", "Dang Quang Huy", "Cao Minh Duc", "Ngo Duc Hoang Son", "Phan The Duy"]
+year = 2025
+type = "conference"
+venue = "14th International Symposium on Information and Communication Technology (SOICT 2025)"
+link = "https://doi.org/10.1007/978-981-92-2600-9_43"
+
+[[publication]]
+title = "A Study on Adversarial Sample Resistance and Defense Mechanism for Multimodal Learning-Based Phishing Website Detection"
+authors = [
+  "Phan The Duy",
+  "Vo Quang Minh",
+  "Bui Tan Hai Dang",
+  "Ngo Duc Hoang Son",
+  "Nguyen Huu Quyen",
+  "Van-Hau Pham",
+]
+year = 2024
+type = "journal"
+venue = "IEEE Access"
+link = "https://doi.org/10.1109/ACCESS.2024.3436812"
+
+[[publication]]
+title = "SeFed-IDS: A Collaborative Intrusion Detection System Utilizing Semi-Supervised Federated Learning and Data Augmentation"
+authors = ["Nguyen Huu Quyen", "Ngo Duc Hoang Son", "Do Hoang Hien", "Phan The Duy", "Van-Hau Pham"]
+year = 2024
+type = "conference"
+venue = "13th International Symposium on Information and Communication Technology (SOICT 2024)"
+link = "https://doi.org/10.1007/978-981-96-4285-4_33"
+
+[[publication]]
+title = "Shark-Eyes: A multimodal fusion framework for multi-view-based phishing website detection"
+authors = [
+  "Minh Vo Quang",
+  "Dang Bui Tan Hai",
+  "Ngan Tran Kim Ngoc",
+  "Ngo Duc Hoang Son",
+  "Quyen Nguyen Huu",
+  "Phan The Duy",
+  "Van-Hau Pham",
+]
+year = 2023
+type = "conference"
+venue = "12th International Symposium on Information and Communication Technology (SOICT 2023)"
+link = "https://doi.org/10.1145/3628797.3629003"
+
+[[publication]]
+title = "XFedGraph-Hunter: An Interpretable Federated Learning Framework for Hunting Advanced Persistent Threat in Provenance Graph"
+authors = ["Ngo Duc Hoang Son", "Huynh Thai Thi", "Phan The Duy", "Van-Hau Pham"]
+year = 2023
+type = "conference"
+venue = "18th International Conference on Information Security Practice and Experience (ISPEC 2023)"
+link = "https://doi.org/10.1007/978-981-99-7032-2_32"
+
+[[publication]]
+title = "BlazeSearch: A multimomal semantic search engine for retrieving in-video information for AI Challenge HCMC 2023"
+authors = [
+  "Ngo Duc Hoang Son",
+  "Anh Bui Vuong Tam",
+  "Phuoc Phan Hoang",
+  "Giang Tran Thi Cam",
+  "Thinh Nguyen Hung",
+  "Quyen Nguyen Huu",
+  "Phan The Duy",
+  "Van-Hau Pham",
+]
+year = 2023
+type = "conference"
+venue = "12th International Symposium on Information and Communication Technology (SOICT 2023)"
+link = "https://doi.org/10.1145/3628797.3628942"
+
+[[publication]]
+title = "Federated Learning-Based Cyber Threat Hunting for APT Attack Detection in SDN-Enabled Networks"
+authors = ["Huynh Thai Thi", "Ngo Duc Hoang Son", "Phan The Duy", "Van-Hau Pham"]
+year = 2022
+type = "conference"
+venue = "21st International Symposium on Communications and Information Technologies (ISCIT 2022)"
+link = "https://doi.org/10.1109/ISCIT55906.2022.9931222"

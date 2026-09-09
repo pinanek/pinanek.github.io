@@ -1,0 +1,33 @@
+.prose-alert {
+  --alert-color: var(--c-accent);
+
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  background-color: color-mix(in oklab, var(--alert-color) 10%, var(--c-bg));
+}
+
+.prose-alert__header {
+  margin-block-end: 0.5rem;
+  color: var(--alert-color);
+  font-weight: 700;
+}
+
+.prose-alert--note {
+  --alert-color: var(--c-cpn-blue);
+}
+
+.prose-alert--tip {
+  --alert-color: var(--c-cpn-green);
+}
+
+.prose-alert--important {
+  --alert-color: var(--c-cpn-mauve);
+}
+
+.prose-alert--warning {
+  --alert-color: var(--c-cpn-yellow);
+}
+
+.prose-alert--caution {
+  --alert-color: var(--c-cpn-red);
+}

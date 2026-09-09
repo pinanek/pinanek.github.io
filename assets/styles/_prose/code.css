@@ -1,0 +1,12 @@
+.prose code:not(pre code) {
+  padding: 0.25em 0.5em;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--c-surface);
+  color: var(--c-code-type);
+
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,241 @@
+@property --c-cpn-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #303033;
+}
+
+@property --c-cpn-subtext1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #49494d;
+}
+
+@property --c-cpn-subtext0 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #606064;
+}
+
+@property --c-cpn-overlay2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #737378;
+}
+
+@property --c-cpn-overlay1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #89898e;
+}
+
+@property --c-cpn-overlay0 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #9d9da2;
+}
+
+@property --c-cpn-surface2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d8d8da;
+}
+
+@property --c-cpn-surface1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e3e3e5;
+}
+
+@property --c-cpn-surface0 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #eeeeef;
+}
+
+@property --c-cpn-base {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7f7f8;
+}
+
+@property --c-cpn-mantle {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f1f1f2;
+}
+
+@property --c-cpn-crust {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e9e9eb;
+}
+
+@property --c-cpn-rosewater {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c66a5e;
+}
+
+@property --c-cpn-flamingo {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c85d61;
+}
+
+@property --c-cpn-pink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #b84f83;
+}
+
+@property --c-cpn-mauve {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #647fc5;
+}
+
+@property --c-cpn-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c94f55;
+}
+
+@property --c-cpn-maroon {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #bd6252;
+}
+
+@property --c-cpn-peach {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #bd6b32;
+}
+
+@property --c-cpn-yellow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8b6b22;
+}
+
+@property --c-cpn-green {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #398460;
+}
+
+@property --c-cpn-teal {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #287f76;
+}
+
+@property --c-cpn-sky {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #367fa3;
+}
+
+@property --c-cpn-sapphire {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #277c97;
+}
+
+@property --c-cpn-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #347aa5;
+}
+
+@property --c-cpn-lavender {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6579ad;
+}
+
+:root {
+  --c-cpn-text: #303033;
+  --c-cpn-subtext1: #49494d;
+  --c-cpn-subtext0: #606064;
+  --c-cpn-overlay2: #737378;
+  --c-cpn-overlay1: #89898e;
+  --c-cpn-overlay0: #9d9da2;
+  --c-cpn-surface2: #d8d8da;
+  --c-cpn-surface1: #e3e3e5;
+  --c-cpn-surface0: #eeeeef;
+  --c-cpn-base: #f7f7f8;
+  --c-cpn-mantle: #f1f1f2;
+  --c-cpn-crust: #e9e9eb;
+  --c-cpn-rosewater: #c66a5e;
+  --c-cpn-flamingo: #c85d61;
+  --c-cpn-pink: #b84f83;
+  --c-cpn-mauve: #647fc5;
+  --c-cpn-red: #c94f55;
+  --c-cpn-maroon: #bd6252;
+  --c-cpn-peach: #bd6b32;
+  --c-cpn-yellow: #8b6b22;
+  --c-cpn-green: #398460;
+  --c-cpn-teal: #287f76;
+  --c-cpn-sky: #367fa3;
+  --c-cpn-sapphire: #277c97;
+  --c-cpn-blue: #347aa5;
+  --c-cpn-lavender: #6579ad;
+
+  transition:
+    --c-cpn-text var(--duration-normal) var(--ease-default),
+    --c-cpn-subtext1 var(--duration-normal) var(--ease-default),
+    --c-cpn-subtext0 var(--duration-normal) var(--ease-default),
+    --c-cpn-overlay2 var(--duration-normal) var(--ease-default),
+    --c-cpn-overlay1 var(--duration-normal) var(--ease-default),
+    --c-cpn-overlay0 var(--duration-normal) var(--ease-default),
+    --c-cpn-surface2 var(--duration-normal) var(--ease-default),
+    --c-cpn-surface1 var(--duration-normal) var(--ease-default),
+    --c-cpn-surface0 var(--duration-normal) var(--ease-default),
+    --c-cpn-base var(--duration-normal) var(--ease-default),
+    --c-cpn-mantle var(--duration-normal) var(--ease-default),
+    --c-cpn-crust var(--duration-normal) var(--ease-default),
+    --c-cpn-rosewater var(--duration-normal) var(--ease-default),
+    --c-cpn-flamingo var(--duration-normal) var(--ease-default),
+    --c-cpn-pink var(--duration-normal) var(--ease-default),
+    --c-cpn-mauve var(--duration-normal) var(--ease-default),
+    --c-cpn-red var(--duration-normal) var(--ease-default),
+    --c-cpn-maroon var(--duration-normal) var(--ease-default),
+    --c-cpn-peach var(--duration-normal) var(--ease-default),
+    --c-cpn-yellow var(--duration-normal) var(--ease-default),
+    --c-cpn-green var(--duration-normal) var(--ease-default),
+    --c-cpn-teal var(--duration-normal) var(--ease-default),
+    --c-cpn-sky var(--duration-normal) var(--ease-default),
+    --c-cpn-sapphire var(--duration-normal) var(--ease-default),
+    --c-cpn-blue var(--duration-normal) var(--ease-default),
+    --c-cpn-lavender var(--duration-normal) var(--ease-default);
+}
+
+:root.dark {
+  --c-cpn-text: #c3c3c4;
+  --c-cpn-subtext1: #b2b2b3;
+  --c-cpn-subtext0: #a0a0a1;
+  --c-cpn-overlay2: #939394;
+  --c-cpn-overlay1: #757576;
+  --c-cpn-overlay0: #636364;
+  --c-cpn-surface2: #434344;
+  --c-cpn-surface1: #323233;
+  --c-cpn-surface0: #212122;
+  --c-cpn-base: #19191a;
+  --c-cpn-mantle: #141415;
+  --c-cpn-crust: #101011;
+  --c-cpn-rosewater: #ffcdc7;
+  --c-cpn-flamingo: #ffafaf;
+  --c-cpn-pink: #e99cba;
+  --c-cpn-mauve: #b5ccff;
+  --c-cpn-red: #f88d8e;
+  --c-cpn-maroon: #f1a290;
+  --c-cpn-peach: #fbc19d;
+  --c-cpn-yellow: #e9cc9c;
+  --c-cpn-green: #7fc7a4;
+  --c-cpn-teal: #7ecebe;
+  --c-cpn-sky: #8fc9e6;
+  --c-cpn-sapphire: #94d1e5;
+  --c-cpn-blue: #9ccfe9;
+  --c-cpn-lavender: #c1d0f2;
+}

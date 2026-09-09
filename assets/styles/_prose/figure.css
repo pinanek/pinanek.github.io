@@ -1,0 +1,34 @@
+.prose-figure {
+  --prose-overhang: 2rem;
+}
+
+.prose-figure__caption {
+  text-align: center;
+}
+
+.prose-figure__wrapper {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.prose-figure__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.prose-figure__image {
+  height: auto;
+  border-radius: var(--radius-lg);
+}

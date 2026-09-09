@@ -1,0 +1,19 @@
+{
+  "name": "garden",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "fmt": "oxfmt",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "animejs": "^4.5.0",
+    "medium-zoom": "^1.1.0"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.66.0",
+    "typescript": "^7.0.2"
+  }
+}

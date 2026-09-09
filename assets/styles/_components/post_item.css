@@ -1,0 +1,42 @@
+@import "./tag.css";
+
+.post-list {
+  display: grid;
+  gap: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.post-item article {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.post-item__title {
+  font-size: 1.25rem;
+}
+
+.post-item__title a {
+  color: var(--c-accent);
+}
+
+.post-item__title a:hover {
+  text-decoration: underline;
+}
+
+.post-item__description,
+.post-item__metadata {
+  color: var(--c-text-muted);
+}
+
+.post-item__metadata,
+.post-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-item__metadata {
+  font-size: 0.875rem;
+}

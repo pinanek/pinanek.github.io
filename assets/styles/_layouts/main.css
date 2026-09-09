@@ -1,0 +1,20 @@
+.main-layout {
+  --main-layout-width: 90ch;
+
+  max-inline-size: var(--main-layout-width);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.main-layout__header {
+  margin-block-start: 1.5rem;
+  margin-block-end: 2.75rem;
+}
+
+.main-layout__header h1 {
+  font-size: 3.5rem;
+}
+
+.main-layout__description {
+  color: var(--c-text-muted);
+}

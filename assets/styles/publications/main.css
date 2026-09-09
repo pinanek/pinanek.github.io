@@ -1,0 +1,79 @@
+@import "../_layouts/main.css";
+
+.pub-page__list,
+.pub-page__year-list,
+.pub-page__item {
+  display: grid;
+}
+
+.pub-page__list {
+  gap: 3rem;
+}
+
+.pub-page__year {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(2rem, 6vw, 5rem);
+}
+
+.pub-page__year-title {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: -0.08em;
+  z-index: 0;
+
+  margin: 0;
+
+  color: var(--c-bg);
+  font-size: clamp(8rem, 25vw, 18rem);
+  font-weight: 700;
+  line-height: 0.75;
+  letter-spacing: -0.08em;
+  -webkit-text-stroke: 1px var(--c-border);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.pub-page__year-list {
+  position: relative;
+  z-index: 1;
+
+  min-block-size: 12rem;
+  align-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub-page__item {
+  gap: 0.5rem;
+}
+
+.pub-page__item-title {
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-wrap: stable;
+  font-size: 1.25rem;
+}
+
+.pub-page__item-title a {
+  color: var(--c-accent);
+}
+
+.pub-page__item-title a:hover {
+  text-decoration: underline;
+}
+
+.pub-page__item-authors,
+.pub-page__item-metadata {
+  color: var(--c-text-muted);
+}
+
+.pub-page__external-icon {
+  display: inline-block;
+  margin-inline-start: 0.25em;
+  vertical-align: 0.1em;
+}

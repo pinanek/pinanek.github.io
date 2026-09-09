@@ -1,0 +1,67 @@
+{
+  "format_on_save": "on",
+
+  "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": true
+        }
+      }
+    },
+    "vscode-css-language-server": {
+      "settings": {
+        "css": {
+          "lint": {
+            "unknownAtRules": "ignore"
+          }
+        }
+      }
+    }
+  },
+
+  "languages": {
+    "Rust": {
+      "tab_size": 4
+    },
+
+    "CSS": {
+      "tab_size": 2,
+      "language_servers": ["vscode-css-language-server", "!biome", "oxfmt"]
+    },
+
+    "JSON": {
+      "tab_size": 2,
+      "language_servers": ["json-language-server", "!biome", "oxfmt"]
+    },
+
+    "JSONC": {
+      "tab_size": 2,
+      "language_servers": ["json-language-server", "!biome", "oxfmt"]
+    },
+
+    "JavaScript": {
+      "tab_size": 2,
+      "language_servers": [
+        "typescript-ls",
+        "oxfmt",
+        "!typescript-language-server",
+        "!vtsls",
+        "!biome",
+        "!oxlint"
+      ]
+    },
+
+    "TypeScript": {
+      "tab_size": 2,
+      "language_servers": [
+        "typescript-ls",
+        "oxfmt",
+        "!typescript-language-server",
+        "!vtsls",
+        "!biome",
+        "!oxlint"
+      ]
+    }
+  }
+}

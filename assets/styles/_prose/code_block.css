@@ -1,0 +1,284 @@
+.prose-code-block {
+  --prose-overhang: 2em;
+
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+.prose-code-block__pre {
+  counter-reset: linenumber;
+
+  background-color: var(--c-cpn-base);
+
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.prose-code-block code {
+  display: block;
+  background-color: var(--c-cpn-base);
+  font-size: 0.875em;
+  width: max-content;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-block: 0.5rem;
+}
+
+.prose-code-block .ts-line {
+  display: inline-block;
+  width: 100%;
+  min-height: var(--line-height-default);
+  padding-inline: 0.75rem;
+  box-sizing: border-box;
+}
+
+.prose-code-block .ts-line::before {
+  counter-increment: linenumber;
+  content: counter(linenumber);
+  display: inline-block;
+  width: 2ch;
+  margin-right: 1rem;
+  font-size: 0.75rem;
+
+  color: var(--c-code-number);
+  text-align: right;
+  user-select: none;
+  pointer-events: none;
+}
+
+.prose-code-block__header {
+  font-family: var(--font-mono);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.35rem 1rem;
+  background-color: var(--c-cpn-surface1);
+}
+
+.prose-code-block__title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.prose-code-block__language {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 0.375rem;
+  white-space: nowrap;
+}
+
+.prose-code-block__language-title {
+  font-size: 0.75rem;
+}
+
+.prose-code-block__language-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.prose-code-block__copy {
+  position: absolute;
+  right: 0.75rem;
+  top: 3rem;
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+
+  opacity: 0;
+  pointer-events: none;
+
+  color: var(--c-button-text);
+  background-color: var(--c-button-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+
+  transition: opacity var(--duration-normal) var(--ease-default);
+}
+
+.prose-code-block:hover .prose-code-block__copy,
+.prose-code-block:focus-within .prose-code-block__copy {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.prose-code-block__copy:hover {
+  color: var(--c-button-text-hover);
+  background-color: var(--c-button-bg-hover);
+}
+
+.prose-code-block__copy:active {
+  color: var(--c-button-text-active);
+  background-color: var(--c-button-bg-active);
+}
+
+.prose-code-block__copy .copy-icon,
+.prose-code-block__copy .check-icon {
+  grid-area: 1 / 1;
+
+  width: 1rem;
+  height: 1rem;
+
+  color: currentColor;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.prose-code-block__copy .check-icon {
+  opacity: 0;
+}
+
+.ts-line-highlighted {
+  background-color: var(--c-cpn-surface0);
+}
+
+.ts-attribute,
+.ts-type {
+  color: var(--c-code-type);
+}
+
+.ts-type-builtin,
+.ts-keyword,
+.ts-keyword-control-conditional {
+  color: var(--c-code-keyword);
+}
+
+.ts-type-enum-variant,
+.ts-constant-character,
+.ts-markup-list,
+.ts-hint {
+  color: var(--c-code-property);
+}
+
+.ts-constructor,
+.ts-label,
+.ts-markup-link-label {
+  color: var(--c-code-label);
+}
+
+.ts-constant {
+  color: var(--c-code-constant);
+}
+
+.ts-constant-character-escape,
+.ts-string-regexp,
+.ts-markup-quote {
+  color: var(--c-code-escape);
+}
+
+.ts-string,
+.ts-markup-raw,
+.ts-markup-list-checked,
+.ts-diff-plus {
+  color: var(--c-code-string);
+}
+
+.ts-string-special,
+.ts-variable-other-member,
+.ts-function,
+.ts-tag,
+.ts-special,
+.ts-markup-link-url,
+.ts-diff-delta {
+  color: var(--c-code-function);
+}
+
+.ts-string-special-symbol,
+.ts-variable-builtin,
+.ts-markup-heading-1,
+.ts-markup-bold,
+.ts-markup-italic,
+.ts-diff-minus,
+.ts-error {
+  color: var(--c-code-error);
+}
+
+.ts-comment,
+.ts-punctuation,
+.ts-markup-list-unchecked {
+  color: var(--c-code-comment);
+}
+
+.ts-comment {
+  font-style: italic;
+}
+
+.ts-variable {
+  color: var(--c-code-variable);
+}
+
+.ts-variable-parameter {
+  color: var(--c-code-parameter);
+  font-style: italic;
+}
+
+.ts-punctuation-special,
+.ts-operator,
+.ts-info {
+  color: var(--c-code-operator);
+}
+
+.ts-keyword-control-conditional {
+  font-style: italic;
+}
+
+.ts-function-macro {
+  color: var(--c-code-macro);
+}
+
+.ts-namespace {
+  color: var(--c-code-type);
+  font-style: italic;
+}
+
+.ts-markup-heading-2 {
+  color: var(--c-code-constant);
+}
+
+.ts-markup-heading-3,
+.ts-warning {
+  color: var(--c-code-type);
+}
+
+.ts-markup-heading-4 {
+  color: var(--c-code-string);
+}
+
+.ts-markup-heading-5 {
+  color: var(--c-code-label);
+}
+
+.ts-markup-heading-6,
+.ts-markup-link-text {
+  color: var(--c-code-heading);
+}
+
+.ts-markup-bold {
+  font-weight: 700;
+}
+
+.ts-markup-italic {
+  font-style: italic;
+}
+
+.ts-markup-strikethrough {
+  text-decoration-line: line-through;
+}
+
+.ts-markup-link-url {
+  font-style: italic;
+  text-decoration-line: underline;
+}

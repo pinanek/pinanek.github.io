@@ -1,0 +1,6 @@
+@custom-media --viewport-sm (width >= 40rem);
+@custom-media --viewport-md (width >= 72em);
+@custom-media --viewport-lg (width >= 90rem);
+
+@custom-media --motion-ok (prefers-reduced-motion: no-preference);
+@custom-media --motion-reduce (prefers-reduced-motion: reduce);

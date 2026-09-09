@@ -1,0 +1,155 @@
+.prose-toc {
+  --toc-path-gutter: 1rem;
+  --toc-path-offset: 10px;
+  --toc-path-radius: 8px;
+  --toc-path-width: 2px;
+
+  color: var(--c-text-muted);
+  line-height: 1;
+  margin-block-start: 0.5rem;
+}
+
+.prose-toc__inner {
+  max-inline-size: 100%;
+}
+
+.prose-toc__title {
+  margin: 0 0 0.85rem;
+  padding-inline-start: var(--toc-path-gutter);
+
+  color: var(--c-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.prose-toc__body {
+  position: relative;
+
+  min-block-size: 0;
+  padding-inline-start: var(--toc-path-gutter);
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  overscroll-behavior: contain;
+}
+
+.prose-toc__list {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  gap: 0.125rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 1rem;
+}
+
+.prose-toc__item {
+  margin-block: 0.1rem;
+}
+
+.prose-toc__item[data-level="2"] {
+  font-size: 1em;
+}
+
+.prose-toc__item[data-level="3"] {
+  padding-inline-start: 0.75rem;
+
+  font-size: 0.95em;
+}
+
+.prose-toc__item[data-level="4"] {
+  padding-inline-start: 1.5rem;
+
+  font-size: 0.9em;
+}
+
+.prose-toc__item > a,
+.prose-toc__item > a:visited {
+  display: block;
+
+  padding-block: 0.15rem;
+
+  color: var(--c-text-muted);
+  text-decoration: none;
+}
+
+.prose-toc__item > a:hover {
+  color: var(--c-text);
+}
+
+.prose-toc__item[data-active] > a {
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+.prose-toc__path {
+  position: absolute;
+  z-index: 0;
+
+  inset-block-start: 0;
+  inset-inline-start: 0;
+
+  display: block;
+
+  max-inline-size: 100%;
+
+  pointer-events: none;
+}
+
+.prose-toc__path-active {
+  fill: none;
+
+  stroke: var(--c-text);
+  stroke-width: var(--toc-path-width);
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+
+  opacity: 0;
+
+  transition:
+    stroke-dasharray var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default);
+}
+
+@media (--viewport-md) {
+  .prose:has(> .prose-toc) > .prose-toc {
+    --available-toc-width: calc((100vw - var(--content-width)) / 2 - var(--toc-gap) - 1rem);
+
+    position: absolute;
+
+    inset-block: 0;
+    inset-inline-end: calc(100% + var(--toc-gap));
+
+    inline-size: min(var(--toc-width), var(--available-toc-width));
+  }
+
+  .prose-toc__inner {
+    position: sticky;
+
+    inset-block-start: 2rem;
+
+    display: grid;
+    grid-template-rows:
+      auto
+      minmax(0, 1fr);
+
+    max-block-size: calc(100svh - 4rem);
+
+    text-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose-toc__path-active,
+  .prose-toc__item > a {
+    transition: none;
+  }
+}

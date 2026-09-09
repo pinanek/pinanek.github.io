@@ -1,0 +1,28 @@
+/* Source: medium-zoom (MIT), https://github.com/francoischalifour/medium-zoom */
+.medium-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  will-change: opacity;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: zoom-out;
+  opacity: 1;
+}
+
+.medium-zoom-image {
+  cursor: zoom-in;
+  transition: transform var(--duration-fast) ease !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: zoom-out;
+  will-change: transform;
+}

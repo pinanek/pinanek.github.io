@@ -1,0 +1,14 @@
+.prose-link {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+
+.prose-link:hover {
+  text-decoration: underline;
+}
+
+.prose-link__external-icon {
+  display: inline-block;
+
+  vertical-align: 0.1em;
+}

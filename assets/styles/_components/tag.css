@@ -1,0 +1,37 @@
+.tag {
+  position: relative;
+  isolation: isolate;
+
+  display: inline-block;
+
+  padding-inline: 0.75em;
+  padding-block: 0.15em;
+
+  color: var(--c-text);
+  border-color: var(--c-border-strong);
+  text-decoration: none;
+}
+
+.tag::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-color: var(--c-bg-muted);
+  border: 1px solid;
+  border-color: inherit;
+  border-radius: var(--radius-sm);
+  transition: transform var(--duration-fast) ease;
+}
+
+.tag:hover::before {
+  transform: scale(1.08);
+  background-color: var(--c-bg-hover);
+}
+
+.tag:active::before {
+  transform: scale(0.96);
+  background-color: var(--c-bg-active);
+}

@@ -1,0 +1,10 @@
+@import "../_layouts/main.css";
+
+.main-layout {
+  --main-layout-width: 42rem;
+}
+
+.home-page__content {
+  inline-size: 100%;
+  margin-inline: 0;
+}
