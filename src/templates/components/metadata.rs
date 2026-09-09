@@ -4,6 +4,7 @@ use maud::{Markup, html};
 
 use crate::{
     config::CONFIG,
+    og_image::og_image_public_path,
     templates::pages::{PageMetadata, PageType},
     utils::get_absolute_url,
 };
@@ -21,9 +22,18 @@ pub fn metadata(props: &PageMetadata<'_>) -> Markup {
 
     let canonical_url = props.canonical_url.as_deref().map(get_absolute_url);
 
-    let image_url = props.image_url.as_deref().map(get_absolute_url);
+    let image_url = props
+        .image_url
+        .as_deref()
+        .map(|url| get_absolute_url(url).into_owned())
+        .or_else(|| {
+            props
+                .canonical_url
+                .as_deref()
+                .map(|route| get_absolute_url(&og_image_public_path(route)).into_owned())
+        });
 
-    let image_alt = props.image_alt.as_deref();
+    let image_alt = props.image_alt.as_deref().unwrap_or(description);
 
     let keywords = (!props.keywords.is_empty()).then(|| props.keywords.join(", "));
 
@@ -67,12 +77,11 @@ pub fn metadata(props: &PageMetadata<'_>) -> Markup {
 
         @if let Some(image_url) = image_url.as_deref() {
             meta property="og:image" content=(image_url);
+            meta property="og:image:width" content="1200";
+            meta property="og:image:height" content="630";
+            meta property="og:image:alt" content=(image_alt);
             meta name="twitter:image" content=(image_url);
-
-            @if let Some(image_alt) = image_alt {
-                meta property="og:image:alt" content=(image_alt);
-                meta name="twitter:image:alt" content=(image_alt);
-            }
+            meta name="twitter:image:alt" content=(image_alt);
         }
 
         @if is_article {
