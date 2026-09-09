@@ -33,7 +33,6 @@
   display: block;
   width: 100%;
   height: auto;
-  cursor: zoom-in;
 }
 
 @media (--viewport-sm) {

@@ -20,17 +20,11 @@
 .prose-code-block code {
   display: block;
   background-color: var(--c-cpn-base);
-  font-size: 0.75rem;
+  font-size: 0.875em;
   width: max-content;
   min-width: 100%;
   box-sizing: border-box;
   padding-block: 0.5rem;
-}
-
-@media (--viewport-sm) {
-  .prose-code-block code {
-    font-size: 0.875em;
-  }
 }
 
 .prose-code-block .ts-line {
