@@ -8,7 +8,6 @@ pub fn og(
     title: &str,
     description: &str,
     route: &str,
-    author: &str,
     site_url: &str,
     background_data_url: &str,
 ) -> Markup {
@@ -70,7 +69,7 @@ pub fn og(
                 }
 
                 text x="0" y="586" fill="#737378" font-size="21" font-weight="400" {
-                    (author) "  •  " (site_url)
+                    (site_url)
                 }
             }
         }

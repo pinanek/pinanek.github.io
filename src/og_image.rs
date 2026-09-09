@@ -71,7 +71,6 @@ fn write_page_og_image(
         title,
         description,
         page.route(),
-        CONFIG.site.author,
         CONFIG.site.url,
         background_data_url,
     )
