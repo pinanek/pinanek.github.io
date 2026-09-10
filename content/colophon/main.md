@@ -9,11 +9,11 @@ This is a static site generated using [Rust](https://rust-lang.org/), without a 
 
 The template engine is [maud](https://maud.lambda.xyz/) for rendering HTML and [comrak](https://github.com/kivikakk/comrak) for rendering markdown.
 
-For bundling JavaScript and TypeScript, I use [Rolldown](https://rolldown.rs/), the Rust-based bundler that powers [Vite], the popular build tool for the modern web.
+For bundling JavaScript and TypeScript, I use [Rolldown](https://rolldown.rs/), the Rust-based bundler that powers [Vite](https://vite.dev/), the popular build tool for the modern web.
 
 About the CSS, [Lightning CSS](https://lightningcss.dev/) is used for fast CSS bundling and support many modern features.
 
-To syntax highlighting, I come to [Tree-sitter](https://tree-sitter.github.io/tree-sitter/), the lib used by editors editors such as [Neovim](https://neovim.io/), [Helix](https://helix-editor.com/) and [Zed](https://zed.dev/).
+To syntax highlighting, I come to [Tree-sitter](https://tree-sitter.github.io/tree-sitter/), the library used by editors such as [Neovim](https://neovim.io/), [Helix](https://helix-editor.com/) and [Zed](https://zed.dev/).
 
 And for image optimization, the [image](https://github.com/image-rs/image) crate enables the ability to optimize and generate different image formats and qualities.
 

@@ -12,16 +12,12 @@ chrono-tz = "0.10.4"
 comrak = { version = "0.54.0", default-features = false }
 gray_matter = "0.3.2"
 html-escape = "0.2.14"
-image = {
-  version = "0.25.10",
-  default-features = false,
-  features = [
-    "avif",
-    "jpeg",
-    "png",
-    "webp",
-  ]
-}
+image = { version = "0.25.10", default-features = false, features = [
+  "avif",
+  "jpeg",
+  "png",
+  "webp",
+] }
 lightningcss = { version = "1.0.0-alpha.72", default-features = false, features = ["bundler"] }
 maud = "0.27.0"
 minify-html = "0.18.1"
@@ -62,6 +58,6 @@ debug = false
 [profile.release]
 opt-level = 3
 strip = "debuginfo"
-lto = "thin"
+lto = false
 panic = "abort"
 codegen-units = 16
