@@ -56,8 +56,9 @@ opt-level = 0
 debug = false
 
 [profile.release]
-opt-level = 3
-strip = "debuginfo"
+opt-level = 2
+strip = "symbols"
 lto = false
 panic = "abort"
-codegen-units = 16
+codegen-units = 32
+incremental = true
