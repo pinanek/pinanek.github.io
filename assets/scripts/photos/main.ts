@@ -1,6 +1,7 @@
 import mediumZoom from "medium-zoom/dist/pure";
 
 const zoom = mediumZoom({
+  background: "var(--c-bg)",
   margin: 24,
   scrollOffset: 40,
 });
