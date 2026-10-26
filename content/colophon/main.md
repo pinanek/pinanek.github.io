@@ -1,7 +1,7 @@
----
-title: Colophon
-description: How i build this site.
----
++++
+title = "Colophon"
+description = "How i build this site."
++++
 
 ## The stack
 
@@ -130,7 +130,7 @@ You can see some above code blocks for better insights.
 
 I want the images on my site to support:
 
-- Modern image formats such as `AVIF` and `WebP` for smaller file sizes.
+- `WebP` for smaller file sizes.
 - LQIP (Low-Quality Image Placeholders) while images are loading.
 - The ability to zoom in when an image is clicked.
 

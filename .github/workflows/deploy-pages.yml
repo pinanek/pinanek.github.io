@@ -43,7 +43,7 @@ jobs:
           cache: pnpm
 
       - name: Install frontend dependencies
-        run: pnpm install --prod --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Cache Rust
         uses: actions/cache@v5
@@ -68,7 +68,7 @@ jobs:
         run: just pull-queries
 
       - name: Build site
-        run: cargo run --release
+        run: just build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

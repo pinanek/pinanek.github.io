@@ -1,12 +1,12 @@
----
-title: Hello world
-description: An introduction to my personal site and the journey that led me to build it.
-pubDate: 2026-09-09T02:59:41+09:00
-tags: [blog]
++++
+title = "Hello world"
+description = "An introduction to my personal site and the journey that led me to build it."
+pubDate = "2026-09-09T02:59:41+09:00"
+tags = ["blog"]
 
-options:
-  toc: false
----
+[options]
+toc = false
++++
 
 So I’ve finally finished my personal site after lots of trial and error. And hi, I'm Ngo Duc Hoang Son.
 

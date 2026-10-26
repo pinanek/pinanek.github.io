@@ -19,7 +19,6 @@ use comrak::{
     options::Plugins,
     parse_document,
 };
-use gray_matter::{Matter, engine::YAML};
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 
 use crate::{
@@ -128,7 +127,7 @@ pub fn render_markdown<T: DeserializeOwned>(
     let markdown_options = frontmatter.options;
     let plugins = Plugins::default();
 
-    let document = parse_document(&arena, &content, &engine_options);
+    let document = parse_document(&arena, content, &engine_options);
     let mut html = String::new();
 
     let (prepared, images) = prepare_document(
@@ -161,15 +160,25 @@ pub fn render_markdown<T: DeserializeOwned>(
 
 pub fn parse_frontmatter<T: DeserializeOwned>(
     content: &str,
-) -> Result<(MarkdownFrontmatter<T>, String)> {
-    let matter = Matter::<YAML>::new();
-    let parsed_data = matter
-        .parse::<MarkdownFrontmatter<T>>(content)
-        .context("failed to parse metadata of post")?;
+) -> Result<(MarkdownFrontmatter<T>, &str)> {
+    let content = content
+        .strip_prefix("+++\n")
+        .or_else(|| content.strip_prefix("+++\r\n"))
+        .context("content has no TOML front matter")?;
+    let mut offset = 0;
 
-    let frontmatter = parsed_data.data.context("content has no front matter")?;
+    for line in content.split_inclusive('\n') {
+        if line.trim_end_matches(['\r', '\n']) == "+++" {
+            let frontmatter =
+                toml::from_str(&content[..offset]).context("failed to parse TOML front matter")?;
 
-    Ok((frontmatter, parsed_data.content))
+            return Ok((frontmatter, &content[offset + line.len()..]));
+        }
+
+        offset += line.len();
+    }
+
+    anyhow::bail!("TOML front matter has no closing +++ delimiter")
 }
 
 fn prepare_document<'a>(
@@ -229,7 +238,7 @@ fn prepare_document<'a>(
             footnotes.push(ParsedFootnote {
                 number,
                 reference_count: definition.reference_count,
-                content: html.trim().to_owned(),
+                content: html,
             });
         }
 
@@ -263,7 +272,11 @@ fn render_children(
             .context("failed to render Markdown node children")?;
     }
 
-    Ok(html.trim().to_owned())
+    html.truncate(html.trim_end().len());
+    let start = html.len() - html.trim_start().len();
+    html.drain(..start);
+
+    Ok(html)
 }
 
 fn formatter(

@@ -25,7 +25,7 @@ impl<'a> TagPage<'a> {
         let metadata = PageMetadata::new()
             .title(format!("Posts tagged {}", tag.name))
             .description(format!("Posts tagged {}.", tag.name))
-            .keywords([tag.name.clone()])
+            .keywords([tag.name])
             .canonical_url(route.clone());
 
         Ok(Self {

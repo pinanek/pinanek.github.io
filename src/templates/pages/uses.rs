@@ -21,7 +21,7 @@ pub struct UsesMarkdownMetadata {
 }
 
 pub struct UsesPage<'a> {
-    route: String,
+    route: &'static str,
     images: ImageRequests,
     metadata: PageMetadata<'a>,
     rendered: String,
@@ -29,7 +29,7 @@ pub struct UsesPage<'a> {
 
 impl<'a> UsesPage<'a> {
     pub fn new() -> Result<Self> {
-        let route = String::from("/uses/");
+        let route = "/uses/";
 
         let content_dir = CONFIG.content_dir.join("uses");
         let content_path = content_dir.join("main.md");
@@ -41,7 +41,7 @@ impl<'a> UsesPage<'a> {
 
         Ok(Self {
             images,
-            route: route.clone(),
+            route,
             rendered: rendered_markdown.html,
             metadata: PageMetadata::new()
                 .title(markdown_metadata.title)
@@ -53,7 +53,7 @@ impl<'a> UsesPage<'a> {
 
 impl<'a> Page for UsesPage<'a> {
     fn route(&self) -> &str {
-        &self.route
+        self.route
     }
 
     fn metadata(&self) -> &PageMetadata<'_> {

@@ -7,36 +7,30 @@ use crate::{
     markdown::MarkdownContext,
 };
 
-const MARKDOWN_IMAGE_FORMATS: &[AssetImageFormat] = &[
-    AssetImageFormat::Avif,
-    AssetImageFormat::Webp,
-    AssetImageFormat::Png,
-];
+const MARKDOWN_IMAGE_FORMATS: &[AssetImageFormat] =
+    &[AssetImageFormat::Webp, AssetImageFormat::Png];
 
 pub fn prepare_figure(node: Node, context: &mut MarkdownContext) -> Result<()> {
-    let Some((url, title)) = node
+    let Some(child) = node
         .first_child()
         .filter(|child| child.next_sibling().is_none())
-        .and_then(|child| {
-            let data = child.data();
-            let NodeValue::Image(image) = &data.value else {
-                return None;
-            };
-
-            Some((image.url.clone(), image.title.clone()))
-        })
     else {
         return Ok(());
     };
 
-    let path = context.content_dir.join(url);
+    let data = child.data();
+    let NodeValue::Image(image) = &data.value else {
+        return Ok(());
+    };
+
+    let path = context.content_dir.join(&image.url);
     let request = ImageRequest::picture(&path, MARKDOWN_IMAGE_FORMATS)?;
 
     let ImageRequest::Picture(picture) = &request else {
         unreachable!("markdown images must be picture requests");
     };
 
-    let rendered = prose_figure(picture, &node.collect_text(), &title).into_string();
+    let rendered = prose_figure(picture, &node.collect_text(), &image.title).into_string();
     context.replace_node(node, rendered);
     context
         .images

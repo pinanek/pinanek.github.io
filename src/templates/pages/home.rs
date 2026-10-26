@@ -22,14 +22,14 @@ pub struct HomeMarkdownMetadata {
 
 pub struct HomePage<'a> {
     images: ImageRequests,
-    route: String,
+    route: &'static str,
     metadata: PageMetadata<'a>,
     rendered: String,
 }
 
 impl<'a> HomePage<'a> {
     pub fn new() -> Result<Self> {
-        let route = String::from("/");
+        let route = "/";
 
         let content_dir = CONFIG.content_dir.join("home");
         let content_path = content_dir.join("main.md");
@@ -41,7 +41,7 @@ impl<'a> HomePage<'a> {
 
         Ok(Self {
             images,
-            route: route.clone(),
+            route,
             rendered: rendered_markdown.html,
             metadata: PageMetadata::new()
                 .title(markdown_metadata.title)
@@ -53,7 +53,7 @@ impl<'a> HomePage<'a> {
 
 impl Page for HomePage<'_> {
     fn route(&self) -> &str {
-        &self.route
+        self.route
     }
 
     fn metadata(&self) -> &PageMetadata<'_> {

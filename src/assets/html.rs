@@ -1,22 +1,15 @@
 use std::{fs, path::Path};
 
 use anyhow::{Context, Result};
-use minify_html::{Cfg, minify};
+use html_minifier::minify;
 use rayon::prelude::*;
 
 use crate::{config::CONFIG, templates::pages::RenderedPage};
 
 pub fn write_html(pages: &[RenderedPage]) -> Result<()> {
-    let config = Cfg {
-        minify_css: true,
-        minify_js: true,
-        keep_closing_tags: true,
-        keep_html_and_head_opening_tags: true,
-        ..Cfg::new()
-    };
-
     pages.par_iter().try_for_each(|page| -> Result<()> {
-        let minified = minify(page.html().as_bytes(), &config);
+        let minified = minify(page.html())
+            .with_context(|| format!("failed to minify HTML for route: {}", page.route()))?;
 
         let output_path = Path::new(page.route().trim_start_matches('/')).join("index.html");
 

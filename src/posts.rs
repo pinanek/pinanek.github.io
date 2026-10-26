@@ -88,7 +88,7 @@ fn slug_from_path(path: &Path) -> Result<String> {
 }
 
 pub struct Tag<'a> {
-    pub name: String,
+    pub name: &'a str,
     pub posts: Vec<&'a Post>,
 }
 
@@ -102,9 +102,6 @@ pub fn get_tags<'a>(posts: &[&'a Post]) -> Vec<Tag<'a>> {
     }
 
     tags.into_iter()
-        .map(|(name, posts)| Tag {
-            name: name.to_owned(),
-            posts,
-        })
+        .map(|(name, posts)| Tag { name, posts })
         .collect()
 }

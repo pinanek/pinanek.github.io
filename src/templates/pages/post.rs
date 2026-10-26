@@ -1,6 +1,5 @@
 use anyhow::Result;
-use chrono::{DateTime, Utc};
-use chrono_tz::Etc::GMTPlus12;
+use chrono::{DateTime, FixedOffset, Utc};
 use maud::{Markup, PreEscaped, html};
 
 use crate::{
@@ -24,14 +23,17 @@ impl<'page> PostPage<'page> {
     pub fn new(post: &'page Post) -> Result<Self> {
         let route = format!("/posts/{}/", post.slug);
 
-        let post_metadata = post.metadata.to_owned();
+        let post_metadata = &post.metadata;
 
         let metadata = PageMetadata::new()
-            .title(post_metadata.title)
-            .description(post_metadata.description.clone())
-            .keywords(post_metadata.tags)
+            .title(post_metadata.title.as_str())
+            .description(post_metadata.description.as_str())
+            .keywords(post_metadata.tags.iter().map(String::as_str))
             .article(&post_metadata.pub_date, post_metadata.updated_date.as_ref())
-            .image(og_image_public_path(&route), post_metadata.description)
+            .image(
+                og_image_public_path(&route),
+                post_metadata.description.as_str(),
+            )
             .canonical_url(route.clone());
 
         Ok(Self {
@@ -114,7 +116,9 @@ impl Page for PostPage<'_> {
 }
 
 pub fn format_aoe(date: &DateTime<Utc>) -> String {
-    date.with_timezone(&GMTPlus12)
+    let offset = FixedOffset::west_opt(12 * 60 * 60).expect("UTC-12 is a valid offset");
+
+    date.with_timezone(&offset)
         .format("%B %d, %Y, %H:%M AoE")
         .to_string()
 }

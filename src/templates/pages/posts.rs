@@ -14,7 +14,7 @@ use crate::{
 };
 
 pub struct PostsPage<'a> {
-    route: String,
+    route: &'static str,
     posts: Vec<&'a Post>,
     images: ImageRequests,
     metadata: PageMetadata<'a>,
@@ -22,12 +22,12 @@ pub struct PostsPage<'a> {
 
 impl<'a> PostsPage<'a> {
     pub fn new(posts: &'a [Post]) -> Result<Self> {
-        let route = String::from("/posts/");
+        let route = "/posts/";
         let mut posts = posts.iter().collect::<Vec<_>>();
         posts.sort_by_key(|post| Reverse(post.metadata.pub_date));
 
         Ok(Self {
-            route: route.clone(),
+            route,
             posts,
             images: ImageRequests::new(),
             metadata: PageMetadata::new()
@@ -40,7 +40,7 @@ impl<'a> PostsPage<'a> {
 
 impl Page for PostsPage<'_> {
     fn route(&self) -> &str {
-        &self.route
+        self.route
     }
 
     fn metadata(&self) -> &PageMetadata<'_> {

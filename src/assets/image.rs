@@ -11,7 +11,6 @@ use base64::prelude::*;
 use image::{
     DynamicImage, ExtendedColorType, ImageEncoder, ImageFormat, RgbaImage,
     codecs::{
-        avif::AvifEncoder,
         jpeg::JpegEncoder,
         png::{CompressionType, FilterType as PngFilterType, PngEncoder},
         webp::WebPEncoder,
@@ -32,13 +31,9 @@ const JPEG_QUALITY: u8 = 90;
 
 static TEMP_FILE_COUNTER: AtomicU64 = AtomicU64::new(0);
 
-const AVIF_SPEED: u8 = 8;
-const AVIF_QUALITY: u8 = 80;
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Display, EnumString, IntoStaticStr)]
 #[strum(serialize_all = "lowercase")]
 pub enum AssetImageFormat {
-    Avif,
     Webp,
     Png,
     Jpeg,
@@ -47,7 +42,6 @@ pub enum AssetImageFormat {
 impl AssetImageFormat {
     pub const fn to_image_format(self) -> ImageFormat {
         match self {
-            Self::Avif => ImageFormat::Avif,
             Self::Webp => ImageFormat::WebP,
             Self::Png => ImageFormat::Png,
             Self::Jpeg => ImageFormat::Jpeg,
@@ -62,7 +56,6 @@ impl AssetImageFormat {
 impl From<AssetImageFormat> for ImageFormat {
     fn from(format: AssetImageFormat) -> Self {
         match format {
-            AssetImageFormat::Avif => Self::Avif,
             AssetImageFormat::Webp => Self::WebP,
             AssetImageFormat::Png => Self::Png,
             AssetImageFormat::Jpeg => Self::Jpeg,
@@ -75,7 +68,6 @@ impl TryFrom<ImageFormat> for AssetImageFormat {
 
     fn try_from(format: ImageFormat) -> Result<Self, Self::Error> {
         match format {
-            ImageFormat::Avif => Ok(Self::Avif),
             ImageFormat::WebP => Ok(Self::Webp),
             ImageFormat::Png => Ok(Self::Png),
             ImageFormat::Jpeg => Ok(Self::Jpeg),
@@ -268,7 +260,7 @@ impl ImageRequest {
 
         let short_hash = &hash.as_str()[..HASH_LENGTH];
 
-        let extension = format.to_string();
+        let extension: &'static str = format.into();
 
         let filename = format!("image.{short_hash}.{extension}");
         let output_path = CONFIG.dist_assets_dir.join(filename);
@@ -365,7 +357,7 @@ pub fn write_images(requests: &[&ImageRequest]) -> Result<()> {
     }
 
     images_by_source
-        .par_iter()
+        .par_iter_mut()
         .try_for_each(|(source_path, images)| write_images_for_source(source_path, images))?;
 
     Ok(())
@@ -386,12 +378,12 @@ fn insert_image<'a>(
         .push(image);
 }
 
-fn write_images_for_source(source_path: &Path, images: &[&ImageAsset]) -> Result<()> {
+fn write_images_for_source(source_path: &Path, images: &mut [&ImageAsset]) -> Result<()> {
     let raw = fs::read(source_path)
         .with_context(|| format!("failed to read source image: {}", source_path.display()))?;
     let source_hash = blake3::hash(&raw);
 
-    for image in images {
+    for image in images.iter() {
         if image.source_hash != source_hash {
             bail!(
                 "source image changed while preparing assets: {}",
@@ -406,32 +398,37 @@ fn write_images_for_source(source_path: &Path, images: &[&ImageAsset]) -> Result
 
     let source = decode_image(&raw, source_path)?.into_rgba8();
 
-    for image in images {
-        if image.output_path.exists() {
-            continue;
+    images.sort_unstable_by_key(|image| (image.width, image.height));
+
+    for group in images.chunk_by(|a, b| (a.width, a.height) == (b.width, b.height)) {
+        let mut resized = None;
+
+        for image in group {
+            if image.output_path.exists() {
+                continue;
+            }
+
+            if image.is_original {
+                encode_image_atomically(&image.output_path, &source, image.format)?;
+                continue;
+            }
+
+            let cache_path = cached_image_path(image);
+
+            if !cache_path.exists() {
+                let variant = if source.width() == image.width && source.height() == image.height {
+                    &source
+                } else {
+                    resized.get_or_insert_with(|| {
+                        imageops::resize(&source, image.width, image.height, FilterType::Lanczos3)
+                    })
+                };
+
+                encode_image_atomically(&cache_path, variant, image.format)?;
+            }
+
+            copy_file_atomically(&cache_path, &image.output_path)?;
         }
-
-        if image.is_original {
-            encode_image_atomically(&image.output_path, &source, image.format)?;
-            continue;
-        }
-
-        let cache_path = cached_image_path(image);
-
-        if !cache_path.exists() {
-            let resized;
-            let variant = if source.width() == image.width && source.height() == image.height {
-                &source
-            } else {
-                resized =
-                    imageops::resize(&source, image.width, image.height, FilterType::Lanczos3);
-                &resized
-            };
-
-            encode_image_atomically(&cache_path, variant, image.format)?;
-        }
-
-        copy_file_atomically(&cache_path, &image.output_path)?;
     }
 
     Ok(())
@@ -563,14 +560,6 @@ fn encode_image(
     let height = image.height();
 
     match format {
-        AssetImageFormat::Avif => {
-            AvifEncoder::new_with_speed_quality(writer, AVIF_SPEED, AVIF_QUALITY).write_image(
-                raw,
-                width,
-                height,
-                ExtendedColorType::Rgba8,
-            )?;
-        }
         AssetImageFormat::Webp => {
             WebPEncoder::new_lossless(writer).write_image(
                 raw,
@@ -634,7 +623,8 @@ fn asset_hash(
     hasher.update(source_hash.as_bytes());
     hasher.update(&width.to_le_bytes());
     hasher.update(&height.to_le_bytes());
-    hasher.update(format.to_string().as_bytes());
+    let format: &'static str = format.into();
+    hasher.update(format.as_bytes());
     hasher.update(&[u8::from(is_original)]);
 
     hasher.finalize()
@@ -642,9 +632,8 @@ fn asset_hash(
 
 fn image_format_priority(format: AssetImageFormat) -> u8 {
     match format {
-        AssetImageFormat::Avif => 0,
-        AssetImageFormat::Webp => 1,
-        AssetImageFormat::Jpeg => 2,
-        AssetImageFormat::Png => 3,
+        AssetImageFormat::Webp => 0,
+        AssetImageFormat::Jpeg => 1,
+        AssetImageFormat::Png => 2,
     }
 }

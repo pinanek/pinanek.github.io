@@ -14,9 +14,9 @@ use crate::{
 };
 
 #[derive(Debug)]
-struct ParsedCodeBlockInfo {
-    language_name: Option<String>,
-    title: Option<String>,
+struct ParsedCodeBlockInfo<'a> {
+    language_name: Option<&'a str>,
+    title: Option<&'a str>,
     lines: Option<Vec<RangeInclusive<usize>>>,
 }
 
@@ -29,7 +29,6 @@ pub fn prepare_code_block(
         .with_context(|| format!("failed to parse code block info: {:?}", code_block.info))?;
     let language_kind = parsed
         .language_name
-        .as_deref()
         .and_then(|name| name.parse::<HighlightLanguageKind>().ok());
 
     let highlighted = highlight(
@@ -39,43 +38,37 @@ pub fn prepare_code_block(
     )
     .with_context(|| format!("failed to highlight code block: {:?}", code_block.info))?;
 
-    let rendered = prose_code_block(
-        parsed.title.as_deref(),
-        language_kind.as_ref(),
-        &highlighted,
-    )
-    .into_string();
+    let rendered =
+        prose_code_block(parsed.title, language_kind.as_ref(), &highlighted).into_string();
 
     context.replace_node(node, rendered);
 
     Ok(())
 }
 
-fn parse_code_block_info(info: &str) -> Result<ParsedCodeBlockInfo> {
+fn parse_code_block_info(info: &str) -> Result<ParsedCodeBlockInfo<'_>> {
     let language_name = info
         .split_whitespace()
         .next()
-        .filter(|value| !value.contains('='))
-        .map(str::to_owned);
+        .filter(|value| !value.contains('='));
 
-    let lines = parse_attribute(info, "lines")
-        .map(|value| parse_line_ranges(&value))
+    let lines = parse_attribute(info, "lines=\"")
+        .map(parse_line_ranges)
         .transpose()
         .with_context(|| format!("invalid lines attribute in code block info: {info:?}"))?;
 
     Ok(ParsedCodeBlockInfo {
         language_name,
-        title: parse_attribute(info, "title"),
+        title: parse_attribute(info, "title=\""),
         lines,
     })
 }
 
-fn parse_attribute(input: &str, name: &str) -> Option<String> {
-    let prefix = format!("{name}=\"");
-    let start = input.find(&prefix)? + prefix.len();
+fn parse_attribute<'a>(input: &'a str, prefix: &str) -> Option<&'a str> {
+    let start = input.find(prefix)? + prefix.len();
     let end = input[start..].find('"')? + start;
 
-    Some(input[start..end].to_owned())
+    Some(&input[start..end])
 }
 
 fn parse_line_ranges(input: &str) -> Result<Vec<RangeInclusive<usize>>> {

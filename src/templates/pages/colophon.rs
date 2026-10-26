@@ -22,14 +22,14 @@ pub struct ColophonMarkdownMetadata {
 
 pub struct ColophonPage<'a> {
     images: ImageRequests,
-    route: String,
+    route: &'static str,
     metadata: PageMetadata<'a>,
     rendered: String,
 }
 
 impl<'a> ColophonPage<'a> {
     pub fn new() -> Result<Self> {
-        let route = String::from("/colophon/");
+        let route = "/colophon/";
 
         let content_dir = CONFIG.content_dir.join("colophon");
         let content_path = content_dir.join("main.md");
@@ -42,7 +42,7 @@ impl<'a> ColophonPage<'a> {
 
         Ok(Self {
             images,
-            route: route.clone(),
+            route,
             rendered: rendered_markdown.html,
             metadata: PageMetadata::new()
                 .title(markdown_metadata.title)
@@ -54,7 +54,7 @@ impl<'a> ColophonPage<'a> {
 
 impl<'a> Page for ColophonPage<'a> {
     fn route(&self) -> &str {
-        &self.route
+        self.route
     }
 
     fn metadata(&self) -> &PageMetadata<'_> {

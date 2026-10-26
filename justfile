@@ -13,6 +13,7 @@ lint:
 
 build:
     cargo run --release
+    pnpm build:assets
 
 serve:
     miniserve dist --port 3000 --index index.html --header "Cache-Control:no-cache"

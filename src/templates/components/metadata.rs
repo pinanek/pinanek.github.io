@@ -25,12 +25,11 @@ pub fn metadata(props: &PageMetadata<'_>) -> Markup {
     let image_url = props
         .image_url
         .as_deref()
-        .map(|url| get_absolute_url(url).into_owned())
+        .map(get_absolute_url)
         .or_else(|| {
-            props
-                .canonical_url
-                .as_deref()
-                .map(|route| get_absolute_url(&og_image_public_path(route)).into_owned())
+            props.canonical_url.as_deref().map(|route| {
+                Cow::Owned(get_absolute_url(&og_image_public_path(route)).into_owned())
+            })
         });
 
     let image_alt = props.image_alt.as_deref().unwrap_or(description);
@@ -44,6 +43,7 @@ pub fn metadata(props: &PageMetadata<'_>) -> Markup {
     };
 
     let is_article = props.page_type == PageType::Article;
+    let page_type: &'static str = props.page_type.into();
 
     html! {
         title { (&title) }
@@ -65,7 +65,7 @@ pub fn metadata(props: &PageMetadata<'_>) -> Markup {
         link rel="alternate" type="application/rss+xml" title=(CONFIG.site.name) href="/rss.xml";
 
         meta property="og:title" content=(&title);
-        meta property="og:type" content=(props.page_type.to_string());
+        meta property="og:type" content=(page_type);
         meta property="og:site_name" content=(CONFIG.site.name);
         meta property="og:description" content=(description);
 

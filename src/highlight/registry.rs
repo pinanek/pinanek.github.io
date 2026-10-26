@@ -1,4 +1,4 @@
-use std::{collections::BTreeSet, sync::LazyLock};
+use std::{borrow::Cow, collections::BTreeSet, sync::LazyLock};
 
 use anyhow::{Context, Result};
 use strum::{Display, EnumString, IntoStaticStr};
@@ -155,9 +155,9 @@ const LANGUAGE_SPECS: &[LanguageSpec] = &[
 struct LoadedLanguage {
     name: &'static str,
     language: Language,
-    highlights_query: String,
-    injections_query: String,
-    locals_query: String,
+    highlights_query: Cow<'static, str>,
+    injections_query: Cow<'static, str>,
+    locals_query: Cow<'static, str>,
 }
 
 impl LoadedLanguage {
@@ -179,7 +179,11 @@ impl LoadedLanguage {
                 let locals_query = load_optional_helix_query(spec.name, "locals")
                     .with_context(|| format!("failed to load locals query for {}", spec.name))?;
 
-                (highlights_query, injections_query, locals_query)
+                (
+                    Cow::Owned(highlights_query),
+                    Cow::Owned(injections_query),
+                    Cow::Owned(locals_query),
+                )
             }
 
             QuerySource::Builtin {
@@ -187,9 +191,9 @@ impl LoadedLanguage {
                 injections,
                 locals,
             } => (
-                highlights.to_owned(),
-                injections.to_owned(),
-                locals.to_owned(),
+                Cow::Borrowed(highlights),
+                Cow::Borrowed(injections),
+                Cow::Borrowed(locals),
             ),
         };
 

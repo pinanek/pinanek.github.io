@@ -26,6 +26,7 @@ pub fn highlight(
             language.configuration(),
             content.as_bytes(),
             None,
+            None,
             HighlightLanguageKind::configuration_for,
         )
         .with_context(|| {

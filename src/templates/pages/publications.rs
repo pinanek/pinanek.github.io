@@ -37,7 +37,7 @@ struct PublicationYear {
 }
 
 pub struct PublicationsPage {
-    route: String,
+    route: &'static str,
     years: Vec<PublicationYear>,
     images: ImageRequests,
     metadata: PageMetadata<'static>,
@@ -45,7 +45,7 @@ pub struct PublicationsPage {
 
 impl PublicationsPage {
     pub fn new() -> Result<Self> {
-        let route = String::from("/publications/");
+        let route = "/publications/";
         let path = CONFIG.data_dir.join("publications.toml");
         let content = fs::read_to_string(&path)
             .with_context(|| format!("failed to read publications: {}", path.display()))?;
@@ -73,7 +73,7 @@ impl PublicationsPage {
         }
 
         Ok(Self {
-            route: route.clone(),
+            route,
             years,
             images: ImageRequests::new(),
             metadata: PageMetadata::new()
@@ -86,7 +86,7 @@ impl PublicationsPage {
 
 impl Page for PublicationsPage {
     fn route(&self) -> &str {
-        &self.route
+        self.route
     }
 
     fn metadata(&self) -> &PageMetadata<'_> {

@@ -12,7 +12,7 @@ use crate::{
 
 #[derive(Debug)]
 pub struct PhotosPage {
-    route: String,
+    route: &'static str,
     photos: Vec<Photo>,
     images: ImageRequests,
     metadata: PageMetadata<'static>,
@@ -20,10 +20,10 @@ pub struct PhotosPage {
 
 impl PhotosPage {
     pub fn new(photos: Vec<Photo>) -> Result<Self> {
-        let route = String::from("/photos/");
+        let route = "/photos/";
 
         Ok(Self {
-            route: route.clone(),
+            route,
             photos,
             images: ImageRequests::new(),
             metadata: PageMetadata::new()
@@ -36,7 +36,7 @@ impl PhotosPage {
 
 impl Page for PhotosPage {
     fn route(&self) -> &str {
-        &self.route
+        self.route
     }
 
     fn metadata(&self) -> &PageMetadata<'_> {

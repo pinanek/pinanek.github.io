@@ -1,10 +1,10 @@
----
-title: Uses
-description: A living list of the things I use.
++++
+title = "Uses"
+description = "A living list of the things I use."
 
-options:
-  toc: false
----
+[options]
+toc = false
++++
 
 TL;DR: [dotfiles](https://github.com/pinanek/dotfiles)
 
