@@ -152,7 +152,7 @@ For link previews, I use `resvg` to render Open Graph images from SVG templates.
 
 ## Fonts and color
 
-You’re reading Hanken Grotesk, with JetBrains Mono for code. Both fonts are self-hosted as WOFF2 files. To avoid loading characters a page doesn’t need, I split Hanken Grotesk into Latin, extended Latin, and Vietnamese subsets. The regular Latin and Vietnamese subsets are preloaded in the document head.
+You’re reading Hanken Grotesk, with JetBrains Mono for code. Both fonts are self-hosted as WOFF2 files. To avoid loading characters a page doesn’t need, I split Hanken Grotesk into Latin, extended Latin, and Vietnamese subsets. Only the regular Latin subset is preloaded in the document head.
 
 The site has light and dark modes, including the code blocks. I use CSS variables for text, backgrounds, borders, and accents, so each theme can change those colors without changing the page markup. Code highlighting has a separate set of variables for comments, strings, keywords, and the other syntax colors.
 

@@ -45,12 +45,6 @@ pub fn base_layout(
                     as="font"
                     type="font/woff2"
                     crossorigin;
-                link
-                    rel="preload"
-                    href="/fonts/hk-vnese-n.woff2"
-                    as="font"
-                    type="font/woff2"
-                    crossorigin;
                 link rel="stylesheet" href="/assets/main.css";
                 (links)
                 @if metadata_props.has_math {
