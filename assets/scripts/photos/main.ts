@@ -6,9 +6,7 @@ const zoom = mediumZoom({
   scrollOffset: 40,
 });
 
-const zoomableImages = document.querySelectorAll<HTMLImageElement>(
-  "[data-photo-zoomable]",
-);
+const zoomableImages = document.querySelectorAll<HTMLImageElement>("[data-photo-zoomable]");
 
 for (const image of zoomableImages) {
   const attachZoom = () => {
@@ -27,9 +25,7 @@ for (const image of zoomableImages) {
 const gallery = document.querySelector<HTMLElement>(".photos-page__grid");
 
 if (gallery) {
-  const items = Array.from(
-    gallery.querySelectorAll<HTMLElement>(".photos-page__item"),
-  );
+  const items = Array.from(gallery.querySelectorAll<HTMLElement>(".photos-page__item"));
 
   const layout = () => {
     const styles = getComputedStyle(gallery);
@@ -39,9 +35,7 @@ if (gallery) {
     if (!rowHeight) return;
 
     for (const item of items) {
-      const span = Math.ceil(
-        (item.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap),
-      );
+      const span = Math.ceil((item.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
 
       item.style.gridRowEnd = `span ${span}`;
     }

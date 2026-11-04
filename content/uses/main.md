@@ -10,8 +10,8 @@ TL;DR: [dotfiles](https://github.com/pinanek/dotfiles)
 
 ## Editor and Terminal
 
-- **Editor:** [Zed](https://zed.dev/) and [Helix](https://helix-editor.com/)
-- **Terminal:** [Ghostty](https://ghostty.org/)
+- **Editor:** [Helix](https://helix-editor.com/)
+- **Multiplexer:** [Rex](https://www.superlogical.com/)
 - **Font:** [JetBrains Mono](https://www.jetbrains.com/lp/mono/), with Symbols [Nerd Font](https://www.nerdfonts.com/) for terminal glyphs
 - **Theme:** [Catppina](https://github.com/pinanek/catppina), a personal theme based on [Catppuccin](https://catppuccin.com/)
 
@@ -23,12 +23,14 @@ TL;DR: [dotfiles](https://github.com/pinanek/dotfiles)
 - [eza](https://github.com/eza-community/eza): modern `ls` replacement
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch): system information
 - [btop](https://github.com/aristocratos/btop): resource monitor
-- [yazi](https://yazi-rs.github.io/): file manager
+- [lf](https://github.com/gokcehan/lf): file manager
 - [gitui](https://github.com/extrawurst/gitui): git client
+- [hax](https://github.com/OleksandrChekhovskyi/hax): lightweight coding agent
+- [croc](https://github.com/schollz/croc): file transfer
 
 ## macOS
 
-- [Zen Browser](https://zen-browser.app/): for its great UX and support for [uBlock Origin](https://github.com/gorhill/uBlock). I also use few other useful extensions like [Refined GitHub](https://github.com/refined-github/refined-github) and [Material Icons for GitHub](https://github.com/material-extensions/material-icons-browser-extension)
+- [Helium](https://github.com/imputnet/helium): lightweight and fast, with great UX and support for [uBlock Origin](https://github.com/gorhill/uBlock). I also use few other useful extensions like [Refined GitHub](https://github.com/refined-github/refined-github) and [Material Icons for GitHub](https://github.com/material-extensions/material-icons-browser-extension)
 - [Strongbox](https://strongboxsafe.com/): native password manager for iOS & macOS
 - [Alcove](https://tryalcove.com/): my favourite app! It brings a Dynamic Island–like experience to macOS
 - [Hyperduck](https://sindresorhus.com/hyperduck): for sending links from my phone to my Mac, even when the Mac is turned off
@@ -42,4 +44,4 @@ TL;DR: [dotfiles](https://github.com/pinanek/dotfiles)
 - [Keka](https://www.keka.io/): archive utility
 - [TablePro](https://tablepro.app/): database client
 - [Yaak](https://yaak.app/): API client
-- [Pearcleaner](https://github.com/alienator88/pearcleaner): app uninstaller
+- [Purge](https://purgemac.com/): Mac cleaner

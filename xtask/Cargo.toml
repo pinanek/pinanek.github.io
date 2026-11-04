@@ -1,0 +1,14 @@
+[package]
+name = "xtask"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+site_internal.workspace = true
+tempfile.workspace = true
+tree-sitter.workspace = true
+tree-sitter-tsquery.workspace = true

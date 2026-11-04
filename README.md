@@ -8,10 +8,8 @@ The source code in this repository is licensed under the [MIT License](LICENSE),
 
 The site content and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-### Helix tree-sitter queries
+### Tree-sitter queries
 
-The files in [`queries/`](queries/) are derived from the [Helix editor](https://github.com/helix-editor/helix/tree/master/runtime/queries) project and are copyright the Helix contributors.
+Files in [`queries/`](queries/) come from upstream projects and retain their respective licenses, which take precedence over this repository’s MIT license. Generated files identify their sources and revisions; upstream license texts are in [`queries/licenses/`](queries/licenses/).
 
-Those query files are licensed under the [Mozilla Public License, version 2.0](queries/LICENSE). Their source, including any modifications, remains available in this repository under the same terms. This file-level license applies to the Helix-derived query files and takes precedence over the MIT license for those files.
-
-See [`queries/README.md`](queries/README.md) for the query-specific notice.
+See [`queries/README.md`](queries/README.md) for details.

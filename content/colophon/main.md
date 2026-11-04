@@ -1,29 +1,25 @@
 +++
 title = "Colophon"
-description = "How i build this site."
+description = "How I build this site."
 +++
 
 ## The stack
 
-This is a static site generated using [Rust](https://rust-lang.org/), without a framework.
+This is a static site generated using [Rust](https://rust-lang.org/), without a framework. The generator reads Markdown and data files, renders the pages, and writes everything to `dist/`.
 
-The template engine is [maud](https://maud.lambda.xyz/) for rendering HTML and [comrak](https://github.com/kivikakk/comrak) for rendering markdown.
+I use [maud](https://maud.lambda.xyz/) for HTML templates and [comrak](https://github.com/kivikakk/comrak) for Markdown. Browser assets are built separately through Node.js, with [Rolldown](https://rolldown.rs/) for JavaScript and TypeScript and [Lightning CSS](https://lightningcss.dev/) for stylesheets.
 
-For bundling JavaScript and TypeScript, I use [Rolldown](https://rolldown.rs/), the Rust-based bundler that powers [Vite](https://vite.dev/), the popular build tool for the modern web.
+Syntax highlighting uses [Tree-sitter](https://tree-sitter.github.io/tree-sitter/), the parser used by editors such as [Neovim](https://neovim.io/), [Helix](https://helix-editor.com/) and [Zed](https://zed.dev/). For image processing, I use the [image](https://github.com/image-rs/image) crate.
 
-About the CSS, [Lightning CSS](https://lightningcss.dev/) is used for fast CSS bundling and support many modern features.
-
-To syntax highlighting, I come to [Tree-sitter](https://tree-sitter.github.io/tree-sitter/), the library used by editors such as [Neovim](https://neovim.io/), [Helix](https://helix-editor.com/) and [Zed](https://zed.dev/).
-
-And for image optimization, the [image](https://github.com/image-rs/image) crate enables the ability to optimize and generate different image formats and qualities.
+The Rust workspace has a `site` crate for the generator and an `xtask` crate for maintaining syntax queries. They share the manifest types in `site_internal`. GitHub Actions builds the site and deploys it to GitHub Pages.
 
 ## Markdown
 
-Inspired by [MDX](https://mdxjs.com/) in the JavaScript world, I wanted the Markdown parser to be able to replace elements such as images, blockquotes, and so on with custom components.
+Inspired by [MDX](https://mdxjs.com/) in the JavaScript world, I wanted to replace Markdown elements with custom components: headings with anchor links, images with responsive sources and placeholders, and code blocks with highlighting and copy buttons.
 
-In Rust, there are two popular crates for handling Markdown: [pulldown-cmark](https://github.com/pulldown-cmark/pulldown-cmark) and `comrak`. `pulldown-cmark` is a great library with fast parsing and rendering performance. It produces an iterator of events without allocating an entire syntax tree. However, I found it less intuitive for transforming whole elements, since you sometimes have to manually collect and process the events between their start and end, for example, when working with the contents of an entire paragraph.
+In Rust, two popular choices for Markdown are [pulldown-cmark](https://github.com/pulldown-cmark/pulldown-cmark) and `comrak`. `pulldown-cmark` produces an iterator of events without allocating an entire syntax tree. It’s fast, but I found it less intuitive for transforming whole elements. For something like a blockquote, I’d have to collect and process the events between its start and end.
 
-`comrak` builds an AST from the markdown, which is great for my use case. Here is a snippet from the site’s source code showing how I handle those customizations:
+`comrak` builds an abstract syntax tree (AST), which fits my use case. I walk the document and prepare replacements for the nodes I want to customize:
 
 ```rs title="markdown.rs"
 for node in document.descendants() {
@@ -46,13 +42,13 @@ for node in document.descendants() {
 }
 ```
 
-So `comrak` handles most of the work, which makes my life much easier. I just replace the relevant nodes with custom `maud` components.
+So `comrak` handles most of the work, which makes my life much easier. I just replace the relevant nodes with custom `maud` components and let it render the rest.
 
 ## Templating
 
 Yeah, once again inspired by the JavaScript world, I wanted something like JSX :). And `maud` fits my needs perfectly.
 
-In the snippet below, `main_layout` is a component that you can call just like a function. It uses the `html!` macro for HTML, and variables can be inserted using the `()` syntax. It’s pretty simple and straightforward. Personally, I find it less verbose, with less boilerplate, and easier to read than JSX.
+In the snippet below, `main_layout` is a function that wraps the page content. The `html!` macro produces HTML, and the `()` syntax inserts values or other components. Personally, I find it less verbose and easier to read than JSX.
 
 ```rs title="uses.rs"
 main_layout(
@@ -69,77 +65,73 @@ main_layout(
 )
 ```
 
-But that convenience comes at a cost: Rust’s build time. Since the templates are Rust code, every change triggers a rebuild, so I have to wait for the build to finish before I can see the result.
+But that convenience comes at a cost: Rust’s build time. Changing a template means recompiling the generator before I can see the result. Markdown and stylesheet edits don’t require recompiling Rust, though I still need to rerun the generator or asset build.
 
 It’s a bit annoying, but I can live with it :P.
 
 ## JavaScript and CSS
 
-Rust-based JavaScript tooling has become increasingly popular over the past few years, and it’s great to see these libs mature enough to be used for building a website like this one.
+I use Rolldown, the Rust-based bundler behind [Vite](https://vite.dev/), through its JavaScript API. Both the JavaScript and CSS builds run in `scripts/build-assets.js`, so the bundlers aren’t part of the site’s Cargo dependency graph.
 
-For `rolldown`, the process is pretty simple: providing the inputs, telling the bunlder where is the outputs with some options and you are done.
+The JavaScript setup is pretty simple: provide the entry points, choose the output names, and enable minification and code splitting. Here’s that part of the script:
 
-```rs title="js.rs"
-let mut bundler = Bundler::new(BundlerOptions {
-    input: Some(vec![
-        InputItem {
-            name: Some("main".into()),
-            import: main_input.to_string_lossy().into_owned(),
-        },
-        InputItem {
-            name: Some("photos/main".into()),
-            import: photo_input.to_string_lossy().into_owned(),
-        },
-        InputItem {
-            name: Some("posts/post".into()),
-            import: post_input.to_string_lossy().into_owned(),
-        },
-    ]),
-    cwd: Some(cwd.to_path_buf()),
-    dir: Some(CONFIG.dist_assets_dir.to_string_lossy().into_owned()),
-    entry_filenames: Some("[name].js".to_owned().into()),
-    chunk_filenames: Some("[name].[hash].js".to_owned().into()),
-    format: Some(OutputFormat::Esm),
-    platform: Some(Platform::Browser),
-    minify: Some(RawMinifyOptions::Bool(true)),
-    code_splitting: Some(CodeSplittingMode::Bool(true)),
-    ..Default::default()
-})
-.context("failed to initialize Rolldown")?;
+```javascript title="build-assets.js"
+const javascript = await rolldown({
+  cwd: root,
+  input: {
+    main: "assets/scripts/main.ts",
+    "photos/main": "assets/scripts/photos/main.ts",
+    "posts/post": "assets/scripts/posts/post.ts",
+  },
+  platform: "browser",
+});
 
-let write_result = bundler.write().await;
-let close_result = bundler.close().await;
-
-write_result.context("failed to bundle JavaScript")?;
-close_result.context("failed to close Rolldown")?;
+try {
+  await javascript.write({
+    dir: outputDir,
+    entryFileNames: "[name].js",
+    chunkFileNames: "[name].[hash].js",
+    format: "esm",
+    minify: true,
+    codeSplitting: true,
+  });
+} finally {
+  await javascript.close();
+}
 ```
 
-With `lightningcss`, beside a bunlder, it also provides an ability to use CSS draft features like [custom media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@custom-media).
+Lightning CSS bundles and minifies the stylesheets. It also lets me use features such as [custom media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@custom-media), alongside nesting and media range syntax.
 
-For formatting, [oxlint](https://oxc.rs/docs/guide/usage/formatter.html) also comes in handy. It’s a Rust-based formatter that supports JavaScript, CSS, Markdown, and JSON, which is pretty nice and fast :).
+For formatting, I use [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html). It handles JavaScript, CSS, Markdown, and JSON, which is pretty handy :).
 
 ## Syntax highlighting
 
-As a `Zed` and `helix` user, I'm quite impressed with the quality of `tree-sitter` in syntax highlighting.
+I like how Helix highlights code, so I use its [queries](https://github.com/helix-editor/helix/tree/master/runtime/queries) for most languages.
 
-Since I was already used to the way `helix` highlights code, I decided to use the language queries from the `helix` [repo](https://github.com/helix-editor/helix/tree/master/runtime/queries) instead of the queries provided by the individual `tree-sitter` language crates. In future, I plan to add colored backets, which already provides rainbow queries.
+I pin the queries to specific versions so the highlighting stays consistent between builds. A small build tool downloads them and combines any shared rules, with a separate step for updating to newer versions.
 
-You can see some above code blocks for better insights.
+At compile time, `site/build.rs` generates the language enum and getters, collects the highlight names, and embeds the queries with `include_str!`. The generator compiles the Tree-sitter queries in parallel at startup, then shares the configurations across Markdown renderers. There’s no query-file reading while the site is being generated.
+
+The highlighter is adapted from Tree-sitter’s Rust implementation, with a custom HTML renderer. It handles injected languages, such as JavaScript inside HTML. Rainbow brackets use the query’s scope information to cycle through six colors, so matching delimiters share a color without treating brackets inside strings or comments as nesting.
+
+You can see it in the code blocks above.
 
 ## Images
 
-I want the images on my site to support:
+I want images on the site to have responsive versions, low-quality image placeholders while loading, and click-to-zoom support.
 
-- `WebP` for smaller file sizes.
-- LQIP (Low-Quality Image Placeholders) while images are loading.
-- The ability to zoom in when an image is clicked.
+The `image` crate generates WebP and PNG variants at different widths for Markdown images. I cache the generated variants using hashes of the source contents, dimensions, and format, so unchanged images don’t need to be encoded again.
 
-To achieve this, I use the `image` crate to generate images in different formats and the `thumbhash` crate to generate LQIPs. On the client side, I use `medium-zoom` to provide the zoom-in functionality. For faster building time, I also cached the generated images.
+For placeholders, `thumbhash` turns a small thumbnail into a compact representation that I decode into a tiny PNG. Gallery photos use scaled JPEG decoding through `jpeg-decoder`, so generating a placeholder doesn’t need a full-resolution RGB buffer. The image orientation is applied before creating the placeholder.
+
+On the client side, `medium-zoom` handles clicking an image to zoom in:
 
 ![Wee Wee cat](./weewee.jpg "Click or inspect me wee wee!")
 
-I also create a dedicated page for my personal photos, [check it out](/photos/)!.
+There’s also a dedicated page for my personal photos, [check it out](/photos/)!
+
+For link previews, `resvg` renders the Open Graph images from SVG templates. The background is rendered once and reused for every page, with the title and description drawn on top.
 
 ## Wrapping Up
 
-There are many small details that I haven’t covered here, so feel free to check out t[he source code of this site](https://github.com/pinanek/pinanek.github.io) if you’re interested.
+There are many small details I haven’t covered here, so feel free to check out [the source code of this site](https://github.com/pinanek/pinanek.github.io) if you’re interested.

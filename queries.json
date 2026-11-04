@@ -1,0 +1,117 @@
+{
+  "_javascript": {
+    "repo": "helix",
+    "path": "runtime/queries/_javascript"
+  },
+  "_jsx": {
+    "repo": "helix",
+    "path": "runtime/queries/_jsx"
+  },
+  "_typescript": {
+    "repo": "helix",
+    "path": "runtime/queries/_typescript"
+  },
+  "css": {
+    "repo": "helix",
+    "path": "runtime/queries/css",
+    "crate": "tree_sitter_css",
+    "language": "LANGUAGE",
+    "variant": "Css",
+    "display_name": "CSS",
+    "aliases": []
+  },
+  "dockerfile": {
+    "repo": "tree-sitter-containerfile",
+    "path": "queries",
+    "crate": "tree_sitter_containerfile",
+    "language": "LANGUAGE",
+    "variant": "Dockerfile",
+    "display_name": "Dockerfile",
+    "aliases": ["docker", "containerfile"]
+  },
+  "ecma": {
+    "repo": "helix",
+    "path": "runtime/queries/ecma"
+  },
+  "html": {
+    "repo": "helix",
+    "path": "runtime/queries/html",
+    "crate": "tree_sitter_html",
+    "language": "LANGUAGE",
+    "variant": "Html",
+    "display_name": "HTML",
+    "aliases": []
+  },
+  "javascript": {
+    "repo": "helix",
+    "path": "runtime/queries/javascript",
+    "crate": "tree_sitter_javascript",
+    "language": "LANGUAGE",
+    "variant": "JavaScript",
+    "display_name": "JavaScript",
+    "aliases": ["js"]
+  },
+  "json": {
+    "repo": "helix",
+    "path": "runtime/queries/json",
+    "crate": "tree_sitter_json",
+    "language": "LANGUAGE",
+    "variant": "Json",
+    "display_name": "JSON",
+    "aliases": ["jsonc"]
+  },
+  "jsx": {
+    "repo": "helix",
+    "path": "runtime/queries/jsx",
+    "crate": "tree_sitter_javascript",
+    "language": "LANGUAGE",
+    "variant": "Jsx",
+    "display_name": "JSX",
+    "aliases": []
+  },
+  "markdown": {
+    "repo": "helix",
+    "path": "runtime/queries/markdown",
+    "crate": "tree_sitter_md",
+    "language": "LANGUAGE",
+    "variant": "Markdown",
+    "display_name": "Markdown",
+    "aliases": ["md"]
+  },
+  "python": {
+    "repo": "helix",
+    "path": "runtime/queries/python",
+    "crate": "tree_sitter_python",
+    "language": "LANGUAGE",
+    "variant": "Python",
+    "display_name": "Python",
+    "aliases": ["py"]
+  },
+  "rust": {
+    "repo": "helix",
+    "path": "runtime/queries/rust",
+    "crate": "tree_sitter_rust",
+    "language": "LANGUAGE",
+    "variant": "Rust",
+    "display_name": "Rust",
+    "aliases": ["rs"]
+  },
+  "tsx": {
+    "repo": "helix",
+    "path": "runtime/queries/tsx",
+    "crate": "tree_sitter_typescript",
+    "language": "LANGUAGE_TSX",
+    "variant": "Tsx",
+    "display_name": "TSX",
+    "aliases": []
+  },
+  "typescript": {
+    "repo": "helix",
+    "path": "runtime/queries/typescript",
+    "crate": "tree_sitter_typescript",
+    "language": "LANGUAGE_TYPESCRIPT",
+    "variant": "TypeScript",
+    "display_name": "TypeScript",
+    "aliases": ["ts"]
+  }
+}

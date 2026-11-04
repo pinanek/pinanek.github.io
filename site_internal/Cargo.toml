@@ -1,0 +1,8 @@
+[package]
+name = "site_internal"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[dependencies]
+serde.workspace = true

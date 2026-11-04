@@ -8,6 +8,10 @@
   font-weight: 500;
 }
 
+.prose-code-block__body {
+  position: relative;
+}
+
 .prose-code-block__pre {
   counter-reset: linenumber;
 
@@ -87,8 +91,8 @@
 
 .prose-code-block__copy {
   position: absolute;
-  right: 0.75rem;
-  top: 3rem;
+  right: 0.25rem;
+  top: 0.25rem;
   z-index: 10;
 
   display: grid;
@@ -281,4 +285,28 @@
 .ts-markup-link-url {
   font-style: italic;
   text-decoration-line: underline;
+}
+
+.ts-rainbow-1 {
+  color: var(--c-cpn-red);
+}
+
+.ts-rainbow-2 {
+  color: var(--c-cpn-peach);
+}
+
+.ts-rainbow-3 {
+  color: var(--c-cpn-yellow);
+}
+
+.ts-rainbow-4 {
+  color: var(--c-cpn-green);
+}
+
+.ts-rainbow-5 {
+  color: var(--c-cpn-blue);
+}
+
+.ts-rainbow-6 {
+  color: var(--c-cpn-mauve);
 }

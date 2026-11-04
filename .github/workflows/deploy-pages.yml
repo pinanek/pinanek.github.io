@@ -64,9 +64,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-images-
 
-      - name: Pull Tree-sitter queries
-        run: just pull-queries
-
       - name: Build site
         run: just build
 
