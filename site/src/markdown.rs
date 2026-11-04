@@ -5,6 +5,9 @@ mod footnote;
 mod footnote_ref;
 mod heading;
 mod link;
+mod math;
+mod table;
+mod task_list;
 
 use std::{collections::HashMap, fmt::Write, path::Path};
 
@@ -32,6 +35,9 @@ use crate::{
         footnote_ref::pepare_footnote_ref,
         heading::{ParsedTocItem, prepare_heading, prose_toc},
         link::prepare_link,
+        math::prepare_math,
+        table::format_table,
+        task_list::format_task_item,
     },
 };
 
@@ -47,12 +53,13 @@ pub struct MarkdownContext<'a> {
     pub footnote_numbers: HashMap<String, usize>,
     pub footnote_definitions: Vec<ParsedFootnoteDef<'a>>,
     pub toc_items: Vec<ParsedTocItem>,
+    pub link_icons: bool,
     images: ImageRequests,
     actions: HashMap<usize, MarkdownNodeAction>,
 }
 
 impl<'a> MarkdownContext<'a> {
-    fn new(content_dir: &'a Path, languages: &'a HighlightRegistry) -> Self {
+    fn new(content_dir: &'a Path, languages: &'a HighlightRegistry, link_icons: bool) -> Self {
         Self {
             content_dir,
             languages,
@@ -62,6 +69,7 @@ impl<'a> MarkdownContext<'a> {
             footnote_numbers: HashMap::new(),
             footnote_definitions: Vec::new(),
             toc_items: Vec::new(),
+            link_icons,
         }
     }
 
@@ -84,6 +92,7 @@ impl<'a> MarkdownContext<'a> {
 pub struct MarkdownOptions {
     pub toc: bool,
     pub sidenote: bool,
+    pub link_icons: bool,
 }
 
 impl Default for MarkdownOptions {
@@ -91,6 +100,7 @@ impl Default for MarkdownOptions {
         Self {
             toc: true,
             sidenote: false,
+            link_icons: true,
         }
     }
 }
@@ -108,6 +118,7 @@ pub struct RenderedMarkdown<T> {
     pub metadata: T,
     pub html: String,
     pub images: ImageRequests,
+    pub has_math: bool,
 }
 
 pub fn render_markdown<T: DeserializeOwned>(
@@ -125,6 +136,8 @@ pub fn render_markdown<T: DeserializeOwned>(
     engine_options.extension.tasklist = true;
     engine_options.extension.footnotes = true;
     engine_options.extension.alerts = true;
+    engine_options.extension.math_dollars = true;
+    engine_options.extension.math_latex = true;
     engine_options.render.r#unsafe = true;
 
     let (frontmatter, content) = parse_frontmatter::<T>(content)?;
@@ -132,6 +145,9 @@ pub fn render_markdown<T: DeserializeOwned>(
     let plugins = Plugins::default();
 
     let document = parse_document(&arena, content, &engine_options);
+    let has_math = document
+        .descendants()
+        .any(|node| matches!(&node.data().value, NodeValue::Math(_)));
     let mut html = String::new();
 
     let (prepared, images) = prepare_document(
@@ -158,6 +174,7 @@ pub fn render_markdown<T: DeserializeOwned>(
         metadata: frontmatter.metadata,
         html,
         images,
+        has_math,
     };
 
     Ok(rendered)
@@ -195,7 +212,7 @@ fn prepare_document<'a>(
     markdown_options: MarkdownOptions,
     languages: &'a HighlightRegistry,
 ) -> Result<(HashMap<usize, MarkdownNodeAction>, ImageRequests)> {
-    let mut context = MarkdownContext::new(content_dir, languages);
+    let mut context = MarkdownContext::new(content_dir, languages, markdown_options.link_icons);
 
     for node in document.descendants() {
         let data = node.data();
@@ -204,6 +221,7 @@ fn prepare_document<'a>(
             NodeValue::Heading(heading) => prepare_heading(node, heading, &mut context)?,
             NodeValue::Link(link) => prepare_link(node, link, &mut context)?,
             NodeValue::CodeBlock(code_block) => prepare_code_block(node, code_block, &mut context)?,
+            NodeValue::Math(math) => prepare_math(node, math, &mut context)?,
             NodeValue::Paragraph => prepare_figure(node, &mut context)?,
             NodeValue::Alert(alert) => prepare_alert(node, alert, &mut context)?,
             NodeValue::FootnoteReference(footnote_ref) => {
@@ -304,5 +322,9 @@ fn formatter(
         return Ok(ChildRendering::Skip);
     }
 
-    format_node_default(engine_context, node, entering)
+    match &node.data().value {
+        NodeValue::Table(_) => format_table(engine_context, node, entering),
+        NodeValue::TaskItem(task) => format_task_item(engine_context, node, entering, task),
+        _ => format_node_default(engine_context, node, entering),
+    }
 }

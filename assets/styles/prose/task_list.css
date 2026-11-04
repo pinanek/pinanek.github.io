@@ -1,0 +1,54 @@
+.prose li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]) {
+  position: relative;
+  padding-inline-start: 1.75em;
+  list-style: none;
+  text-align: start;
+}
+
+.prose li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]) > :where(ul, ol) {
+  margin-block: var(--prose-space-sm) 0;
+}
+
+.prose :where(li, li > p:first-child) > input[type="checkbox"] {
+  appearance: none;
+  position: absolute;
+  inset-block-start: 0.25rem;
+  inset-inline-start: 0;
+
+  display: inline-grid;
+  place-content: center;
+  inline-size: 1em;
+  block-size: 1em;
+  margin: 0;
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--radius-xs);
+
+  background-color: var(--c-bg);
+  color: var(--c-bg);
+  opacity: 1;
+  cursor: default;
+}
+
+.prose :where(li, li > p:first-child) > input[type="checkbox"]:checked {
+  border-color: var(--c-accent);
+  background-color: var(--c-accent);
+}
+
+.prose :where(li, li > p:first-child) > input[type="checkbox"]:checked::before {
+  content: "";
+  inline-size: 0.3em;
+  block-size: 0.55em;
+  border: solid currentColor;
+  border-width: 0 0.125em 0.125em 0;
+  transform: translateY(-0.05em) rotate(45deg);
+}
+
+@media (forced-colors: active) {
+  .prose :where(li, li > p:first-child) > input[type="checkbox"] {
+    appearance: auto;
+  }
+
+  .prose :where(li, li > p:first-child) > input[type="checkbox"]::before {
+    display: none;
+  }
+}

@@ -48,7 +48,8 @@ impl<'a> HomePage<'a> {
             metadata: PageMetadata::new()
                 .title(markdown_metadata.title)
                 .description(markdown_metadata.description)
-                .canonical_url(route),
+                .canonical_url(route)
+                .math(rendered_markdown.has_math),
         })
     }
 }
@@ -75,6 +76,7 @@ impl Page for HomePage<'_> {
                 }
             },
             html! {
+                link rel="stylesheet" href="/assets/prose.css";
                 link rel="stylesheet" href="/assets/home/main.css";
             },
             html! {},

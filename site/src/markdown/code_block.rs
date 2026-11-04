@@ -8,8 +8,9 @@ use crate::{
     highlight::{HighlightLanguageKind, highlight},
     markdown::MarkdownContext,
     templates::components::{
-        check_icon, copy_icon, css_icon, docker_icon, html_icon, javascript_icon, json_icon,
-        jsx_icon, markdown_icon, python_icon, rust_icon, typescript_icon,
+        bash_icon, check_icon, console_icon, copy_icon, css_icon, docker_icon, html_icon,
+        javascript_icon, json_icon, jsx_icon, markdown_icon, python_icon, rust_icon,
+        typescript_icon,
     },
 };
 
@@ -146,6 +147,10 @@ fn language_icon(language: &HighlightLanguageKind) -> Markup {
     const CLASS: &str = "prose-code-block__language-icon";
 
     match language {
+        HighlightLanguageKind::Bash => bash_icon(Some(CLASS), None, Some("var(--c-cpn-subtext0)")),
+        HighlightLanguageKind::Console => {
+            console_icon(Some(CLASS), None, Some("var(--c-cpn-subtext0)"))
+        }
         HighlightLanguageKind::JavaScript => {
             javascript_icon(Some(CLASS), None, Some("var(--c-cpn-yellow)"))
         }

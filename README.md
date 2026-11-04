@@ -1,6 +1,6 @@
 # pinanek's digital garden
 
-A static personal website and digital garden built with [Rust](https://www.rust-lang.org/), [Maud](https://maud.lambda.xyz/), [Comrak](https://github.com/kivikakk/comrak), and [Tree-sitter](https://tree-sitter.github.io/).
+A static personal website and digital garden built with [Rust](https://www.rust-lang.org/), [Maud](https://github.com/lambda-fairy/maud), [Comrak](https://github.com/kivikakk/comrak), and [Tree-sitter](https://tree-sitter.github.io/).
 
 ## License
 

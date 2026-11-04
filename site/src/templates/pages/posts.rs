@@ -53,7 +53,7 @@ impl Page for PostsPage<'_> {
 
     fn render(&self) -> Markup {
         let links = html! {
-            link rel="stylesheet" href="/assets/posts/posts.css";
+            link rel="stylesheet" href="/assets/post-list.css";
         };
 
         main_layout(

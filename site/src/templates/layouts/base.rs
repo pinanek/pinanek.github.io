@@ -53,6 +53,9 @@ pub fn base_layout(
                     crossorigin;
                 link rel="stylesheet" href="/assets/main.css";
                 (links)
+                @if metadata_props.has_math {
+                    link rel="stylesheet" href="/assets/math.css";
+                }
                 script { (PreEscaped(COLOR_MODE_SCRIPT)) }
                 script type="module" src="/assets/main.js" {}
                 (scripts)

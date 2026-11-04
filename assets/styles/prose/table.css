@@ -1,0 +1,35 @@
+.prose-table {
+  max-inline-size: 100%;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+}
+
+.prose-table:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+.prose table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose :where(th, td) {
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+}
+
+.prose :where(th, td):not([align]) {
+  text-align: start;
+}
+
+.prose th {
+  background-color: var(--c-bg-muted);
+  font-weight: 700;
+}
+
+.prose thead tr,
+.prose tbody tr:not(:last-child) {
+  border-block-end: 1px solid var(--c-border);
+}

@@ -17,20 +17,20 @@ TL;DR: [dotfiles](https://github.com/pinanek/dotfiles)
 
 ## CLI
 
-- [zsh](https://www.zsh.org/): Shell with [Pure](https://github.com/sindresorhus/pure) prompt, [zsh-patina](https://github.com/michel-kraemer/zsh-patina) for syntax highlighting, [deja](https://github.com/Giammarco-Ferranti/deja) for autosuggestions and [zsh-abbr](https://github.com/olets/zsh-abbr) for abbreviations
-- [zmx](https://github.com/neurosnap/zmx): session manager
+- [zsh](https://www.zsh.org/): Shell with [Pure](https://github.com/sindresorhus/pure) prompt, [zsh-patina](https://github.com/michel-kraemer/zsh-patina) for syntax highlighting, [deja](https://github.com/Giammarco-Ferranti/deja) for autosuggestions and [zsh-abbr](https://github.com/olets/zsh-abbr) for abbreviations, managed with [Antidote](https://antidote.sh/)
+- [zmx](https://zmx.sh/): session manager
 - [fzf](https://github.com/junegunn/fzf): fuzzy finder
-- [eza](https://github.com/eza-community/eza): modern `ls` replacement
+- [eza](https://eza.rocks/): modern `ls` replacement
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch): system information
 - [btop](https://github.com/aristocratos/btop): resource monitor
 - [lf](https://github.com/gokcehan/lf): file manager
 - [gitui](https://github.com/extrawurst/gitui): git client
-- [hax](https://github.com/OleksandrChekhovskyi/hax): lightweight coding agent
-- [croc](https://github.com/schollz/croc): file transfer
+- [hax](https://usehax.dev/): lightweight coding agent
+- [croc](https://getcroc.com/): file transfer
 
 ## macOS
 
-- [Helium](https://github.com/imputnet/helium): lightweight and fast, with great UX and support for [uBlock Origin](https://github.com/gorhill/uBlock). I also use few other useful extensions like [Refined GitHub](https://github.com/refined-github/refined-github) and [Material Icons for GitHub](https://github.com/material-extensions/material-icons-browser-extension)
+- [Helium](https://helium.computer/): lightweight and fast, with great UX and support for [uBlock Origin](https://github.com/gorhill/uBlock). I also use few other useful extensions like [Refined GitHub](https://github.com/refined-github/refined-github) and [Material Icons for GitHub](https://github.com/material-extensions/material-icons-browser-extension)
 - [Strongbox](https://strongboxsafe.com/): native password manager for iOS & macOS
 - [Alcove](https://tryalcove.com/): my favourite app! It brings a Dynamic Island–like experience to macOS
 - [Hyperduck](https://sindresorhus.com/hyperduck): for sending links from my phone to my Mac, even when the Mac is turned off

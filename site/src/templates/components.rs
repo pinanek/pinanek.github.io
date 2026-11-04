@@ -1,5 +1,7 @@
+mod bash_icon;
 mod check_icon;
 mod color_mode_button;
+mod console_icon;
 mod copy_icon;
 mod css_icon;
 mod docker_icon;
@@ -28,8 +30,10 @@ mod scroll_text_icon;
 mod tag;
 mod typescript_icon;
 
+pub use bash_icon::bash_icon;
 pub use check_icon::check_icon;
 pub use color_mode_button::color_mode_button;
+pub use console_icon::console_icon;
 pub use copy_icon::copy_icon;
 pub use css_icon::css_icon;
 pub use docker_icon::docker_icon;

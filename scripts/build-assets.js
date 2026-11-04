@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -8,12 +8,17 @@ import { rolldown } from "rolldown";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const outputDir = join(root, "dist/assets");
 
+// Match the KaTeX assets to the version tracked by katex-rs.
+const katexDir = join(root, "node_modules/katex");
+await cp(join(katexDir, "dist/fonts"), join(outputDir, "fonts"), { recursive: true });
+await cp(join(katexDir, "LICENSE"), join(outputDir, "fonts/katex-LICENSE"));
+
 const javascript = await rolldown({
   cwd: root,
   input: {
-    main: "assets/scripts/main.ts",
-    "photos/main": "assets/scripts/photos/main.ts",
-    "posts/post": "assets/scripts/posts/post.ts",
+    main: "assets/scripts/main.js",
+    "photos/main": "assets/scripts/photos/main.js",
+    "posts/post": "assets/scripts/prose/main.js",
   },
   platform: "browser",
 });
@@ -31,21 +36,20 @@ try {
   await javascript.close();
 }
 
-const stylesheets = [
-  "main.css",
-  "home/main.css",
-  "posts/post.css",
-  "publications/main.css",
-  "photos/main.css",
-  "posts/posts.css",
-  "uses/main.css",
-  "tags/main.css",
-  "colophon/main.css",
-];
+const stylesheets = {
+  "main.css": "main.css",
+  "prose.css": "prose.css",
+  "math.css": "prose/math.css",
+  "post-list.css": "post-list.css",
+  "home/main.css": "pages/home.css",
+  "posts/post.css": "pages/post.css",
+  "publications/main.css": "pages/publications.css",
+  "photos/main.css": "pages/photos.css",
+};
 
-for (const stylesheet of stylesheets) {
+for (const [stylesheet, source] of Object.entries(stylesheets)) {
   const { code } = bundle({
-    filename: join(root, "assets/styles", stylesheet),
+    filename: join(root, "assets/styles", source),
     minify: true,
     drafts: { customMedia: true },
     include:

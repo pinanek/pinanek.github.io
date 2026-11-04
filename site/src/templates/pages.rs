@@ -42,6 +42,7 @@ pub struct PageMetadata<'a> {
     pub page_type: PageType,
     pub published_time: Option<Cow<'a, str>>,
     pub modified_time: Option<Cow<'a, str>>,
+    pub has_math: bool,
 }
 
 impl<'a> PageMetadata<'a> {
@@ -56,6 +57,7 @@ impl<'a> PageMetadata<'a> {
             page_type: PageType::Website,
             published_time: None,
             modified_time: None,
+            has_math: false,
         }
     }
 
@@ -90,6 +92,11 @@ impl<'a> PageMetadata<'a> {
         S: Into<Cow<'a, str>>,
     {
         self.keywords = keywords.into_iter().map(Into::into).collect();
+        self
+    }
+
+    pub fn math(mut self, has_math: bool) -> Self {
+        self.has_math = has_math;
         self
     }
 

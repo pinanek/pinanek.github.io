@@ -1,0 +1,18 @@
+@import "../../../node_modules/katex/dist/katex.css";
+
+.prose-math--display {
+  display: block;
+  max-inline-size: 100%;
+  padding-block: 0.5em;
+}
+
+.prose-math--display > .katex-display {
+  min-inline-size: max-content;
+  margin: 0;
+}
+
+.prose-math--display:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

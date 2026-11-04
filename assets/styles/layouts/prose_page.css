@@ -1,0 +1,5 @@
+.main-layout > .prose {
+  --content-width: var(--main-layout-width);
+
+  margin-inline: 0;
+}

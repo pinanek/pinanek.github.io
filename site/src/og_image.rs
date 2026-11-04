@@ -24,11 +24,11 @@ pub fn write_og_images(pages: &[RenderedPage]) -> Result<()> {
         )
     })?;
 
-    let font_path = CONFIG.assets_dir.join("_fonts/hk-n.ttf");
+    let font_path = CONFIG.assets_dir.join("fonts/hk-n.ttf");
     let font_data = fs::read(&font_path)
         .with_context(|| format!("failed to read OG image font: {}", font_path.display()))?;
 
-    let background_path = CONFIG.assets_dir.join("_images/og_bg.png");
+    let background_path = CONFIG.assets_dir.join("images/og_bg.png");
     let background_data = fs::read(&background_path).with_context(|| {
         format!(
             "failed to read OG image background: {}",

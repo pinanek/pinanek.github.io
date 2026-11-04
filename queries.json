@@ -11,6 +11,24 @@
     "repo": "helix",
     "path": "runtime/queries/_typescript"
   },
+  "bash": {
+    "repo": "helix",
+    "path": "runtime/queries/bash",
+    "crate": "tree_sitter_bash",
+    "language": "LANGUAGE",
+    "variant": "Bash",
+    "display_name": "Bash",
+    "aliases": ["sh", "shell"]
+  },
+  "console": {
+    "repo": "helix",
+    "path": "runtime/queries/bash",
+    "crate": "tree_sitter_bash",
+    "language": "LANGUAGE",
+    "variant": "Console",
+    "display_name": "Console",
+    "aliases": []
+  },
   "css": {
     "repo": "helix",
     "path": "runtime/queries/css",

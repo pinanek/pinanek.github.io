@@ -48,7 +48,8 @@ impl<'a> ColophonPage<'a> {
             metadata: PageMetadata::new()
                 .title(markdown_metadata.title)
                 .description(markdown_metadata.description)
-                .canonical_url(route),
+                .canonical_url(route)
+                .math(rendered_markdown.has_math),
         })
     }
 }
@@ -75,7 +76,7 @@ impl<'a> Page for ColophonPage<'a> {
                 }
             },
             html! {
-                link rel="stylesheet" href="/assets/colophon/main.css";
+                link rel="stylesheet" href="/assets/prose.css";
             },
             html! {
                 script type="module" src="/assets/posts/post.js" {}

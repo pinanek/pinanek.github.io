@@ -18,6 +18,9 @@ pub fn highlight(
     content: &str,
     lines: Option<&[RangeInclusive<usize>]>,
 ) -> Result<String> {
+    // A terminal newline ends the last code line; it doesn't start another one.
+    let content = content.strip_suffix('\n').unwrap_or(content);
+
     let Some(language_kind) = language_kind else {
         return Ok(render_plain(content, lines));
     };

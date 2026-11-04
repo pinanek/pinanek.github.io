@@ -34,7 +34,8 @@ impl<'page> PostPage<'page> {
                 og_image_public_path(&route),
                 post_metadata.description.as_str(),
             )
-            .canonical_url(route.clone());
+            .canonical_url(route.clone())
+            .math(post.has_math);
 
         Ok(Self {
             post,
@@ -66,7 +67,7 @@ impl Page for PostPage<'_> {
         base_layout(
             &self.metadata,
             html! {
-                div class="post" {
+                main class="post" {
                     header class="post-header" {
                         h1 class="post-header__title" { (&post_meta.title) }
                         p class="post-header__description" { (&post_meta.description) }
@@ -97,7 +98,9 @@ impl Page for PostPage<'_> {
                                 span class="post-header__tags-title" { "Tags:" }
 
                                 ul class="post-header__tags" aria-label="Post tags" {
-                                    @for item in &post_meta.tags { (tag(item)) }
+                                    @for item in &post_meta.tags {
+                                        li { (tag(item)) }
+                                    }
                                 }
                             }
                         }
@@ -106,6 +109,7 @@ impl Page for PostPage<'_> {
                 }
             },
             html! {
+                link rel="stylesheet" href="/assets/prose.css";
                 link rel="stylesheet" href="/assets/posts/post.css";
             },
             html! {

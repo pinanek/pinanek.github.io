@@ -1,0 +1,38 @@
+.prose-link {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+
+.prose-link__label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.prose-link:hover > .prose-link__label {
+  text-decoration: none;
+}
+
+.prose-link__image {
+  display: inline-block;
+  inline-size: 1.125em;
+  block-size: 1.125em;
+  margin-inline-end: 0.3em;
+  border-radius: var(--radius-xs);
+  object-fit: contain;
+  vertical-align: -0.25em;
+}
+
+.prose-link__image--avatar {
+  border-radius: 50%;
+}
+
+.prose-link__image[hidden] {
+  display: none;
+}
+
+.prose-link__external-icon {
+  display: inline-block;
+
+  vertical-align: 0.1em;
+}

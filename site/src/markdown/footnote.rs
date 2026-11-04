@@ -57,7 +57,7 @@ pub fn prose_footnote(footnote: &ParsedFootnote) -> Markup {
     };
 
     html! {
-        li id=(format!("footnote-{number}")) class="prose-footnote" role="doc-endnote" style=(style) {
+        li id=(format!("footnote-{number}")) class="prose-footnote" style=(style) {
             a   class="prose-footnote__number"
                 href=(format!("#footnote-ref-{number}-1"))
                 aria-label=(format!("Return to footnote {number} reference"))

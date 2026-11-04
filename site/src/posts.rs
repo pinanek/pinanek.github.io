@@ -35,6 +35,7 @@ pub struct Post {
     pub rendered: String,
     pub images: ImageRequests,
     pub reading_minutes: usize,
+    pub has_math: bool,
 }
 
 pub fn get_posts(languages: &HighlightRegistry) -> Result<Vec<Post>> {
@@ -82,6 +83,7 @@ pub fn parse_post(path: &PathBuf, languages: &HighlightRegistry) -> Result<Post>
         rendered: rendered.html,
         images: rendered.images,
         reading_minutes: word_count,
+        has_math: rendered.has_math,
     })
 }
 

@@ -6,17 +6,16 @@
   "type": "module",
   "scripts": {
     "build:assets": "node scripts/build-assets.js",
-    "fmt": "oxfmt",
-    "typecheck": "tsc --noEmit"
+    "fmt": "oxfmt"
   },
   "dependencies": {
     "animejs": "^4.5.0",
     "medium-zoom": "^1.1.0"
   },
   "devDependencies": {
+    "katex": "0.18.5",
     "lightningcss": "^1.33.0",
     "oxfmt": "^0.66.0",
-    "rolldown": "^1.2.15",
-    "typescript": "^7.0.2"
+    "rolldown": "^1.2.15"
   }
 }

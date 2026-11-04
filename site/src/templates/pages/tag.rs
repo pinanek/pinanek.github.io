@@ -69,7 +69,7 @@ impl Page for TagPage<'_> {
                 }
             },
             html! {
-                link rel="stylesheet" href="/assets/tags/main.css";
+                link rel="stylesheet" href="/assets/post-list.css";
             },
             html! {},
         )
