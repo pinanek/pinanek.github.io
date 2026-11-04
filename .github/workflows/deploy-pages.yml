@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Rust
         run: rustup override set stable
@@ -32,21 +32,21 @@ jobs:
           tool: just
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 12
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: pnpm
 
       - name: Install frontend dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Cache Rust
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             ~/.cargo/registry
@@ -57,7 +57,7 @@ jobs:
             ${{ runner.os }}-cargo-
 
       - name: Cache generated images
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/images/
           key: ${{ runner.os }}-images-${{ hashFiles('content/**/*', 'assets/**/*') }}
@@ -68,10 +68,10 @@ jobs:
         run: just build
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -86,4 +86,4 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
