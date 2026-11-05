@@ -19,7 +19,7 @@ use crate::config::CONFIG;
 use crate::highlight::HighlightRegistry;
 use crate::og_image::write_og_images;
 use crate::photos::get_photos;
-use crate::posts::{Post, get_posts, get_tags};
+use crate::posts::{get_posts, get_tags};
 use crate::templates::pages::{
     ColophonPage, HomePage, Page, PhotosPage, PostPage, PostsPage, PublicationsPage, TagPage,
     UsesPage, render_pages,
@@ -32,21 +32,19 @@ fn main() -> Result<()> {
 
     let mut pages: Vec<Box<dyn Page>> = vec![
         Box::new(HomePage::new(&languages)?),
-        Box::new(PostsPage::new(&posts)?),
+        Box::new(PostsPage::new(&posts)),
         Box::new(PublicationsPage::new()?),
-        Box::new(PhotosPage::new(photos)?),
+        Box::new(PhotosPage::new(photos)),
         Box::new(UsesPage::new(&languages)?),
         Box::new(ColophonPage::new(&languages)?),
     ];
 
     for post in &posts {
-        pages.push(Box::new(PostPage::new(post)?));
+        pages.push(Box::new(PostPage::new(post)));
     }
 
-    let post_rers: Vec<&Post> = posts.iter().collect();
-    let tags = get_tags(&post_rers);
-    for tag in tags {
-        pages.push(Box::new(TagPage::new(tag)?));
+    for tag in get_tags(&posts) {
+        pages.push(Box::new(TagPage::new(tag)));
     }
 
     let rendered_pages = render_pages(&pages);

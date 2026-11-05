@@ -40,8 +40,10 @@
   --c-code-macro: var(--c-cpn-rosewater);
   --c-code-heading: var(--c-cpn-lavender);
 
-  --font-sans: "Hanken Grotesk", system-ui;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Hanken Grotesk", "Hanken Grotesk fallback", system-ui;
+  --font-mono:
+    "JetBrains Mono", "JetBrains Mono fallback", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
   --line-height-default: calc(1em + 0.5rem);
 
   --radius-xs: 0.25rem;

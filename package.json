@@ -13,9 +13,11 @@
     "medium-zoom": "^1.1.0"
   },
   "devDependencies": {
+    "fontaine": "^1.0.3",
     "katex": "0.18.5",
     "lightningcss": "^1.33.0",
     "oxfmt": "^0.66.0",
+    "postcss": "^8.5.32",
     "rolldown": "^1.2.15"
   }
 }

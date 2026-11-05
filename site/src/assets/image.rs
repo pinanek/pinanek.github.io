@@ -57,11 +57,7 @@ impl AssetImageFormat {
 
 impl From<AssetImageFormat> for ImageFormat {
     fn from(format: AssetImageFormat) -> Self {
-        match format {
-            AssetImageFormat::Webp => Self::WebP,
-            AssetImageFormat::Png => Self::Png,
-            AssetImageFormat::Jpeg => Self::Jpeg,
-        }
+        format.to_image_format()
     }
 }
 
@@ -139,43 +135,8 @@ impl PictureAsset {
 
         srcsets
     }
-}
 
-#[derive(Debug)]
-#[allow(dead_code)]
-pub enum ImageRequest {
-    Image(ImageAsset),
-    Picture(PictureAsset),
-}
-
-impl ImageRequest {
-    // pub fn image(path: impl AsRef<Path>, format: AssetImageFormat) -> Result<Self> {
-    //     let source = Self::load_image(path)?;
-    //     let (width, height) = source.image.dimensions();
-
-    //     Ok(Self::Image(Self::create_image_asset(
-    //         &source, width, height, format, false,
-    //     )?))
-    // }
-
-    // pub fn image_resize(
-    //     path: impl AsRef<Path>,
-    //     width: u32,
-    //     height: u32,
-    //     format: AssetImageFormat,
-    // ) -> Result<Self> {
-    //     if width == 0 || height == 0 {
-    //         return Err(anyhow!("image dimensions must be greater than zero"));
-    //     }
-
-    //     let source = Self::load_image(path)?;
-
-    //     Ok(Self::Image(Self::create_image_asset(
-    //         &source, width, height, format, false,
-    //     )?))
-    // }
-
-    pub fn picture(path: impl AsRef<Path>, formats: &[AssetImageFormat]) -> Result<Self> {
+    pub fn new(path: impl AsRef<Path>, formats: &[AssetImageFormat]) -> Result<Self> {
         let source = Self::load_image(path)?;
         let (original_width, original_height) = source.image.dimensions();
 
@@ -218,11 +179,11 @@ impl ImageRequest {
 
         let placeholder = Self::compute_placeholder(&source.image)?;
 
-        Ok(Self::Picture(PictureAsset {
+        Ok(Self {
             original,
             sources,
             placeholder,
-        }))
+        })
     }
 
     fn load_image(path: impl AsRef<Path>) -> Result<LoadedImage> {
@@ -320,7 +281,7 @@ pub fn thumbhash_placeholder(path: impl AsRef<Path>) -> Result<String> {
     let raw = fs::read(path)
         .with_context(|| format!("failed to read placeholder source: {}", path.display()))?;
     if image::guess_format(&raw)? != ImageFormat::Jpeg {
-        return ImageRequest::compute_placeholder(&decode_image(&raw, path)?);
+        return PictureAsset::compute_placeholder(&decode_image(&raw, path)?);
     }
 
     let mut decoder = JpegDecoder::new(Cursor::new(&raw));
@@ -332,7 +293,7 @@ pub fn thumbhash_placeholder(path: impl AsRef<Path>) -> Result<String> {
         .context("JPEG metadata is missing")?
         .pixel_format;
     if !matches!(format, PixelFormat::RGB24 | PixelFormat::L8) {
-        return ImageRequest::compute_placeholder(&decode_image(&raw, path)?);
+        return PictureAsset::compute_placeholder(&decode_image(&raw, path)?);
     }
 
     // Decode at reduced resolution instead of allocating full-size photo buffers.
@@ -357,12 +318,12 @@ pub fn thumbhash_placeholder(path: impl AsRef<Path>) -> Result<String> {
     };
     image.apply_orientation(orientation);
 
-    ImageRequest::compute_placeholder(&image)
+    PictureAsset::compute_placeholder(&image)
 }
 
-pub type ImageRequests = HashMap<String, ImageRequest>;
+pub type ImageRequests = HashMap<String, PictureAsset>;
 
-pub fn write_images(requests: &[&ImageRequest]) -> Result<()> {
+pub fn write_images(requests: &[&PictureAsset]) -> Result<()> {
     fs::create_dir_all(&CONFIG.dist_assets_dir).with_context(|| {
         format!(
             "failed to create image output directory: {}",
@@ -380,20 +341,12 @@ pub fn write_images(requests: &[&ImageRequest]) -> Result<()> {
     let mut images_by_source = HashMap::<&Path, Vec<&ImageAsset>>::new();
     let mut seen_outputs = HashSet::<&Path>::new();
 
-    for request in requests {
-        match request {
-            ImageRequest::Image(image) => {
-                insert_image(image, &mut seen_outputs, &mut images_by_source);
-            }
+    for picture in requests {
+        let images =
+            std::iter::once(picture.original()).chain(picture.sources().values().flatten());
 
-            ImageRequest::Picture(picture) => {
-                let images =
-                    std::iter::once(picture.original()).chain(picture.sources().values().flatten());
-
-                for image in images {
-                    insert_image(image, &mut seen_outputs, &mut images_by_source);
-                }
-            }
+        for image in images {
+            insert_image(image, &mut seen_outputs, &mut images_by_source);
         }
     }
 

@@ -39,10 +39,9 @@ impl<'a> HomePage<'a> {
         let rendered_markdown =
             render_markdown::<HomeMarkdownMetadata>(&content, &content_dir, languages)?;
         let markdown_metadata = rendered_markdown.metadata;
-        let images = ImageRequests::from(rendered_markdown.images);
 
         Ok(Self {
-            images,
+            images: rendered_markdown.images,
             route,
             rendered: rendered_markdown.html,
             metadata: PageMetadata::new()

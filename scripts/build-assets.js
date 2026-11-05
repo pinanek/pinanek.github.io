@@ -1,8 +1,10 @@
-import { cp, mkdir, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { bundle, Features } from "lightningcss";
+import fontaine from "fontaine/postcss";
+import { bundleAsync, Features } from "lightningcss";
+import postcss from "postcss";
 import { rolldown } from "rolldown";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -47,9 +49,30 @@ const stylesheets = {
   "photos/main.css": "pages/photos.css",
 };
 
+const fontFallbacks = postcss([
+  fontaine({
+    fallbacks: {},
+    resolvePath: (id) => new URL(`../public${id}`, import.meta.url),
+  }),
+]);
+
 for (const [stylesheet, source] of Object.entries(stylesheets)) {
-  const { code } = bundle({
+  const { code } = await bundleAsync({
     filename: join(root, "assets/styles", source),
+    resolver: {
+      async read(filename) {
+        const css = await readFile(filename, "utf8");
+
+        if (normalize(filename) !== join(root, "assets/styles/base/fonts.css")) {
+          return css;
+        }
+
+        // Fontaine needs quoted font names before Lightning CSS normalizes them.
+        const result = await fontFallbacks.process(css, { from: filename, map: false });
+
+        return result.css;
+      },
+    },
     minify: true,
     drafts: { customMedia: true },
     include:

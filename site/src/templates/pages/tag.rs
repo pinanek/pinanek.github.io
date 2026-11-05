@@ -1,4 +1,3 @@
-use anyhow::Result;
 use maud::{Markup, html};
 
 use crate::{
@@ -19,7 +18,7 @@ pub struct TagPage<'a> {
 }
 
 impl<'a> TagPage<'a> {
-    pub fn new(tag: Tag<'a>) -> Result<Self> {
+    pub fn new(tag: Tag<'a>) -> Self {
         let route = format!("/tags/{}/", tag.name);
 
         let metadata = PageMetadata::new()
@@ -28,12 +27,12 @@ impl<'a> TagPage<'a> {
             .keywords([tag.name])
             .canonical_url(route.clone());
 
-        Ok(Self {
+        Self {
             tag,
             route,
             images: ImageRequests::new(),
             metadata,
-        })
+        }
     }
 }
 

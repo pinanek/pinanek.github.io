@@ -1,6 +1,5 @@
 use std::cmp::Reverse;
 
-use anyhow::Result;
 use maud::{Markup, html};
 
 use crate::{
@@ -21,12 +20,12 @@ pub struct PostsPage<'a> {
 }
 
 impl<'a> PostsPage<'a> {
-    pub fn new(posts: &'a [Post]) -> Result<Self> {
+    pub fn new(posts: &'a [Post]) -> Self {
         let route = "/posts/";
         let mut posts = posts.iter().collect::<Vec<_>>();
         posts.sort_by_key(|post| Reverse(post.metadata.pub_date));
 
-        Ok(Self {
+        Self {
             route,
             posts,
             images: ImageRequests::new(),
@@ -34,7 +33,7 @@ impl<'a> PostsPage<'a> {
                 .title("Posts")
                 .description("All posts.")
                 .canonical_url(route),
-        })
+        }
     }
 }
 

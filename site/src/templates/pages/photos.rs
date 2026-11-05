@@ -1,4 +1,3 @@
-use anyhow::Result;
 use maud::{Markup, html};
 
 use crate::{
@@ -19,10 +18,10 @@ pub struct PhotosPage {
 }
 
 impl PhotosPage {
-    pub fn new(photos: Vec<Photo>) -> Result<Self> {
+    pub fn new(photos: Vec<Photo>) -> Self {
         let route = "/photos/";
 
-        Ok(Self {
+        Self {
             route,
             photos,
             images: ImageRequests::new(),
@@ -30,7 +29,7 @@ impl PhotosPage {
                 .title("Photos")
                 .description("A collection of photographs.")
                 .canonical_url(route),
-        })
+        }
     }
 }
 

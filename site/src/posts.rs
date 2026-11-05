@@ -1,7 +1,4 @@
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{fs, path::Path};
 
 use anyhow::{Context, Result};
 use chrono::prelude::*;
@@ -63,7 +60,7 @@ pub fn get_posts(languages: &HighlightRegistry) -> Result<Vec<Post>> {
         .collect()
 }
 
-pub fn parse_post(path: &PathBuf, languages: &HighlightRegistry) -> Result<Post> {
+fn parse_post(path: &Path, languages: &HighlightRegistry) -> Result<Post> {
     let content_dir = path
         .parent()
         .with_context(|| format!("invalid content dir: {}", path.display()))?;
@@ -74,15 +71,14 @@ pub fn parse_post(path: &PathBuf, languages: &HighlightRegistry) -> Result<Post>
 
     let rendered = render_markdown::<PostMetadata>(&content, content_dir, languages)?;
 
-    let mut word_count = content.unicode_words().count();
-    word_count = word_count.div_ceil(220).max(1);
+    let reading_minutes = content.unicode_words().count().div_ceil(220).max(1);
 
     Ok(Post {
         slug,
         metadata: rendered.metadata,
         rendered: rendered.html,
         images: rendered.images,
-        reading_minutes: word_count,
+        reading_minutes,
         has_math: rendered.has_math,
     })
 }
@@ -100,10 +96,10 @@ pub struct Tag<'a> {
     pub posts: Vec<&'a Post>,
 }
 
-pub fn get_tags<'a>(posts: &[&'a Post]) -> Vec<Tag<'a>> {
-    let mut tags = std::collections::HashMap::<&str, Vec<&'a Post>>::new();
+pub fn get_tags(posts: &[Post]) -> Vec<Tag<'_>> {
+    let mut tags = std::collections::HashMap::<&str, Vec<&Post>>::new();
 
-    for &post in posts {
+    for post in posts {
         for tag in &post.metadata.tags {
             tags.entry(tag).or_default().push(post);
         }

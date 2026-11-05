@@ -3,7 +3,7 @@ use comrak::{Node, nodes::NodeValue};
 use maud::{Markup, html};
 
 use crate::{
-    assets::image::{AssetImageFormat, ImageRequest, PictureAsset},
+    assets::image::{AssetImageFormat, PictureAsset},
     markdown::MarkdownContext,
 };
 
@@ -24,17 +24,13 @@ pub fn prepare_figure(node: Node, context: &mut MarkdownContext) -> Result<()> {
     };
 
     let path = context.content_dir.join(&image.url);
-    let request = ImageRequest::picture(&path, MARKDOWN_IMAGE_FORMATS)?;
+    let picture = PictureAsset::new(&path, MARKDOWN_IMAGE_FORMATS)?;
 
-    let ImageRequest::Picture(picture) = &request else {
-        unreachable!("markdown images must be picture requests");
-    };
-
-    let rendered = prose_figure(picture, &node.collect_text(), &image.title).into_string();
+    let rendered = prose_figure(&picture, &node.collect_text(), &image.title).into_string();
     context.replace_node(node, rendered);
     context
         .images
-        .insert(path.to_string_lossy().to_string(), request);
+        .insert(path.to_string_lossy().to_string(), picture);
 
     Ok(())
 }

@@ -1,4 +1,3 @@
-use anyhow::Result;
 use chrono::{DateTime, FixedOffset, Utc};
 use maud::{Markup, PreEscaped, html};
 
@@ -20,7 +19,7 @@ pub struct PostPage<'a> {
 }
 
 impl<'page> PostPage<'page> {
-    pub fn new(post: &'page Post) -> Result<Self> {
+    pub fn new(post: &'page Post) -> Self {
         let route = format!("/posts/{}/", post.slug);
 
         let post_metadata = &post.metadata;
@@ -37,11 +36,11 @@ impl<'page> PostPage<'page> {
             .canonical_url(route.clone())
             .math(post.has_math);
 
-        Ok(Self {
+        Self {
             post,
             route,
             metadata,
-        })
+        }
     }
 }
 
