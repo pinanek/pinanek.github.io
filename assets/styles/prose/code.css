@@ -8,5 +8,5 @@
 
   font-family: var(--font-mono);
   font-size: 0.8em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
